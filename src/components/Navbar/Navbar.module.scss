@@ -1,0 +1,92 @@
+.navbar {
+	width: 100vw;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	font-size: 1.2rem;
+
+	&_header {
+		height: 4.4rem;
+		padding: 0 26rem;
+		background: #000;
+		color: #a2a6b0;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.schedule {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+
+			img {
+				cursor: pointer;
+			}
+		}
+
+		.adress {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+
+			a {
+				cursor: pointer;
+				color: #fff;
+				position: relative;
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 0;
+					height: 2px;
+					right: 50%;
+					bottom: -5px;
+					background: #fff;
+					transition: width 0.3s ease-out;
+				}
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 0;
+					height: 2px;
+					left: 50%;
+					bottom: -5px;
+					background: #fff;
+					transition: width 0.3s ease-out;
+				}
+
+				&:hover {
+					&::before {
+						width: 50%;
+					}
+
+					&::after {
+						width: 50%;
+					}
+				}
+			}
+		}
+
+		.contacts {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			span {
+				margin-right: 0.6rem;
+			}
+		}
+	}
+
+	&_footer {
+		height: 6rem;
+		background: #000;
+	}
+
+	span {
+		color: #fff;
+	}
+}

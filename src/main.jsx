@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import './main.scss';
 import BrandStore from './store/BrandStore.js';
 import DeviceStore from './store/DeviceStore.js';
 import TypeStore from './store/TypeStore.js';
