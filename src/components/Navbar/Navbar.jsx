@@ -1,8 +1,15 @@
-import { arrow, facebook, instagram } from '../../assets';
+import { useState } from 'react';
+import { arrow, avatar, basket, facebook, instagram, logo, search_close, search_open } from '../../assets';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 	// const { user } = useContext(Context);
+	const [isSearching, setIsSearching] = useState(false);
+
+	const toggleSearch = () => {
+		setIsSearching(!isSearching);
+	};
+
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_header}>
@@ -24,7 +31,52 @@ const Navbar = () => {
 					</a>
 				</div>
 			</div>
-			<div className={styles.navbar_footer}></div>
+			<div className={styles.navbar_footer}>
+				<div>
+					<img src={logo} alt='logo' />
+				</div>
+				<div className={styles.navigation}>
+					{isSearching ? (
+						<div className={styles.area}>
+							<input type='text' placeholder='Search entire store here ...' />
+							<img src={search_open} alt='' />
+						</div>
+					) : (
+						<div className={styles.menu}>
+							<ul>
+								<li>
+									<a href=''>Laptops</a>
+								</li>
+								<li>
+									<a href=''>Desktop PCs</a>
+								</li>
+								<li>
+									<a href=''>Networking Devices</a>
+								</li>
+								<li>
+									<a href=''>Printers & Scanners</a>
+								</li>
+								<li>
+									<a href=''>PC Parts</a>
+								</li>
+								<li>
+									<a href=''>All Other Products</a>
+								</li>
+							</ul>
+						</div>
+					)}
+				</div>
+				<div className={styles.management}>
+					{isSearching ? (
+						<img src={search_close} alt='' onClick={toggleSearch} />
+					) : (
+						<img src={search_open} alt='' onClick={toggleSearch} />
+					)}
+
+					<img src={basket} alt='' />
+					<img src={avatar} alt='' />
+				</div>
+			</div>
 		</div>
 	);
 };

@@ -1,0 +1,15 @@
+.area {
+	width: 1126px;
+	height: 60px;
+	border-radius: 31px;
+	background: #f5f7ff;
+	padding: 2.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.7s ease-in-out;
+
+	input {
+		background: #f5f7ff;
+	}
+}
