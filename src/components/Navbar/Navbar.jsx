@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { arrow, avatar, basket, facebook, instagram, logo, search_close, search_open } from '../../assets';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 	// const { user } = useContext(Context);
-	const [isSearching, setIsSearching] = useState(false);
+	const [searchMode, setSearchMode] = useState(false);
+	// const [isShowingShcedule, setIsShowingShcedule] = useState(false);
 
 	const toggleSearch = () => {
-		setIsSearching(!isSearching);
+		setSearchMode(!searchMode);
 	};
 
 	return (
@@ -36,12 +38,25 @@ const Navbar = () => {
 					<img src={logo} alt='logo' />
 				</div>
 				<div className={styles.navigation}>
-					{isSearching ? (
+					<CSSTransition
+						in={searchMode}
+						timeout={250}
+						classNames={{ enterActive: styles.areaShow, exitActive: styles.areaHide }}
+						mountOnEnter
+						unmountOnExit
+					>
 						<div className={styles.area}>
 							<input type='text' placeholder='Search entire store here ...' />
 							<img src={search_open} alt='' />
 						</div>
-					) : (
+					</CSSTransition>
+					<CSSTransition
+						in={!searchMode}
+						timeout={250}
+						classNames={{ enterActive: styles.menuShow, exitActive: styles.menuHide }}
+						mountOnEnter
+						unmountOnExit
+					>
 						<div className={styles.menu}>
 							<ul>
 								<li>
@@ -64,10 +79,10 @@ const Navbar = () => {
 								</li>
 							</ul>
 						</div>
-					)}
+					</CSSTransition>
 				</div>
 				<div className={styles.management}>
-					{isSearching ? (
+					{searchMode ? (
 						<img src={search_close} alt='' onClick={toggleSearch} />
 					) : (
 						<img src={search_open} alt='' onClick={toggleSearch} />
