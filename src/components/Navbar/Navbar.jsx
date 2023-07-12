@@ -1,23 +1,49 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { arrow, avatar, basket, facebook, instagram, logo, search_close, search_open } from '../../assets';
+import { useOutsideClick } from '../Hooks/useOutsideClick';
 import styles from './Navbar.module.scss';
+import ShopInfo from './Schedule/ShopInfo';
 
 const Navbar = () => {
 	// const { user } = useContext(Context);
 	const [searchMode, setSearchMode] = useState(false);
-	// const [isShowingShcedule, setIsShowingShcedule] = useState(false);
+	const [showShopInfo, setShowShopInfo] = useState(false);
+
+	const showInfoRef = useRef(null);
 
 	const toggleSearch = () => {
 		setSearchMode(!searchMode);
 	};
+
+	const toggleShopInfo = () => {
+		setShowShopInfo(!showShopInfo);
+	};
+
+	useOutsideClick(showInfoRef, toggleShopInfo, showShopInfo);
 
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_header}>
 				<div className={styles.schedule}>
 					Mon-Thu:<span> 9:00 AM - 5:30 PM</span>
-					<img src={arrow} alt='arrow' />
+					<div ref={showInfoRef} className={styles.shopInfo}>
+						<img
+							src={arrow}
+							alt='arrow'
+							onClick={toggleShopInfo}
+							className={!showShopInfo ? styles.arrow : styles.arrowDown}
+						/>
+						<CSSTransition
+							in={showShopInfo}
+							timeout={250}
+							classNames={{ enterActive: styles.shopInfoShow, exitActive: styles.shopInfoHide }}
+							mountOnEnter
+							unmountOnExit
+						>
+							<ShopInfo />
+						</CSSTransition>
+					</div>
 				</div>
 				<div className={styles.adress}>
 					Visit our showroom in 1234 Street Adress City Address, 1234
