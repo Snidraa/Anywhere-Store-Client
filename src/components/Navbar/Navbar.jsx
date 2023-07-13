@@ -2,13 +2,15 @@ import { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { arrow, avatar, basket, facebook, instagram, logo, search_close, search_open } from '../../assets';
 import { useOutsideClick } from '../Hooks/useOutsideClick';
+import AccountMenu from './AccountMenu/AccountMenu';
 import styles from './Navbar.module.scss';
-import ShopInfo from './Schedule/ShopInfo';
+import ShopInfoPopup from './ShopInfoPopup/ShopInfoPopup';
 
 const Navbar = () => {
 	// const { user } = useContext(Context);
 	const [searchMode, setSearchMode] = useState(false);
 	const [showShopInfo, setShowShopInfo] = useState(false);
+	const [showAccountMenu, setShowAccountMenu] = useState(false);
 
 	const showInfoRef = useRef(null);
 
@@ -20,28 +22,33 @@ const Navbar = () => {
 		setShowShopInfo(!showShopInfo);
 	};
 
+	const toggleAccountMenu = () => {
+		setShowAccountMenu(!showAccountMenu);
+	};
+
 	useOutsideClick(showInfoRef, toggleShopInfo, showShopInfo);
 
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_header}>
-				<div className={styles.schedule}>
+				<div className={styles.shopInfo}>
 					Mon-Thu:<span> 9:00 AM - 5:30 PM</span>
-					<div ref={showInfoRef} className={styles.shopInfo}>
+					<div ref={showInfoRef} className={styles.shopInfoPopup}>
 						<img
 							src={arrow}
 							alt='arrow'
 							onClick={toggleShopInfo}
-							className={!showShopInfo ? styles.arrow : styles.arrowDown}
+							className={showShopInfo ? styles.arrow : styles.arrowUp}
 						/>
+
 						<CSSTransition
 							in={showShopInfo}
 							timeout={250}
-							classNames={{ enterActive: styles.shopInfoShow, exitActive: styles.shopInfoHide }}
+							classNames={{ enterActive: styles.shopInfoPopupShow, exitActive: styles.shopInfoPopupHide }}
 							mountOnEnter
 							unmountOnExit
 						>
-							<ShopInfo />
+							<ShopInfoPopup />
 						</CSSTransition>
 					</div>
 				</div>
@@ -73,7 +80,7 @@ const Navbar = () => {
 					>
 						<div className={styles.area}>
 							<input type='text' placeholder='Search entire store here ...' />
-							<img src={search_open} alt='' />
+							<img src={search_open} alt='search' />
 						</div>
 					</CSSTransition>
 					<CSSTransition
@@ -109,13 +116,27 @@ const Navbar = () => {
 				</div>
 				<div className={styles.management}>
 					{searchMode ? (
-						<img src={search_close} alt='' onClick={toggleSearch} />
+						<img src={search_close} alt='close' onClick={toggleSearch} className={styles.searchClose} />
 					) : (
-						<img src={search_open} alt='' onClick={toggleSearch} />
+						<img src={search_open} alt='search' onClick={toggleSearch} className={styles.searchOpen} />
 					)}
 
-					<img src={basket} alt='' />
-					<img src={avatar} alt='' />
+					<div className={styles.basket}>
+						<img src={basket} alt='basket' />
+						<p>2</p>
+					</div>
+					<div className={styles.accountMenu}>
+						<img src={avatar} alt='avatar' onClick={toggleAccountMenu} />
+						<CSSTransition
+							in={showAccountMenu}
+							timeout={250}
+							classNames={{ enterActive: styles.accountMenuShow, exitActive: styles.accountMenuHide }}
+							mountOnEnter
+							unmountOnExit
+						>
+							<AccountMenu />
+						</CSSTransition>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,11 +1,11 @@
 import { checkpoint, clock } from '../../../assets';
-import styles from './ShopInfo.module.scss';
+import styles from './ShopInfoPopup.module.scss';
 
-const ShopInfo = () => {
+const shopInfoPopup = () => {
 	return (
-		<div className={styles.shopInfo}>
-			<div className={styles.arrowUp}></div>
-			<div className={styles.shopInfo_schedule}>
+		<div className={styles.shopInfoPopup}>
+			<div className={styles.shopInfoPopup_arrow}></div>
+			<div className={styles.shopInfoPopup_schedule}>
 				<img src={clock} alt='' />
 				<div>
 					We are open:
@@ -20,11 +20,11 @@ const ShopInfo = () => {
 					</p>
 				</div>
 			</div>
-			<div className={styles.shopInfo_adress}>
+			<div className={styles.shopInfoPopup_adress}>
 				<img src={checkpoint} alt='' />
 				Address: 1234 Street Adress, City Address, 1234
 			</div>
-			<div className={styles.shopInfo_contacts}>
+			<div className={styles.shopInfoPopup_contacts}>
 				<p>
 					Phones: <a href='tel: (00) 1234 5678'>(00) 1234 5678</a>
 				</p>
@@ -36,4 +36,4 @@ const ShopInfo = () => {
 	);
 };
 
-export default ShopInfo;
+export default shopInfoPopup;
