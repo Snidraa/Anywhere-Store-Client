@@ -1,0 +1,147 @@
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	padding: 15rem 26rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	.breadcrumbs {
+		font-size: 1.2rem;
+		font-weight: 400;
+		word-spacing: 1rem;
+
+		span {
+			color: #0156ff;
+		}
+	}
+
+	h1 {
+		font-size: 3.2rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.card {
+		width: 60rem;
+		padding: 3.7rem 5.8rem 4rem;
+		background: #f5f7ff;
+
+		h2 {
+			font-size: 1.8rem;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+		}
+
+		a {
+			position: relative;
+			color: #0156ff;
+
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 0;
+				height: 2px;
+				right: 50%;
+				bottom: -5px;
+				background: #0156ff;
+				transition: width 0.3s ease-out;
+			}
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 0;
+				height: 2px;
+				left: 50%;
+				bottom: -5px;
+				background: #0156ff;
+				transition: width 0.3s ease-out;
+			}
+
+			&:hover {
+				&::before {
+					width: 50%;
+				}
+
+				&::after {
+					width: 50%;
+				}
+			}
+		}
+
+		& > p {
+			margin: 1.5rem 0;
+		}
+
+		p {
+			font-size: 1.4rem;
+			font-weight: 300;
+			line-height: 2rem;
+
+			&:last-child {
+				display: flex;
+				gap: 1rem;
+				margin-top: 3rem;
+				font-weight: 400;
+			}
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+
+			p {
+				font-size: 1.3rem;
+				line-height: 2.7rem;
+				font-weight: 600;
+			}
+
+			span {
+				color: #c94d3f;
+			}
+
+			input {
+				padding: 0 2rem;
+				height: 5rem;
+				border-radius: 4px;
+				border: #a2a6b0 1px solid;
+				background: #fff;
+			}
+		}
+
+		.form_footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 3rem;
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: 2rem;
+			color: #0156ff;
+
+			button {
+				width: 15rem;
+				height: 5rem;
+				border-radius: 5rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: #0156ff;
+				color: #fff;
+				font-weight: 600;
+			}
+		}
+	}
+}

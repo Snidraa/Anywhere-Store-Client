@@ -5,14 +5,16 @@ import { useOutsideClick } from '../Hooks/useOutsideClick';
 import AccountMenu from './AccountMenu/AccountMenu';
 import styles from './Navbar.module.scss';
 import ShopInfoPopup from './ShopInfoPopup/ShopInfoPopup';
+import { NavLink } from 'react-router-dom';
+import { SHOP_ROUTE } from '../../utils/consts';
 
 const Navbar = () => {
-	// const { user } = useContext(Context);
 	const [searchMode, setSearchMode] = useState(false);
 	const [showShopInfo, setShowShopInfo] = useState(false);
 	const [showAccountMenu, setShowAccountMenu] = useState(false);
 
-	const showInfoRef = useRef(null);
+	const showShopInfoRef = useRef(null);
+	const showAccountMenuRef = useRef(null);
 
 	const toggleSearch = () => {
 		setSearchMode(!searchMode);
@@ -26,14 +28,15 @@ const Navbar = () => {
 		setShowAccountMenu(!showAccountMenu);
 	};
 
-	useOutsideClick(showInfoRef, toggleShopInfo, showShopInfo);
+	useOutsideClick(showShopInfoRef, toggleShopInfo, showShopInfo);
+	useOutsideClick(showAccountMenuRef, toggleAccountMenu, showAccountMenu);
 
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_header}>
 				<div className={styles.shopInfo}>
 					Mon-Thu:<span> 9:00 AM - 5:30 PM</span>
-					<div ref={showInfoRef} className={styles.shopInfoPopup}>
+					<div ref={showShopInfoRef} className={styles.shopInfoPopup}>
 						<img
 							src={arrow}
 							alt='arrow'
@@ -68,7 +71,9 @@ const Navbar = () => {
 			</div>
 			<div className={styles.navbar_footer}>
 				<div>
-					<img src={logo} alt='logo' />
+					<NavLink to={SHOP_ROUTE}>
+						<img src={logo} alt='logo' />
+					</NavLink>
 				</div>
 				<div className={styles.navigation}>
 					<CSSTransition
@@ -125,7 +130,7 @@ const Navbar = () => {
 						<img src={basket} alt='basket' />
 						<p>2</p>
 					</div>
-					<div className={styles.accountMenu}>
+					<div ref={showAccountMenuRef} className={styles.accountMenu}>
 						<img src={avatar} alt='avatar' onClick={toggleAccountMenu} />
 						<CSSTransition
 							in={showAccountMenu}
