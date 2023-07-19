@@ -1,7 +1,7 @@
-import { checkpoint, clock } from '../../../assets';
+import { checkpoint, clock } from '../../../../assets';
 import styles from './ShopInfoPopup.module.scss';
 
-const shopInfoPopup = () => {
+const ShopInfoPopup = () => {
 	return (
 		<div className={styles.shopInfoPopup}>
 			<div className={styles.shopInfoPopup_arrow}></div>
@@ -36,4 +36,4 @@ const shopInfoPopup = () => {
 	);
 };
 
-export default shopInfoPopup;
+export default ShopInfoPopup;

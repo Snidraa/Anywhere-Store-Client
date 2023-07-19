@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Context } from '../../../main';
-import { LOGIN_ROUTE } from '../../../utils/consts';
+import { Context } from '../../../../store/Context';
+import { LOGIN_ROUTE } from '../../../../utils/consts';
 import styles from './AccountMenu.module.scss';
 
 const AccountMenu = observer(() => {

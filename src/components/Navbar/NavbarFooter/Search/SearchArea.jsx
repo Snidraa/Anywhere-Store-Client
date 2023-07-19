@@ -1,4 +1,4 @@
-import { search_open } from '../../../assets';
+import { search_open } from '../../../../assets';
 import styles from './SearchArea.module.scss';
 
 const SearchArea = () => {

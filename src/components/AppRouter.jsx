@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Context } from '../main';
 import { privateRoutes, publicRoutes } from '../router/index';
+import { Context } from '../store/Context';
 
 const AppRouter = () => {
 	const { user } = useContext(Context);
 
-	return user.isAuth ? (
+	return user.getIsAuth() ? (
 		<Routes>
 			<Route path='*' element={<Navigate to='/' replace />} />
 			{privateRoutes.map(route => (
