@@ -1,120 +1,146 @@
-.navbarHeader {
-	height: 4.4rem;
-	padding: 0 26rem;
+.navbarHeaderWrapper {
+	padding: 0 2rem;
 	background: #000;
+}
+
+.navbarHeader {
+	max-width: 140rem;
+	height: 4.4rem;
+	margin: 0 auto;
 	color: #a2a6b0;
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
 
-	.shopInfo {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
+.shopInfo {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 
-		&Popup {
-			position: relative;
+	&Popup {
+		position: relative;
 
-			img {
-				cursor: pointer;
+		img {
+			cursor: pointer;
 
-				&:hover {
-					scale: 1.2;
-					transition: all 0.25s ease-in-out;
-				}
+			&:hover {
+				scale: 1.2;
+				transition: all 0.25s ease-in-out;
+			}
+		}
+
+		.arrow {
+			animation: rotateArrow 0.25s ease-in-out forwards reverse;
+
+			&Up {
+				animation: rotateArrow 0.25s ease-in-out forwards;
 			}
 
-			.arrow {
-				animation: rotateArrow 0.25s ease-in-out forwards reverse;
-
-				&Up {
-					animation: rotateArrow 0.25s ease-in-out forwards;
-				}
-
-				@keyframes rotateArrow {
-					from {
-						transform: rotateX(0deg);
-					}
-					to {
-						transform: rotateX(180deg);
-					}
-				}
-			}
-
-			&Show {
-				animation: showInfo 0.25s ease-in-out forwards;
-			}
-
-			&Hide {
-				animation: showInfo 0.25s ease-in-out forwards reverse;
-			}
-
-			@keyframes showInfo {
+			@keyframes rotateArrow {
 				from {
-					opacity: 0;
-					transform: scale(0.9);
+					transform: rotateX(0deg);
 				}
 				to {
-					opacity: 1;
-					transform: scale(1);
+					transform: rotateX(180deg);
 				}
 			}
 		}
+
+		&Show {
+			animation: showInfo 0.25s ease-in-out forwards;
+		}
+
+		&Hide {
+			animation: showInfo 0.25s ease-in-out forwards reverse;
+		}
+
+		@keyframes showInfo {
+			from {
+				opacity: 0;
+				transform: scale(0.9);
+			}
+			to {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
 	}
+}
 
-	.adress {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
+.adress {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 
-		a {
-			cursor: pointer;
-			color: #fff;
-			position: relative;
+	a {
+		cursor: pointer;
+		color: #fff;
+		position: relative;
 
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 2px;
+			right: 50%;
+			bottom: -5px;
+			background: #fff;
+			transition: width 0.3s ease-out;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 2px;
+			left: 50%;
+			bottom: -5px;
+			background: #fff;
+			transition: width 0.3s ease-out;
+		}
+
+		&:hover {
 			&::before {
-				content: '';
-				display: block;
-				position: absolute;
-				width: 0;
-				height: 2px;
-				right: 50%;
-				bottom: -5px;
-				background: #fff;
-				transition: width 0.3s ease-out;
+				width: 50%;
 			}
 
 			&::after {
-				content: '';
-				display: block;
-				position: absolute;
-				width: 0;
-				height: 2px;
-				left: 50%;
-				bottom: -5px;
-				background: #fff;
-				transition: width 0.3s ease-out;
-			}
-
-			&:hover {
-				&::before {
-					width: 50%;
-				}
-
-				&::after {
-					width: 50%;
-				}
+				width: 50%;
 			}
 		}
 	}
+}
 
-	.contacts {
+.contacts {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	span {
+		margin-right: 0.6rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.navbarHeaderWrapper {
 		display: flex;
-		align-items: center;
-		gap: 0.8rem;
-		span {
-			margin-right: 0.6rem;
-		}
+	}
+
+	.navbarHeader {
+		width: 100%;
+	}
+
+	.logo {
+		width: 6rem;
+		height: 4rem;
+		background: #0156ff;
+		border-radius: 6rem 6rem 0 0;
+		display: flex;
+		margin-right: 2rem;
+		justify-content: center;
+		transform: translateY(1rem);
 	}
 }

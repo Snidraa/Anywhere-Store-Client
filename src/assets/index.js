@@ -1,12 +1,35 @@
-import arrow from './arrow.svg';
+import account from './account.svg';
+import arrowDown from './arrowDown.svg';
+import arrowRight from './arrowRight.svg';
 import avatar from './avatar.svg';
-import basket from './basket.svg';
+import basketBlack from './basketBlack.svg';
+import basketWhite from './basketWhite.svg';
+import burger from './burger.svg';
 import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
+import crossBlack from './crossBlack.svg';
+import crossBlue from './crossBlue.svg';
 import facebook from './facebook.svg';
 import instagram from './instagram.svg';
-import logo from './logo.svg';
-import search_close from './search_close.svg';
-import search_open from './search_open.svg';
+import logoBlue from './logoBlue.svg';
+import logoWhite from './logoWhite.svg';
+import search from './search.svg';
 
-export { arrow, avatar, basket, checkpoint, clock, facebook, instagram, logo, search_close, search_open };
+export {
+	account,
+	arrowDown,
+	arrowRight,
+	avatar,
+	basketBlack,
+	basketWhite,
+	burger,
+	checkpoint,
+	clock,
+	crossBlack,
+	crossBlue,
+	facebook,
+	instagram,
+	logoBlue,
+	logoWhite,
+	search,
+};

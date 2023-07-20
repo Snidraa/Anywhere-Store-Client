@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 2.5rem;
 	left: -1.8rem;
-	width: 26.2rem;
+	min-width: 26.2rem;
 
 	background: #fff;
 	color: #000;
@@ -54,6 +54,18 @@
 		padding: 1.1rem 2rem 1rem 2rem;
 		p {
 			margin-bottom: 0.4rem;
+		}
+	}
+}
+
+@media (max-width: 520px) {
+	.shopInfoPopup {
+		left: auto;
+		right: -5rem;
+
+		&::before {
+			left: auto;
+			right: 5.2rem;
 		}
 	}
 }

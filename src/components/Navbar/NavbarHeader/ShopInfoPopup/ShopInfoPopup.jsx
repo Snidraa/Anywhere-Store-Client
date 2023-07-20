@@ -4,7 +4,6 @@ import styles from './ShopInfoPopup.module.scss';
 const ShopInfoPopup = () => {
 	return (
 		<div className={styles.shopInfoPopup}>
-			<div className={styles.shopInfoPopup_arrow}></div>
 			<div className={styles.shopInfoPopup_schedule}>
 				<img src={clock} alt='' />
 				<div>
