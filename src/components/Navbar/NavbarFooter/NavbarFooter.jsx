@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import { useMediaQueries } from '../../../Hooks/useMediaQueries';
+import { useOutsideClick } from '../../../Hooks/useOutsideClick';
 import { account, avatar, basketBlack, basketWhite, crossBlue, logoBlue, search } from '../../../assets';
 import { SHOP_ROUTE } from '../../../utils/consts';
-import { useMediaQueries } from '../../Hooks/useMediaQueries';
-import { useOutsideClick } from '../../Hooks/useOutsideClick';
 import AccountMenu from './AccountMenu/AccountMenu';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import styles from './NavbarFooter.module.scss';

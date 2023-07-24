@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { arrowDown, facebook, instagram, logoWhite } from '../../../assets';
+import { useMediaQueries } from '../../../Hooks/useMediaQueries';
+import { useOutsideClick } from '../../../Hooks/useOutsideClick';
+import { arrowDown, facebookWhite, instagramWhite, logoWhite } from '../../../assets';
 import { SHOP_ROUTE } from '../../../utils/consts';
-import { useMediaQueries } from '../../Hooks/useMediaQueries';
-import { useOutsideClick } from '../../Hooks/useOutsideClick';
 import styles from './NavbarHeader.module.scss';
 import ShopInfoPopup from './ShopInfoPopup/ShopInfoPopup';
 
@@ -32,7 +32,7 @@ const NavbarHeader = () => {
 					<div ref={showShopInfoRef} className={styles.shopInfoPopup}>
 						<img
 							src={arrowDown}
-							alt='arrow'
+							alt='arrow down'
 							onClick={toggleShopInfo}
 							className={showShopInfo ? styles.arrow : styles.arrowUp}
 						/>
@@ -55,10 +55,10 @@ const NavbarHeader = () => {
 					<div className={styles.contacts}>
 						<span>Call Us: (00) 1234 5678</span>
 						<a href='https://www.facebook.com/'>
-							<img src={facebook} alt='facebook' />
+							<img src={facebookWhite} alt='facebook' />
 						</a>
 						<a href='https://www.instagram.com/'>
-							<img src={instagram} alt='instagram' />
+							<img src={instagramWhite} alt='instagram' />
 						</a>
 					</div>
 				)}

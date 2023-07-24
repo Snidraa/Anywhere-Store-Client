@@ -8,41 +8,45 @@ const Auth = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<p className={styles.breadcrumbs}>
-				Home <span>›</span> {isLogin ? 'Login' : 'Registration'}
-			</p>
-			<h1>{isLogin ? 'Customer Login' : ' Customer Registration'}</h1>
 			<div className={styles.container}>
-				<div className={styles.card}>
-					<h2>{isLogin ? 'Registered Customer' : 'New Customer'}</h2>
-					<p>
-						{isLogin
-							? 'If you have an account, sign in with your email address.'
-							: "If you don't have an account, register with your email address."}
-					</p>
-					<form action='' placeholder='Your email...'>
+				<p className={styles.breadcrumbs}>
+					Home <span>›</span> {isLogin ? 'Login' : 'Registration'}
+				</p>
+				<h1>{isLogin ? 'Customer Login' : ' Customer Registration'}</h1>
+				<div className={styles.cardContainer}>
+					<div className={styles.card}>
+						<h2>{isLogin ? 'Registered Customer' : 'New Customer'}</h2>
 						<p>
-							Email <span>*</span>
+							{isLogin
+								? 'If you have an account, sign in with your email address.'
+								: "If you don't have an account, register with your email address."}
 						</p>
-						<input type='text' placeholder='Your email...' />
-						<p>
-							Password <span>*</span>
-						</p>
-						<input type='text' placeholder='Your password...' />
-					</form>
-					<div className={styles.form_footer}>
-						<button>{isLogin ? 'Login' : 'Register'}</button>
-						{isLogin && <a href=''>Forgot Your Password?</a>}
+						<form action='' placeholder='Your email...'>
+							<p>
+								Email <span>*</span>
+							</p>
+							<input type='text' placeholder='Your email...' />
+							<p>
+								Password <span>*</span>
+							</p>
+							<input type='text' placeholder='Your password...' />
+						</form>
+						<div className={styles.form_footer}>
+							<button>{isLogin ? 'Login' : 'Register'}</button>
+							{isLogin ? (
+								<a href=''>Forgot Your Password?</a>
+							) : (
+								<p>
+									Have an account? <NavLink to={LOGIN_ROUTE}>Sign In</NavLink>
+								</p>
+							)}
+						</div>
+						{isLogin && (
+							<p>
+								Don&apos;t have an account? <NavLink to={REGISTRATION_ROUTE}>Create An Account</NavLink>
+							</p>
+						)}
 					</div>
-					{isLogin ? (
-						<p>
-							Don&apos;t have an account? <NavLink to={REGISTRATION_ROUTE}>Create An Account</NavLink>
-						</p>
-					) : (
-						<p>
-							Have an account? <NavLink to={LOGIN_ROUTE}>Sign In</NavLink>
-						</p>
-					)}
 				</div>
 			</div>
 		</div>

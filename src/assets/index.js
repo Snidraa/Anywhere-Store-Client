@@ -1,18 +1,26 @@
 import account from './account.svg';
-import arrowDown from './arrowDown.svg';
-import arrowRight from './arrowRight.svg';
+import arrowDown from './arrow-down.svg';
+import arrowRight from './arrow-right.svg';
 import avatar from './avatar.svg';
-import basketBlack from './basketBlack.svg';
-import basketWhite from './basketWhite.svg';
+import basketBlack from './basket-black.svg';
+import basketWhite from './basket-white.svg';
 import burger from './burger.svg';
 import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
-import crossBlack from './crossBlack.svg';
-import crossBlue from './crossBlue.svg';
-import facebook from './facebook.svg';
-import instagram from './instagram.svg';
-import logoBlue from './logoBlue.svg';
-import logoWhite from './logoWhite.svg';
+import crossBlack from './cross-black.svg';
+import crossBlue from './cross-blue.svg';
+import facebookGray from './facebook-logo-gray.svg';
+import facebookWhite from './facebook-logo-white.svg';
+import instagramGray from './instagram-logo-gray.svg';
+import instagramWhite from './instagram-logo-white.svg';
+import logoBlue from './logo-blue.svg';
+import logoWhite from './logo-white.svg';
+import paymentAmericanExpress from './payment-american-express.svg';
+import paymentDiscover from './payment-discover.svg';
+import paymentMaestro from './payment-maestro.svg';
+import paymentPaypal from './payment-paypal.svg';
+import paymentVisa from './payment-visa.svg';
+
 import search from './search.svg';
 
 export {
@@ -27,9 +35,16 @@ export {
 	clock,
 	crossBlack,
 	crossBlue,
-	facebook,
-	instagram,
+	facebookGray,
+	facebookWhite,
+	instagramGray,
+	instagramWhite,
 	logoBlue,
 	logoWhite,
+	paymentAmericanExpress,
+	paymentDiscover,
+	paymentMaestro,
+	paymentPaypal,
+	paymentVisa,
 	search,
 };

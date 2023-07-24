@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
+import { useOutsideClick } from '../../../../Hooks/useOutsideClick';
 import { arrowRight, burger, crossBlack, logoBlue } from '../../../../assets';
 import { SHOP_ROUTE } from '../../../../utils/consts';
-import { useOutsideClick } from '../../../Hooks/useOutsideClick';
 import styles from './BurgerMenu.module.scss';
 const BurgerMenu = () => {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
