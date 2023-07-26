@@ -3,7 +3,7 @@ import Auth from '../pages/Auth/Auth';
 import Basket from '../pages/Basket';
 import DevicePage from '../pages/DevicePage';
 import Favorite from '../pages/Favorite';
-import Shop from '../pages/Shop';
+import Shop from '../pages/Shop/Shop';
 
 import {
 	ADMIN_ROUTE,

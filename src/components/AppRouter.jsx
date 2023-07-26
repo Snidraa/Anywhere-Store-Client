@@ -6,7 +6,7 @@ import { Context } from '../store/Context';
 const AppRouter = () => {
 	const { user } = useContext(Context);
 
-	return user.getIsAuth() ? (
+	return user.isAuth ? (
 		<Routes>
 			<Route path='*' element={<Navigate to='/' replace />} />
 			{privateRoutes.map(route => (

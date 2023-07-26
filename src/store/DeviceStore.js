@@ -44,6 +44,36 @@ export default class DeviceStore {
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 			},
 		];
+		this._brands = [
+			{ id: 1, name: 'Intel' },
+			{ id: 2, name: 'HP' },
+			{ id: 3, name: 'MSI' },
+			{ id: 4, name: 'ASUS' },
+			{ id: 5, name: 'Gigabyte' },
+			{ id: 6, name: 'AsRock' },
+			{ id: 7, name: 'Dell' },
+			{ id: 8, name: 'Kingston' },
+			{ id: 9, name: 'Thermaltake' },
+			{ id: 10, name: 'AMD' },
+			{ id: 11, name: 'Corsair' },
+		];
+		this._types = [
+			{ id: 1, name: 'CPUS' },
+			{ id: 2, name: 'Graphic Cards' },
+			{ id: 3, name: 'Motherboards' },
+			{ id: 4, name: 'RAM (Memory)' },
+			{ id: 5, name: 'HDD / SSD' },
+			{ id: 6, name: 'Power Supplies' },
+			{ id: 7, name: 'Cases' },
+			{ id: 8, name: 'Cooling' },
+			{ id: 9, name: 'Add On Cards' },
+			{ id: 10, name: 'Keyboards / Mice' },
+			{ id: 11, name: 'Speakers / Headsets' },
+			{ id: 12, name: 'Software' },
+		];
+		this._selectedType = {};
+		this._selectedBrand = {};
+
 		makeAutoObservable(this);
 	}
 
@@ -51,7 +81,39 @@ export default class DeviceStore {
 		this._devices = devices;
 	}
 
-	getDevices() {
+	get devices() {
 		return this._devices;
+	}
+
+	setBrands(brands) {
+		this._brands = brands;
+	}
+
+	get brands() {
+		return this._brands;
+	}
+
+	setTypes(types) {
+		this._types = types;
+	}
+
+	get types() {
+		return this._types;
+	}
+
+	setSelectedType(type) {
+		this._selectedType = type;
+	}
+
+	get selectedType() {
+		return this._selectedType;
+	}
+
+	setSelectedBrand(brand) {
+		this._selectedBrand = brand;
+	}
+
+	get selectedBrand() {
+		return this._selectedBrand;
 	}
 }

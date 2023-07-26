@@ -15,7 +15,7 @@ const AccountMenu = observer(() => {
 
 	return (
 		<div className={styles.menu}>
-			{user.getIsAuth() ? (
+			{user.isAuth ? (
 				<ul className={styles.menu_list}>
 					<li>
 						<a href=''>Admin Panel</a>
