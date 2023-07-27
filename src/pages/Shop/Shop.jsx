@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
+import DeviceList from '../../components/DeviceList/DeviceList';
 import { Context } from '../../store/Context';
 import styles from './Shop.module.scss';
 
@@ -10,9 +11,8 @@ const Shop = observer(() => {
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
-				<p className={styles.breadcrumbs}>Home</p>
 				<h1>Welcome to Anywhere Store!</h1>
-				<div className={styles.content}>
+				<div>
 					<div className={styles.sidebar}>
 						<h3>Category</h3>
 						<ul>
@@ -45,7 +45,9 @@ const Shop = observer(() => {
 							}
 						</ul>
 					</div>
-					<div></div>
+					<div className={styles.content}>
+						<DeviceList />
+					</div>
 				</div>
 			</div>
 		</main>
