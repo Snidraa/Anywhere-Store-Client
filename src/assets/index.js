@@ -3,6 +3,7 @@ import arrowDown from './arrow-down.svg';
 import arrowRight from './arrow-right.svg';
 import avatar from './avatar.svg';
 import basketBlack from './basket-black.svg';
+import basketBlue from './basket-blue.svg';
 import basketWhite from './basket-white.svg';
 import burger from './burger.svg';
 import checkpoint from './checkpoint.svg';
@@ -15,6 +16,7 @@ import galleryWiewActive from './galleryWiewActive.svg';
 import galleryWiewInActive from './galleryWiewInActive.svg';
 import instagramGray from './instagram-logo-gray.svg';
 import instagramWhite from './instagram-logo-white.svg';
+import likeGray from './like-gray.svg';
 import listWiewActive from './listWiewActive.svg';
 import listWiewInActive from './listWiewInActive.svg';
 import logoBlue from './logo-blue.svg';
@@ -24,10 +26,9 @@ import paymentDiscover from './payment-discover.svg';
 import paymentMaestro from './payment-maestro.svg';
 import paymentPaypal from './payment-paypal.svg';
 import paymentVisa from './payment-visa.svg';
+import search from './search.svg';
 import starWhite from './star-white.svg';
 import starYellow from './star-yellow.svg';
-
-import search from './search.svg';
 
 export {
 	account,
@@ -35,6 +36,7 @@ export {
 	arrowRight,
 	avatar,
 	basketBlack,
+	basketBlue,
 	basketWhite,
 	burger,
 	checkpoint,
@@ -47,6 +49,7 @@ export {
 	galleryWiewInActive,
 	instagramGray,
 	instagramWhite,
+	likeGray,
 	listWiewActive,
 	listWiewInActive,
 	logoBlue,

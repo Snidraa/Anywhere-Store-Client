@@ -14,12 +14,14 @@ const Shop = observer(() => {
 				<h1>Welcome to Anywhere Store!</h1>
 				<div>
 					<div className={styles.sidebar}>
-						<h3>Category</h3>
-						<ul>
+						<h3 className={styles.sidebarTitle}>Category</h3>
+						<ul className={styles.sidebarMenu}>
 							{device._types.map(type => (
 								<li
 									key={type.id}
-									className={type.id === device.selectedType.id ? styles.active : ''}
+									className={
+										type.id === device.selectedType.id ? styles.sidebarMenuOptionActive : styles.sidebarMenuOption
+									}
 									onClick={() => device.setSelectedType(type)}
 								>
 									{type.name}
@@ -27,14 +29,16 @@ const Shop = observer(() => {
 								</li>
 							))}
 						</ul>
-						<h3>Brands</h3>
-						<ul>
+						<h3 className={styles.sidebarTitle}>Brands</h3>
+						<ul className={styles.sidebarMenu}>
 							{
 								<ul>
 									{device._brands.map(brand => (
 										<li
 											key={brand.id}
-											className={brand.id === device.selectedBrand.id ? styles.active : ''}
+											className={
+												brand.id === device.selectedBrand.id ? styles.sidebarMenuOptionActive : styles.sidebarMenuOption
+											}
 											onClick={() => device.setSelectedBrand(brand)}
 										>
 											{brand.name}
