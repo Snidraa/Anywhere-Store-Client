@@ -3,14 +3,14 @@
 }
 
 .menu {
-	position: absolute;
-	width: 30rem;
+	position: fixed;
+	width: 32rem;
 	height: 100vh;
 	padding: 0.5rem 2rem;
 	top: 0;
 	left: 0;
-	z-index: 5;
 	background: #fff;
+	z-index: 2;
 
 	a,
 	img {

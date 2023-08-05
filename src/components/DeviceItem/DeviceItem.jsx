@@ -17,18 +17,20 @@ const DeviceItem = ({ device }) => {
 				<img src={likeGray} alt='' />
 			</button>
 			<img src={device.img} alt='' className={styles.deviceItemImage} />
-			<div className={styles.deviceItemInfo}>
-				<p className={styles.deviceItemRatingRow}>
-					<img src={starYellow} alt='' />
-					{device.rating} ({device.ratesCount})
-				</p>
-				<p className={styles.deviceItemName}>{device.name}</p>
-				<p className={styles.deviceItemPrice}>${device.price}</p>
-			</div>
-			<div className={styles.deviceItemButtons}>
-				<button className={styles.deviceItemAddToCart}>
-					<img src={basketBlue} alt='Add to cart' /> Add To Cart
-				</button>
+			<div className={styles.deviceItemContent}>
+				<div className={styles.deviceItemInfo}>
+					<p className={styles.deviceItemRatingRow}>
+						<img src={starYellow} alt='' />
+						{device.rating} ({device.ratesCount})
+					</p>
+					<p className={styles.deviceItemName}>{device.name}</p>
+					<p className={styles.deviceItemPrice}>${device.price}</p>
+				</div>
+				<div className={styles.deviceItemButtons}>
+					<button className={styles.deviceItemAddToCart}>
+						<img src={basketBlue} alt='Add to cart' /> Add To Cart
+					</button>
+				</div>
 			</div>
 		</div>
 	);

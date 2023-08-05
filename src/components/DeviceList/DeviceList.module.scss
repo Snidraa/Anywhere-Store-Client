@@ -1,6 +1,4 @@
 .deviceList {
-	// width: 100%;
-
 	&Control {
 		display: flex;
 		justify-content: space-between;
@@ -12,15 +10,95 @@
 		font-size: 1.3rem;
 		font-weight: 400;
 		line-height: 210%;
+
+		&SidebarOpenButton {
+			width: 6.7rem;
+			cursor: pointer;
+			background: #fff;
+			padding: 0 1rem;
+			border: #cacdd8 solid 0.2rem;
+			border-radius: 3rem;
+			color: #cacdd8;
+			font-size: 1.4rem;
+			font-weight: 600;
+
+			&:hover {
+				transition: all 0.25s ease-in-out;
+				transform: scale(1.05);
+			}
+		}
 	}
 
 	&Content {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+	}
+}
 
-		@media (max-width: 1345px) {
+.sidebar {
+	position: fixed;
+	width: 32rem;
+	height: 100vh;
+	padding: 1rem 2rem;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: #fff;
+
+	&Header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+		font-weight: 700;
+		text-align: center;
+		padding: 1.5rem 0;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
+	}
+
+	&Show {
+		animation: showMenu 0.25s ease-in-out forwards;
+	}
+
+	&Hide {
+		animation: showMenu 0.25s ease-in-out forwards reverse;
+	}
+
+	@keyframes showMenu {
+		from {
+			opacity: 0;
+			transform: translate(-30rem);
+		}
+		to {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.deviceList {
+		&Content {
 			gap: 1.5rem;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.sidebar {
+		&Header {
+			font-size: 1.6rem;
+		}
+	}
+
+	.deviceList {
+		&Content {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			gap: 0;
 		}
 	}
 }

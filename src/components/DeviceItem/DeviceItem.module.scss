@@ -17,7 +17,13 @@
 	&Image {
 		width: 100%;
 		aspect-ratio: 1 / 1;
-		margin-bottom: 1rem;
+	}
+
+	&Content {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	&Info {
@@ -91,6 +97,47 @@
 		&:hover {
 			transition: all 0.25s ease-in-out;
 			transform: scale(1.1);
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.deviceItem {
+		min-width: 18rem;
+
+		&AddToCart {
+			font-size: 1.3rem;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.deviceItem {
+		min-width: 13rem;
+		padding: 1rem;
+
+		&AddToCart {
+			font-size: 1rem;
+		}
+
+		&AddToFavorite {
+			background: transparent;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.deviceItem {
+		max-width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		&Image {
+			width: 50%;
+		}
+
+		&Buttons {
+			justify-content: end;
 		}
 	}
 }

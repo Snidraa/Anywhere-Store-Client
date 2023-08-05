@@ -31,7 +31,7 @@ const NavbarFooter = () => {
 	return (
 		<div className={styles.navbarFooterWrapper}>
 			<div className={styles.navbarFooter}>
-				{isBigScreen && (
+				{isBigScreen ? (
 					<>
 						<div>
 							<NavLink to={SHOP_ROUTE}>
@@ -105,9 +105,7 @@ const NavbarFooter = () => {
 							</div>
 						</div>
 					</>
-				)}
-
-				{!isBigScreen && (
+				) : (
 					<>
 						<BurgerMenu />
 						<SearchArea />

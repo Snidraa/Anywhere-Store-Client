@@ -1,0 +1,113 @@
+.sidebarList {
+	display: flex;
+	flex-direction: column;
+	background: #f5f7ff;
+	border-radius: 1rem;
+	color: #000;
+
+	&Item {
+		overflow: hidden;
+		margin-bottom: 1rem;
+
+		&Title {
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			font-size: 1.6rem;
+			font-weight: 700;
+			padding-bottom: 1rem;
+
+			&:hover {
+				.arrow {
+					transition: scale 0.25s ease-in-out;
+					transform: scale(1.5);
+				}
+			}
+
+			.arrow {
+				filter: contrast(0);
+				animation: rotateArrow 0.25s ease-in-out forwards;
+
+				&Down {
+					filter: contrast(0);
+					animation: rotateArrow 0.25s ease-in-out forwards reverse;
+				}
+
+				@keyframes rotateArrow {
+					from {
+						transform: rotateX(0deg);
+					}
+					to {
+						transform: rotateX(180deg);
+					}
+				}
+			}
+		}
+
+		&Menu {
+			font-size: 1.3rem;
+			font-weight: 400;
+			line-height: 210%;
+
+			&Option {
+				cursor: pointer;
+				padding: 0 1rem;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				&:hover {
+					background: rgba(#0156ff, 0.2);
+					border-radius: 1.5rem;
+				}
+
+				&Active {
+					cursor: pointer;
+					padding: 0 1rem;
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background: #0156ff;
+					color: #fff;
+					border-radius: 1.5rem;
+				}
+			}
+		}
+	}
+}
+
+.list {
+	&Show {
+		animation: showMenu 0.25s ease-in-out forwards;
+	}
+
+	&Hide {
+		animation: showMenu 0.25s ease-in-out forwards reverse;
+	}
+
+	@keyframes showMenu {
+		from {
+			transform: translateY(-200%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.sidebarList {
+		background: #fff;
+	}
+}
+
+@media (max-width: 480px) {
+	.sidebarListItemTitle {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 1.4rem;
+	}
+}
