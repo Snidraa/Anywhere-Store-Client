@@ -1,7 +1,7 @@
 import Admin from '../pages/Admin';
 import Auth from '../pages/Auth/Auth';
 import Basket from '../pages/Basket';
-import DevicePage from '../pages/DevicePage';
+import DevicePage from '../pages/DevicePage/DevicePage';
 import Favorite from '../pages/Favorite';
 import Shop from '../pages/Shop/Shop';
 
