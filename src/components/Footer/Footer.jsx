@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../Hooks/useOutsideClick';
 import {
-	arrowDown,
+	arrowDownWhite,
 	facebookGray,
 	instagramGray,
 	paymentAmericanExpress,
@@ -82,7 +82,7 @@ const Footer = () => {
 							]}
 						/>
 						{/* <div className={styles.menuItem}>
-							<h3>PC Parts {!isBigScreen && <img src={arrowDown} alt='arrow down' />}</h3>
+							<h3>PC Parts {!isBigScreen && <img src={arrowDownWhite} alt='arrow down' />}</h3>
 							<ul>
 								<li>
 									<a href=''>CPUS</a>
@@ -117,7 +117,7 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div className={styles.menuItem}>
-							<h3>Desktop PCs {!isBigScreen && <img src={arrowDown} alt='arrow down' />}</h3>
+							<h3>Desktop PCs {!isBigScreen && <img src={arrowDownWhite} alt='arrow down' />}</h3>
 							<ul>
 								<li>
 									<a href=''>Custom PCs</a>
@@ -140,7 +140,7 @@ const Footer = () => {
 							</ul>
 						</div>
 						<div className={styles.menuItem}>
-							<h3>Laptops {!isBigScreen && <img src={arrowDown} alt='arrow down' />}</h3>
+							<h3>Laptops {!isBigScreen && <img src={arrowDownWhite} alt='arrow down' />}</h3>
 							<ul>
 								<li>
 									<a href=''>Everyday Use Notebooks</a>
@@ -189,7 +189,11 @@ const Footer = () => {
 								<>
 									<h3 className={styles.title} ref={showListRef} onClick={toggleList}>
 										Address{' '}
-										<img src={arrowDown} alt='arrow down' className={showList ? styles.arrow : styles.arrowDown} />
+										<img
+											src={arrowDownWhite}
+											alt='arrow down'
+											className={showList ? styles.arrow : styles.arrowDownWhite}
+										/>
 									</h3>
 									<CSSTransition
 										in={showList}
@@ -222,19 +226,20 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
+
 				<div className={styles.footerBottom}>
-					<div>
+					<div className={styles.footerBottom_socials}>
 						<img src={facebookGray} alt='facebook' />
 						<img src={instagramGray} alt='instagram' />
 					</div>
-					<div>
+					<div className={styles.footerBottom_payments}>
 						<img src={paymentPaypal} alt='paypal' />
 						<img src={paymentVisa} alt='visa' />
 						<img src={paymentMaestro} alt='maestro' />
 						<img src={paymentDiscover} alt='discover' />
 						<img src={paymentAmericanExpress} alt='american express' />
 					</div>
-					<p>Copyright © 2023 Anywhere Shop Ltd.</p>
+					<p className={styles.footerBottom_copyright}>Copyright © 2023 Anywhere Shop Ltd.</p>
 				</div>
 			</div>
 		</footer>

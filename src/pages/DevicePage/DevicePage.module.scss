@@ -13,9 +13,10 @@
 }
 
 .breadcrumbs {
+	display: flex;
+	gap: 1rem;
 	font-size: 1.2rem;
 	font-weight: 400;
-	word-spacing: 1rem;
 
 	span {
 		color: #0156ff;
@@ -36,7 +37,6 @@
 
 .box1 {
 	grid-area: A;
-	// min-width: 32rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -60,17 +60,21 @@
 
 .box2 {
 	grid-area: B;
-	// min-width: 32rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 
 	&_Header {
 		display: flex;
-		align-items: center;
 		gap: 2rem;
 
-		.deviceItemAddToFavorite {
+		& > div {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.addToFavorite {
 			width: 3rem;
 			height: 3rem;
 			background: transparent;
@@ -96,6 +100,64 @@
 				line-height: 140%;
 			}
 		}
+
+		.goodsCounter {
+			width: 7rem;
+			height: 3.5rem;
+			padding: 1.1rem;
+			border-radius: 6px;
+			background: #f5f7ff;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			&_textField {
+				max-width: 50%;
+				background: transparent;
+				text-align: center;
+
+				&::-webkit-inner-spin-button {
+					-webkit-appearance: none;
+				}
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+				}
+			}
+
+			&_controlArea {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 0.1rem;
+
+				img {
+					cursor: pointer;
+					transition: all 0.25s ease-in-out;
+
+					&:hover {
+						filter: brightness(0%);
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+		.addToCart {
+			background: #fff;
+			padding: 0.5rem 1rem;
+			display: flex;
+			gap: 0.5rem;
+			border: #0156ff solid 0.2rem;
+			border-radius: 3rem;
+			color: #0156ff;
+			font-size: 1.4rem;
+			font-weight: 600;
+
+			&:hover {
+				transition: all 0.25s ease-in-out;
+				transform: scale(1.05);
+			}
+		}
 	}
 
 	&_Footer {
@@ -110,10 +172,13 @@
 		}
 
 		.deviceInfo {
-			max-width: 32rem;
+			max-width: 50rem;
 			font-size: 1.6rem;
 			font-weight: 300;
 			line-height: 3rem;
+			background: #f5f7ff;
+			border-radius: 2rem;
+			padding: 1rem;
 		}
 	}
 }
@@ -127,5 +192,10 @@
 
 		font-size: 1.4rem;
 		color: #000;
+	}
+
+	.box2_Header {
+		flex-direction: column;
+		align-items: center;
 	}
 }

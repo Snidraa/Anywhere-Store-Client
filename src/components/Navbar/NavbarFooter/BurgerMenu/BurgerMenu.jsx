@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useOutsideClick } from '../../../../Hooks/useOutsideClick';
-import { arrowRight, burger, crossBlack, logoBlue } from '../../../../assets';
+import { arrowRightBlack, burger, crossBlack, logoBlue } from '../../../../assets';
 import { SHOP_ROUTE } from '../../../../utils/consts';
 import styles from './BurgerMenu.module.scss';
 const BurgerMenu = () => {
@@ -35,32 +35,32 @@ const BurgerMenu = () => {
 					<ul>
 						<li>
 							<a href=''>
-								Laptops <img src={arrowRight} alt='arrowRight' />
+								Laptops <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 						<li>
 							<a href=''>
-								Desktop PCs <img src={arrowRight} alt='arrowRight' />
+								Desktop PCs <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 						<li>
 							<a href=''>
-								Networking Devices <img src={arrowRight} alt='arrowRight' />
+								Networking Devices <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 						<li>
 							<a href=''>
-								Printers & Scanners <img src={arrowRight} alt='arrowRight' />
+								Printers & Scanners <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 						<li>
 							<a href=''>
-								PC Parts <img src={arrowRight} alt='arrowRight' />
+								PC Parts <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 						<li>
 							<a href=''>
-								All Other Products <img src={arrowRight} alt='arrowRight' />
+								All Other Products <img src={arrowRightBlack} alt='arrowRightBlack' />
 							</a>
 						</li>
 					</ul>

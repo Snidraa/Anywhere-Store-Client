@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../../Hooks/useOutsideClick';
-import { arrowDown, facebookWhite, instagramWhite, logoWhite } from '../../../assets';
+import { arrowDownWhite, facebookWhite, instagramWhite, logoWhite } from '../../../assets';
 import { SHOP_ROUTE } from '../../../utils/consts';
 import styles from './NavbarHeader.module.scss';
 import ShopInfoPopup from './ShopInfoPopup/ShopInfoPopup';
@@ -31,7 +31,7 @@ const NavbarHeader = () => {
 					Mon-Thu:<span> 9:00 AM - 5:30 PM</span>
 					<div ref={showShopInfoRef} className={styles.shopInfoPopup}>
 						<img
-							src={arrowDown}
+							src={arrowDownWhite}
 							alt='arrow down'
 							onClick={toggleShopInfo}
 							className={showShopInfo ? styles.arrow : styles.arrowUp}

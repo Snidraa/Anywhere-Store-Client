@@ -1,55 +1,27 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Context } from '../../../../store/Context';
-import { LOGIN_ROUTE } from '../../../../utils/consts';
+import { ADMIN_ROUTE, LOGIN_ROUTE } from '../../../../utils/consts';
 import styles from './AccountMenu.module.scss';
 
 const AccountMenu = observer(() => {
 	const { user } = useContext(Context);
-
-	const toggleIsAuth = (e, bool) => {
-		e.preventDefault();
-		user.setIsAuth(bool);
-	};
+	const navigate = useNavigate();
 
 	return (
 		<div className={styles.menu}>
 			{user.isAuth ? (
-				<ul className={styles.menu_list}>
-					<li>
-						<a href=''>Admin Panel</a>
-					</li>
-					<li>
-						<a href=''>My Account</a>
-					</li>
-					<li>
-						<a href=''>My Wish List (0)</a>
-					</li>
-					<li>
-						<a href=''>Compare (0)</a>
-					</li>
-					<li>
-						<a href='' onClick={e => toggleIsAuth(e, false)}>
-							Sign Out
-						</a>
-					</li>
-				</ul>
+				<div className={styles.menu_list}>
+					<button onClick={() => navigate(ADMIN_ROUTE)}>Admin Panel</button>
+					<button>My Account</button>
+					<button>My Favorites (0)</button>
+					<button onClick={() => navigate(LOGIN_ROUTE)}>Sign Out</button>
+				</div>
 			) : (
-				<ul className={styles.menu_list}>
-					<li>
-						<a href=''>My Account</a>
-					</li>
-					<li>
-						<a href=''>My Wish List (0)</a>
-					</li>
-					<li>
-						<a href=''>Compare (0)</a>
-					</li>
-					<li>
-						<NavLink to={LOGIN_ROUTE}>Sign In</NavLink>
-					</li>
-				</ul>
+				<div className={styles.menu_list}>
+					<button onClick={() => navigate(LOGIN_ROUTE)}>Sign In</button>
+				</div>
 			)}
 		</div>
 	);

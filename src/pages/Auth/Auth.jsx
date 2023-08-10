@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import HomeLink from '../../components/HomeLink/HomeLink';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import styles from './Auth.module.scss';
 
@@ -10,7 +11,7 @@ const Auth = () => {
 		<div className={styles.wrapper}>
 			<div className={styles.container}>
 				<p className={styles.breadcrumbs}>
-					Home <span>›</span> {isLogin ? 'Login' : 'Registration'}
+					<HomeLink /> <span>›</span> {isLogin ? 'Login' : 'Registration'}
 				</p>
 				<h1>{isLogin ? 'Customer Login' : ' Customer Registration'}</h1>
 				<div className={styles.cardContainer}>

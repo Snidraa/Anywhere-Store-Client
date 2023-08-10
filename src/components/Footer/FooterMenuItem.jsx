@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../Hooks/useOutsideClick';
-import { arrowDown } from '../../assets';
+import { arrowDownWhite } from '../../assets';
 import styles from './FooterMenuItem.module.scss';
 
 const FooterMenuItem = props => {
@@ -35,7 +35,7 @@ const FooterMenuItem = props => {
 					<h3 className={styles.title} ref={showListRef} onClick={toggleList}>
 						{title}{' '}
 						{!isBigScreen && (
-							<img src={arrowDown} alt='arrow down' className={showList ? styles.arrow : styles.arrowDown} />
+							<img src={arrowDownWhite} alt='arrow down' className={showList ? styles.arrow : styles.arrowDownWhite} />
 						)}
 					</h3>
 					<CSSTransition

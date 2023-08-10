@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { arrowDown } from '../../assets';
+import { arrowDownWhite } from '../../assets';
 import { Context } from '../../store/Context';
 import styles from './SidebarList.module.scss';
 
@@ -22,7 +22,7 @@ const SidebarList = observer(() => {
 		<div className={styles.sidebarList}>
 			<div className={styles.sidebarListItem}>
 				<h3 className={styles.sidebarListItemTitle} onClick={toggleTypesList}>
-					Category <img src={arrowDown} alt='' className={showTypesList ? styles.arrow : styles.arrowDown} />
+					Category <img src={arrowDownWhite} alt='' className={showTypesList ? styles.arrow : styles.arrowDown} />
 				</h3>
 				<CSSTransition
 					in={showTypesList}
@@ -51,7 +51,7 @@ const SidebarList = observer(() => {
 			</div>
 			<div className={styles.sidebarListItem}>
 				<h3 className={styles.sidebarListItemTitle} onClick={toggleBrandsList}>
-					Brands <img src={arrowDown} alt='' className={showBrandsList ? styles.arrow : styles.arrowDown} />
+					Brands <img src={arrowDownWhite} alt='' className={showBrandsList ? styles.arrow : styles.arrowDown} />
 				</h3>
 				<CSSTransition
 					in={showBrandsList}

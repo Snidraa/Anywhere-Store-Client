@@ -1,6 +1,8 @@
 import account from './account.svg';
-import arrowDown from './arrow-down.svg';
-import arrowRight from './arrow-right.svg';
+import arrowDownGray from './arrow-down-gray.svg';
+import arrowDownWhite from './arrow-down-white.svg';
+import arrowRightBlack from './arrow-right-black.svg';
+import arrowUpGray from './arrow-up-gray.svg';
 import avatar from './avatar.svg';
 import basketBlack from './basket-black.svg';
 import basketBlue from './basket-blue.svg';
@@ -32,8 +34,10 @@ import starYellow from './star-yellow.svg';
 
 export {
 	account,
-	arrowDown,
-	arrowRight,
+	arrowDownGray,
+	arrowDownWhite,
+	arrowRightBlack,
+	arrowUpGray,
 	avatar,
 	basketBlack,
 	basketBlue,

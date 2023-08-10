@@ -53,6 +53,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 1rem;
 	padding: 1rem 0;
 
 	p {
@@ -60,6 +61,16 @@
 		font-size: 1.2rem;
 		line-height: 132.5%;
 		opacity: 0.6;
+	}
+
+	&_socials {
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	&_payments {
+		display: flex;
+		gap: 1rem;
 	}
 }
 
@@ -120,5 +131,13 @@
 				}
 			}
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.footerBottom {
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
 	}
 }
