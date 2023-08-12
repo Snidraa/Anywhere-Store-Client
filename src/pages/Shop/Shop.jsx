@@ -16,7 +16,7 @@ const Shop = observer(() => {
 				<div>
 					{!isTablet && !isMobile && (
 						<div className={styles.sidebar}>
-							<h2 className={styles.sidebarHeader}>Filters</h2>
+							<h2>Filters</h2>
 							<SidebarList />
 						</div>
 					)}

@@ -3,7 +3,7 @@
 	height: 6rem;
 	border-radius: 3.1rem;
 	background: #f5f7ff;
-	padding: 0 1.5rem;
+	padding: 0 2.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -19,6 +19,9 @@
 		flex: 1 1 auto;
 		margin-right: 2rem;
 		background: #f5f7ff;
+		color: var(--color-5, #a2a6b0);
+		font-size: 1.4rem;
+		font-weight: 400;
 	}
 
 	img {

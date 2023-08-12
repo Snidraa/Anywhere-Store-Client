@@ -9,12 +9,12 @@
 		overflow: hidden;
 		margin-bottom: 1rem;
 
-		&Title {
+		h3 {
 			cursor: pointer;
 			display: flex;
 			justify-content: space-between;
 			font-size: 1.6rem;
-			font-weight: 700;
+			font-weight: 600;
 			padding-bottom: 1rem;
 
 			&:hover {
@@ -104,7 +104,7 @@
 }
 
 @media (max-width: 480px) {
-	.sidebarListItemTitle {
+	.sidebarList h3 {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

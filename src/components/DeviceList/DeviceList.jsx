@@ -32,7 +32,7 @@ const DeviceList = observer(() => {
 				unmountOnExit
 			>
 				<div ref={showSidebarRef} className={styles.sidebar}>
-					<h2 className={styles.sidebarHeader}>
+					<h2>
 						Filter by{' '}
 						<img
 							src={crossBlack}

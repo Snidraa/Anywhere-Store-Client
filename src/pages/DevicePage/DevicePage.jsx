@@ -23,8 +23,6 @@ const DevicePage = () => {
 	const info = device.info;
 	const goodsCounter = useRef(null);
 
-	console.log('first render');
-
 	const incrementGoodsCount = () => {
 		if (parseInt(goodsCounter.current.value) === parseInt(goodsCounter.current.max)) return null;
 		if (!goodsCounter.current.value) goodsCounter.current.value = 0;
@@ -62,7 +60,6 @@ const DevicePage = () => {
 							</div>
 							<div>
 								<div className={styles.goodsCounter}>
-									{console.log('Render')}
 									<input
 										ref={goodsCounter}
 										className={styles.goodsCounter_textField}
