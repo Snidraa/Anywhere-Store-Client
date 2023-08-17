@@ -3,6 +3,13 @@ import HomeLink from '../../components/HomeLink/HomeLink';
 import styles from './Admin.module.scss';
 
 const Admin = () => {
+	console.log('Admin is rendered');
+	// const { device } = useContext(Context);
+	// const typesOptions = device.types.map(type => ({
+	// 	value: type.name,
+	// 	label: type.name,
+	// }));
+
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
