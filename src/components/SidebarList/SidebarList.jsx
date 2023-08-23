@@ -21,7 +21,7 @@ const SidebarList = observer(() => {
 		<div className={styles.sidebar}>
 			<Dropdown title={'Category'}>
 				<ul className={styles.sidebarDropdownMenu}>
-					{device._types.map(type => (
+					{device.types.map(type => (
 						<li
 							key={type.id}
 							className={
@@ -41,7 +41,7 @@ const SidebarList = observer(() => {
 			</div> */}
 			<Dropdown title={'Brands'}>
 				<ul className={styles.sidebarDropdownMenu}>
-					{device._brands.map(brand => (
+					{device.brands.map(brand => (
 						<li
 							key={brand.id}
 							className={
@@ -100,7 +100,7 @@ const SidebarList = observer(() => {
 					unmountOnExit
 				>
 					<ul className={styles.sidebarListItemMenu}>
-						{device._brands.map(brand => (
+						{device.brands.map(brand => (
 							<li
 								key={brand.id}
 								className={

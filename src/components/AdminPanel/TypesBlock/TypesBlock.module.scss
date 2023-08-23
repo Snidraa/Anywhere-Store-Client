@@ -1,0 +1,43 @@
+.typesBlock {
+	&_AddTypeButton {
+		background: transparent;
+		border: #167916 solid 0.2rem;
+		color: #167916;
+
+		&:hover {
+			background: #167916;
+			color: #fff;
+		}
+	}
+
+	.modalList {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		&Item {
+			display: grid;
+			grid-template-columns: 0.5fr 7.5fr 2fr;
+			align-items: center;
+			gap: 2rem;
+			padding: 0.5rem 0;
+			box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
+
+			span:last-child {
+				text-align: center;
+			}
+
+			& > button {
+				padding: 0.1rem 1.5rem;
+				background: transparent;
+				border: #e21313 solid 0.2rem;
+				color: #e21313;
+
+				&:hover {
+					background: #e21313;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
