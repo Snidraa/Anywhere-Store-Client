@@ -75,7 +75,9 @@ const DevicesBlock = () => {
 	return (
 		<div className={styles.devicesBlock}>
 			<h2>Devices</h2>
-			<button onClick={() => setShowDevicesModal(true)}>Get Devices</button>
+			<button className={styles.getButton} onClick={() => setShowDevicesModal(true)}>
+				Get Devices
+			</button>
 			<form action='submit' className={styles.addDeviceFrom}>
 				<div className={styles.selectors}>
 					<Select
@@ -116,7 +118,7 @@ const DevicesBlock = () => {
 				</label>
 			</form>
 
-			<button className={styles.devicesBlock_AddDeviceButton}>Add Device</button>
+			<button className={styles.addButton}>Add Device</button>
 			<Modal title={'Devices'} show={showDevicesModal} onHide={() => setShowDevicesModal(false)}>
 				<ul className={styles.modalList}>
 					<li className={styles.modalListItem}>
@@ -130,7 +132,7 @@ const DevicesBlock = () => {
 							<span>{device.id}</span>
 							<span>{device.name}</span>
 							<span>{device.price}</span>
-							<button>Delete</button>
+							<button className={styles.deleteButton}>Delete</button>
 						</li>
 					))}
 				</ul>

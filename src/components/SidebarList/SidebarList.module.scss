@@ -1,4 +1,4 @@
-.sidebar {
+.sidebarList {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -7,44 +7,6 @@
 	color: #000;
 
 	&Dropdown {
-		// overflow: hidden;
-		// margin-bottom: 1rem;
-
-		// h3 {
-		// 	cursor: pointer;
-		// 	display: flex;
-		// 	justify-content: space-between;
-		// 	font-size: 1.6rem;
-		// 	font-weight: 600;
-		// 	padding-bottom: 1rem;
-
-		// 	&:hover {
-		// 		.arrow {
-		// 			transition: scale 0.25s ease-in-out;
-		// 			transform: scale(1.5);
-		// 		}
-		// 	}
-
-		// 	.arrow {
-		// 		filter: contrast(0);
-		// 		animation: rotateArrow 0.25s ease-in-out forwards;
-
-		// 		&Down {
-		// 			filter: contrast(0);
-		// 			animation: rotateArrow 0.25s ease-in-out forwards reverse;
-		// 		}
-
-		// 		@keyframes rotateArrow {
-		// 			from {
-		// 				transform: rotateX(0deg);
-		// 			}
-		// 			to {
-		// 				transform: rotateX(180deg);
-		// 			}
-		// 		}
-		// 	}
-		// }
-
 		&Menu {
 			font-size: 1.3rem;
 			font-weight: 400;
@@ -79,36 +41,8 @@
 	}
 }
 
-// .list {
-// 	&Show {
-// 		animation: showMenu 0.25s ease-in-out forwards;
-// 	}
-
-// 	&Hide {
-// 		animation: showMenu 0.25s ease-in-out forwards reverse;
-// 	}
-
-// 	@keyframes showMenu {
-// 		from {
-// 			transform: translateY(-200%);
-// 		}
-// 		to {
-// 			transform: translateY(0);
-// 		}
-// 	}
-// }
-
 @media (max-width: 768px) {
-	.sidebar {
+	.sidebarList {
 		background: #fff;
 	}
 }
-
-// @media (max-width: 480px) {
-// 	.sidebarList h3 {
-// 		display: flex;
-// 		justify-content: space-between;
-// 		align-items: center;
-// 		font-size: 1.4rem;
-// 	}
-// }

@@ -10,11 +10,13 @@ const TypesBlock = () => {
 	return (
 		<div className={styles.typesBlock}>
 			<h2>Types</h2>
-			<button onClick={() => setShowTypesModal(true)}>Get Types</button>
+			<button className={styles.getButton} onClick={() => setShowTypesModal(true)}>
+				Get Types
+			</button>
 			<form action=''>
 				<input type='text' placeholder='Enter Type name' />
 			</form>
-			<button className={styles.typesBlock_AddTypeButton}>Add Type</button>
+			<button className={styles.addButton}>Add Type</button>
 			<Modal title={'Types'} show={showTypesModal} onHide={() => setShowTypesModal(false)}>
 				<ul className={styles.modalList}>
 					<li className={styles.modalListItem}>
@@ -26,7 +28,7 @@ const TypesBlock = () => {
 						<li key={type.id} className={styles.modalListItem}>
 							<span>{type.id}</span>
 							<span>{type.name}</span>
-							<button>Delete</button>
+							<button className={styles.deleteButton}>Delete</button>
 						</li>
 					))}
 				</ul>

@@ -1,8 +1,7 @@
 .modal {
 	position: absolute;
 	z-index: 1;
-	// margin: 0 auto;
-	top: 20%;
+	top: 28%;
 	left: calc(50% - 30rem);
 	width: 60rem;
 	padding: 1rem 2rem;
@@ -28,9 +27,6 @@
 			opacity: 1;
 		}
 	}
-}
-
-.container {
 }
 
 .header {

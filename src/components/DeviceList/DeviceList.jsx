@@ -24,33 +24,27 @@ const DeviceList = observer(() => {
 
 	return (
 		<>
-			<CSSTransition
-				in={showSidebar}
-				timeout={250}
-				classNames={{ enterActive: styles.sidebarShow, exitActive: styles.sidebarHide }}
-				mountOnEnter
-				unmountOnExit
-			>
-				<div ref={showSidebarRef} className={styles.sidebar}>
-					<h2>
-						Filter by{' '}
-						<img
-							src={crossBlack}
-							alt='close Sidebar'
-							className={styles.sidebarCloseButton}
-							onClick={toggleShowSidebar}
-						/>
-					</h2>
-					<SidebarList />
-				</div>
-			</CSSTransition>
+			{!isBigScreen && !isSmallScreen && (
+				<CSSTransition
+					in={showSidebar}
+					timeout={250}
+					classNames={{ enterActive: styles.deviceListSidebarShow, exitActive: styles.deviceListSidebarHide }}
+					mountOnEnter
+					unmountOnExit
+				>
+					<div ref={showSidebarRef} className={styles.deviceListSidebar}>
+						<h2>
+							Filter by <img src={crossBlack} alt='close Sidebar' onClick={toggleShowSidebar} />
+						</h2>
+						<SidebarList />
+					</div>
+				</CSSTransition>
+			)}
 			<div className={styles.deviceList}>
 				<div className={styles.deviceListControl}>
 					{!isBigScreen && !isSmallScreen && (
-						<div className={styles.deviceListSidebar}>
-							<div className={styles.deviceListControlSidebarOpenButton} onClick={toggleShowSidebar}>
-								Filters
-							</div>
+						<div className={styles.deviceListControl_SidebarOpenButton} onClick={toggleShowSidebar}>
+							Filters
 						</div>
 					)}
 					<p>Items 1-10 of 10</p>

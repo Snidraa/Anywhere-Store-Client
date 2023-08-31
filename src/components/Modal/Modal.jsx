@@ -18,7 +18,7 @@ const Modal = props => {
 			unmountOnExit
 		>
 			<div ref={modalRef} className={styles.modal}>
-				<div className={styles.container}>
+				<div>
 					<div className={styles.header}>
 						<h3>{title}</h3>
 						<img src={crossBlack} alt='' onClick={onHide} />

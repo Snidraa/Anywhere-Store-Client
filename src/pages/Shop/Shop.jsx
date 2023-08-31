@@ -5,8 +5,6 @@ import SidebarList from '../../components/SidebarList/SidebarList';
 import styles from './Shop.module.scss';
 
 const Shop = observer(() => {
-	// const { device } = useContext(Context);
-	// const { user } = useContext(Context);
 	const { isTablet, isMobile } = useMediaQueries();
 
 	return (

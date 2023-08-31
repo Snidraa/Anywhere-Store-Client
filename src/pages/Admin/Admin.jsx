@@ -1,3 +1,4 @@
+import BrandsBlock from '../../components/AdminPanel/BrandsBlock/BrandsBlock';
 import DevicesBlock from '../../components/AdminPanel/DevicesBlock/DevicesBlock';
 import TypesBlock from '../../components/AdminPanel/TypesBlock/TypesBlock';
 import HomeLink from '../../components/HomeLink/HomeLink';
@@ -21,6 +22,7 @@ const Admin = () => {
 				</p>
 				<div className={styles.content}>
 					<TypesBlock />
+					<BrandsBlock />
 					{/* <div className={styles.typesBlock}>
 						<h2>Types</h2>
 						<button onClick={() => setShowTypesModal(true)}>Get Types</button> */}
@@ -40,14 +42,14 @@ const Admin = () => {
 						<button>Add Type</button>
 						<Modal title={'Types'} data={'Data'} show={showTypesModal} onHide={() => setShowTypesModal(false)} />
 					</div> */}
-					<div className={styles.brandsBlock}>
+					{/* <div className={styles.brandsBlock}>
 						<h2>Brands</h2>
 						<button>Get Brands</button>
 						<form action=''>
 							<input type='text' placeholder='Enter Brand name' />
 						</form>
 						<button>Add Brand</button>
-					</div>
+					</div> */}
 					<DevicesBlock />
 				</div>
 			</div>
