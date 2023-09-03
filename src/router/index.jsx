@@ -1,8 +1,8 @@
 import Admin from '../pages/Admin/Admin';
 import Auth from '../pages/Auth/Auth';
-import Basket from '../pages/Basket';
+import Basket from '../pages/Basket/Basket';
 import DevicePage from '../pages/DevicePage/DevicePage';
-import Favorite from '../pages/Favorite';
+import Favorite from '../pages/Favorite/Favorite';
 import Shop from '../pages/Shop/Shop';
 
 import {

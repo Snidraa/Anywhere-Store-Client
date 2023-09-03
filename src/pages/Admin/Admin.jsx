@@ -6,10 +6,9 @@ import HomeLink from '../../components/HomeLink/HomeLink';
 import styles from './Admin.module.scss';
 
 const Admin = () => {
-	console.log('Admin is rendered');
 	const [showTypesBlock, setShowTypesBlock] = useState(false);
 	const [showBrandsBlock, setShowBrandsBlock] = useState(false);
-	const [showDevicesBlock, setShowDevicesBlock] = useState(false);
+	const [showDevicesBlock, setShowDevicesBlock] = useState(true);
 
 	const toggleTypesBlock = () => {
 		if (showBrandsBlock) toggleBrandsBlock();
@@ -28,13 +27,6 @@ const Admin = () => {
 		if (showBrandsBlock) toggleBrandsBlock();
 		setShowDevicesBlock(!showDevicesBlock);
 	};
-	// const [showTypesModal, setShowTypesModal] = useState(false);
-	// const [showBrandsModal, setShowBrandsModal] = useState(false);
-	// const { device } = useContext(Context);
-	// const typesOptions = device.types.map(type => ({
-	// 	value: type.name,
-	// 	label: type.name,
-	// }));
 
 	return (
 		<main className={styles.wrapper}>

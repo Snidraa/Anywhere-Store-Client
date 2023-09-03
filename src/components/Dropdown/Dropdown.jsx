@@ -24,22 +24,6 @@ const Dropdown = observer(props => {
 				unmountOnExit
 			>
 				{props.children}
-				{/* <ul className={styles.sidebarListItemMenu}>
-					{props.items?.map(item => (
-						<li
-							key={item.id}
-							className={
-								item.id === device.selectedType.id
-									? styles.sidebarListItemMenuOptionActive
-									: styles.sidebarListItemMenuOption
-							}
-							onClick={() => setSelected(item, props.context)}
-						>
-							{item.name}
-							<span>{item.id}</span>
-						</li>
-					))}
-				</ul> */}
 			</CSSTransition>
 		</div>
 	);
