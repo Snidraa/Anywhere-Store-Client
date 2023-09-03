@@ -6,6 +6,7 @@ import styles from './DevicesBlock.module.scss';
 
 const DevicesBlock = () => {
 	const { device } = useContext(Context);
+	const [info, setInfo] = useState([]);
 	const [showDevicesModal, setShowDevicesModal] = useState(false);
 	const dropContainerRef = useRef(null);
 	const fileInputRef = useRef(null);
@@ -33,6 +34,13 @@ const DevicesBlock = () => {
 		});
 	}, []);
 
+	const addInfo = () => {
+		setInfo([...info, { id: Date.now(), title: '', description: '' }]);
+	};
+
+	const removeInfo = id => {
+		setInfo(info.filter(i => i.id !== id));
+	};
 	// const showValues = () => {
 	// 	console.log(typeSelectorRef.current);
 
@@ -75,7 +83,7 @@ const DevicesBlock = () => {
 	return (
 		<div className={styles.devicesBlock}>
 			<h2>Devices</h2>
-			<button className={styles.getButton} onClick={() => setShowDevicesModal(true)}>
+			<button className={styles.defaultButton} onClick={() => setShowDevicesModal(true)}>
 				Get Devices
 			</button>
 			<form action='submit' className={styles.addDeviceFrom}>
@@ -116,6 +124,18 @@ const DevicesBlock = () => {
 					or
 					<input ref={fileInputRef} type='file' id='images' accept='image/*' required />
 				</label>
+				{info.map(i => (
+					<div key={i.id} className={styles.infoItem}>
+						<input type='text' placeholder='Enter property title' />
+						<input type='text' placeholder='Enter property description' />
+						<button className={styles.deleteButton} onClick={() => removeInfo(i.id)}>
+							Delete
+						</button>
+					</div>
+				))}
+				<button className={styles.defaultButton} onClick={addInfo}>
+					Add new property
+				</button>
 			</form>
 
 			<button className={styles.addButton}>Add Device</button>

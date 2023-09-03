@@ -10,7 +10,7 @@ const BrandsBlock = () => {
 	return (
 		<div className={styles.brandsBlock}>
 			<h2>Brands</h2>
-			<button className={styles.getButton} onClick={() => setShowBrandsModal(true)}>
+			<button className={styles.defaultButton} onClick={() => setShowBrandsModal(true)}>
 				Get brands
 			</button>
 			<form action=''>

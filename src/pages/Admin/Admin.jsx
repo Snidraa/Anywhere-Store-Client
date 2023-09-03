@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import BrandsBlock from '../../components/AdminPanel/BrandsBlock/BrandsBlock';
 import DevicesBlock from '../../components/AdminPanel/DevicesBlock/DevicesBlock';
 import TypesBlock from '../../components/AdminPanel/TypesBlock/TypesBlock';
@@ -6,6 +7,27 @@ import styles from './Admin.module.scss';
 
 const Admin = () => {
 	console.log('Admin is rendered');
+	const [showTypesBlock, setShowTypesBlock] = useState(false);
+	const [showBrandsBlock, setShowBrandsBlock] = useState(false);
+	const [showDevicesBlock, setShowDevicesBlock] = useState(false);
+
+	const toggleTypesBlock = () => {
+		if (showBrandsBlock) toggleBrandsBlock();
+		if (showDevicesBlock) toggleDevicesBlock();
+		setShowTypesBlock(!showTypesBlock);
+	};
+
+	const toggleBrandsBlock = () => {
+		if (showTypesBlock) toggleTypesBlock();
+		if (showDevicesBlock) toggleDevicesBlock();
+		setShowBrandsBlock(!showBrandsBlock);
+	};
+
+	const toggleDevicesBlock = () => {
+		if (showTypesBlock) toggleTypesBlock();
+		if (showBrandsBlock) toggleBrandsBlock();
+		setShowDevicesBlock(!showDevicesBlock);
+	};
 	// const [showTypesModal, setShowTypesModal] = useState(false);
 	// const [showBrandsModal, setShowBrandsModal] = useState(false);
 	// const { device } = useContext(Context);
@@ -20,37 +42,15 @@ const Admin = () => {
 				<p className={styles.breadcrumbs}>
 					<HomeLink /> <span>›</span> Admin Panel
 				</p>
+				<div className={styles.controls}>
+					<button onClick={toggleTypesBlock}>Types</button>
+					<button onClick={toggleBrandsBlock}>Brands</button>
+					<button onClick={toggleDevicesBlock}>Devices</button>
+				</div>
 				<div className={styles.content}>
-					<TypesBlock />
-					<BrandsBlock />
-					{/* <div className={styles.typesBlock}>
-						<h2>Types</h2>
-						<button onClick={() => setShowTypesModal(true)}>Get Types</button> */}
-					{/* <CSSTransition
-							in={showTypesModal}
-							timeout={250}
-							classNames={{ enterActive: styles.modalShow, exitActive: styles.modalHide }}
-							mountOnEnter
-							unmountOnExit
-						>
-							<div className={styles.modal}>
-							</div>
-						</CSSTransition> */}
-					{/* <form action=''>
-							<input type='text' placeholder='Enter Type name' />
-						</form>
-						<button>Add Type</button>
-						<Modal title={'Types'} data={'Data'} show={showTypesModal} onHide={() => setShowTypesModal(false)} />
-					</div> */}
-					{/* <div className={styles.brandsBlock}>
-						<h2>Brands</h2>
-						<button>Get Brands</button>
-						<form action=''>
-							<input type='text' placeholder='Enter Brand name' />
-						</form>
-						<button>Add Brand</button>
-					</div> */}
-					<DevicesBlock />
+					{showTypesBlock && <TypesBlock />}
+					{showBrandsBlock && <BrandsBlock />}
+					{showDevicesBlock && <DevicesBlock />}
 				</div>
 			</div>
 		</main>

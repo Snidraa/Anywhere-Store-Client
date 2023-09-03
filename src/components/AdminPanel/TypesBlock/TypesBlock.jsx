@@ -10,7 +10,7 @@ const TypesBlock = () => {
 	return (
 		<div className={styles.typesBlock}>
 			<h2>Types</h2>
-			<button className={styles.getButton} onClick={() => setShowTypesModal(true)}>
+			<button className={styles.defaultButton} onClick={() => setShowTypesModal(true)}>
 				Get Types
 			</button>
 			<form action=''>
