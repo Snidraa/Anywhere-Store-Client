@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { arrowDownGray, arrowUpGray, basketBlue, likeGray, starYellow } from '../../assets';
-import HomeLink from '../../components/HomeLink/HomeLink';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import styles from './DevicePage.module.scss';
 
 const DevicePage = () => {
@@ -37,9 +37,7 @@ const DevicePage = () => {
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
-				<p className={styles.breadcrumbs}>
-					<HomeLink /> <span>›</span>
-				</p>
+				<Breadcrumbs pathname={device.name} />
 				<div className={styles.content}>
 					<div className={styles.box1}>
 						<img src={device.img} alt='' />

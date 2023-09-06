@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import HomeLink from '../../components/HomeLink/HomeLink';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import styles from './Auth.module.scss';
 
@@ -8,11 +8,9 @@ const Auth = () => {
 	const isLogin = location.pathname === LOGIN_ROUTE;
 
 	return (
-		<div className={styles.wrapper}>
+		<main className={styles.wrapper}>
 			<div className={styles.container}>
-				<p className={styles.breadcrumbs}>
-					<HomeLink /> <span>›</span> {isLogin ? 'Login' : 'Registration'}
-				</p>
+				<Breadcrumbs pathname={isLogin ? 'Login' : 'Registration'} />
 				<h1>{isLogin ? 'Customer Login' : ' Customer Registration'}</h1>
 				<div className={styles.cardContainer}>
 					<div className={styles.card}>
@@ -50,7 +48,7 @@ const Auth = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 

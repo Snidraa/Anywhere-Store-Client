@@ -1,9 +1,6 @@
 import { useRef, useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../Hooks/useOutsideClick';
 import {
-	arrowDownWhite,
 	facebookGray,
 	instagramGray,
 	paymentAmericanExpress,
@@ -13,9 +10,8 @@ import {
 	paymentVisa,
 } from '../../assets';
 import styles from './Footer.module.scss';
-import FooterMenuItem from './FooterMenuItem';
 const Footer = () => {
-	const { isBigScreen } = useMediaQueries();
+	// const { isBigScreen } = useMediaQueries();
 	const [showList, setShowList] = useState(false);
 	const showListRef = useRef(null);
 
@@ -28,7 +24,7 @@ const Footer = () => {
 	return (
 		<footer className={styles.wrapper}>
 			<div className={styles.container}>
-				<div className={styles.footerTop}>
+				{/* <div className={styles.footerTop}>
 					<div className={styles.menu}>
 						<FooterMenuItem
 							title={'Information'}
@@ -161,7 +157,7 @@ const Footer = () => {
 									<a href=''>Infinity Gaming Notebooks</a>
 								</li>
 							</ul>
-						</div> */}
+						</div> }
 						<div className={styles.menuItem}>
 							{isBigScreen ? (
 								<>
@@ -225,7 +221,7 @@ const Footer = () => {
 							)}
 						</div>
 					</div>
-				</div>
+				</div> */}
 
 				<div className={styles.footerBottom}>
 					<div className={styles.footerBottom_socials}>

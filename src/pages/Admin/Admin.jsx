@@ -2,7 +2,7 @@ import { useState } from 'react';
 import BrandsBlock from '../../components/AdminPanel/BrandsBlock/BrandsBlock';
 import DevicesBlock from '../../components/AdminPanel/DevicesBlock/DevicesBlock';
 import TypesBlock from '../../components/AdminPanel/TypesBlock/TypesBlock';
-import HomeLink from '../../components/HomeLink/HomeLink';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import styles from './Admin.module.scss';
 
 const Admin = () => {
@@ -31,9 +31,7 @@ const Admin = () => {
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
-				<p className={styles.breadcrumbs}>
-					<HomeLink /> <span>›</span> Admin Panel
-				</p>
+				<Breadcrumbs pathname={'Admin Panel'} />
 				<div className={styles.controls}>
 					<button onClick={toggleTypesBlock}>Types</button>
 					<button onClick={toggleBrandsBlock}>Brands</button>

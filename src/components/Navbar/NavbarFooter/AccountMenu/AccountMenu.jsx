@@ -15,7 +15,7 @@ const AccountMenu = observer(() => {
 				<div className={styles.menu_list}>
 					<button onClick={() => navigate(ADMIN_ROUTE)}>Admin Panel</button>
 					<button>My Account</button>
-					<button onClick={() => navigate(FAVORITE_ROUTE)}>My Favorites (0)</button>
+					<button onClick={() => navigate(FAVORITE_ROUTE)}>My Favorite ({user.favorite.length})</button>
 					<button onClick={() => navigate(LOGIN_ROUTE)}>Sign Out</button>
 				</div>
 			) : (

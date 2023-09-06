@@ -1,26 +1,14 @@
 .wrapper {
 	width: 100%;
-	padding: 0 2rem;
+	padding: 13.4rem 2rem 2rem;
 }
 
 .container {
 	max-width: 140rem;
-	margin: 15rem auto 4rem;
-
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-}
-
-.breadcrumbs {
-	display: flex;
-	gap: 1rem;
-	font-size: 1.2rem;
-	font-weight: 400;
-
-	span {
-		color: #0156ff;
-	}
 }
 
 .content {

@@ -1,109 +1,20 @@
 .deviceList {
-	&Control {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 1rem;
-		margin-bottom: 1rem;
-
-		color: #a2a6b0;
-		font-size: 1.3rem;
-		font-weight: 400;
-		line-height: 210%;
-
-		&_SidebarOpenButton {
-			width: 6.7rem;
-			cursor: pointer;
-			background: #fff;
-			padding: 0 1rem;
-			border: #cacdd8 solid 0.2rem;
-			border-radius: 3rem;
-			color: #cacdd8;
-			font-size: 1.4rem;
-			font-weight: 600;
-
-			&:hover {
-				transition: all 0.25s ease-in-out;
-				transform: scale(1.05);
-			}
-		}
-	}
-
-	&Content {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-}
-
-.deviceListSidebar {
-	position: fixed;
-	overflow-y: scroll;
-	width: 32rem;
-	height: 100vh;
-	padding: 1rem 2rem;
-	top: 0;
-	left: 0;
-	z-index: 5;
-	background: #fff;
-
-	h2 {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 2rem;
-		font-weight: 600;
-		text-align: center;
-		padding: 1.5rem 0;
-		margin-bottom: 1.5rem;
-		box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
-	}
-
-	img {
-		cursor: pointer;
-	}
-
-	&Show {
-		animation: showMenu 0.25s ease-in-out forwards;
-	}
-
-	&Hide {
-		animation: showMenu 0.25s ease-in-out forwards reverse;
-	}
-
-	@keyframes showMenu {
-		from {
-			opacity: 0;
-			transform: translate(-30rem);
-		}
-		to {
-			opacity: 1;
-			transform: translate(0);
-		}
-	}
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
 	.deviceList {
-		&Content {
-			gap: 1.5rem;
-		}
+		gap: 1.5rem;
 	}
 }
 
 @media (max-width: 480px) {
-	.sidebar {
-		h2 {
-			font-size: 1.6rem;
-		}
-	}
-
 	.deviceList {
-		&Content {
-			flex-direction: column;
-			flex-wrap: nowrap;
-			gap: 0;
-		}
+		flex-direction: column;
+		flex-wrap: nowrap;
+		gap: 0;
 	}
 }
