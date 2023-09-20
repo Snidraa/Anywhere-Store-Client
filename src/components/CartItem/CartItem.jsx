@@ -4,7 +4,7 @@ import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
 const CartItem = props => {
-	const { item, index, updateCart } = { ...props };
+	const { item, index, updateCountProp } = { ...props };
 	console.log(`CartItem ${index} rendered`);
 	const { price } = { ...item.device };
 	const counter = useRef(null);
@@ -13,7 +13,7 @@ const CartItem = props => {
 	const setCount = value => {
 		const newCount = Number(value);
 		setSubTotal(price * newCount);
-		updateCart(index, newCount);
+		updateCountProp(index, newCount);
 	};
 
 	const increment = () => {

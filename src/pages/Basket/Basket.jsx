@@ -10,8 +10,8 @@ const Basket = observer(() => {
 	console.log('Cart rendered');
 	const { user } = useContext(Context);
 
-	const updateCart = (index, newCount) => {
-		user.updateCartItemCount(index, newCount);
+	const updateCountProp = (index, newCount) => {
+		user.setCountValueOfSelectedDeviceInCart(index, newCount);
 	};
 
 	return (
@@ -29,7 +29,7 @@ const Basket = observer(() => {
 							<span></span>
 						</div>
 						{user.cart.map((item, index) => (
-							<CartItem item={item} index={index} updateCart={updateCart} key={item.device.id} />
+							<CartItem item={item} index={index} updateCountProp={updateCountProp} key={item.device.id} />
 						))}
 						<div className={styles.cartList_subTotal}>
 							<span></span>

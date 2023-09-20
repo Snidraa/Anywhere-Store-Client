@@ -115,7 +115,7 @@ export default class UserStore {
 		return this._cart;
 	}
 
-	updateCartItemCount(index, newCount) {
+	setCountValueOfSelectedDeviceInCart(index, newCount) {
 		runInAction(() => {
 			this._cart[index].count = newCount;
 		});
