@@ -13,7 +13,7 @@ const DeviceItem = ({ device }) => {
 
 	return (
 		<div className={styles.deviceItem} onClick={toDevicePage}>
-			<button className={styles.deviceItemAddToFavorite}>
+			<button className={styles.deviceItemAddToWishlist}>
 				<img src={likeGray} alt='' />
 			</button>
 			<img src={device.img} alt='' className={styles.deviceItemImage} />

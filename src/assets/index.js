@@ -12,6 +12,7 @@ import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
 import crossBlack from './cross-black.svg';
 import crossBlue from './cross-blue.svg';
+import crossRounded from './cross-rounded.svg';
 import facebookGray from './facebook-logo-gray.svg';
 import facebookWhite from './facebook-logo-white.svg';
 import galleryWiewActive from './galleryWiewActive.svg';
@@ -47,6 +48,7 @@ export {
 	clock,
 	crossBlack,
 	crossBlue,
+	crossRounded,
 	facebookGray,
 	facebookWhite,
 	galleryWiewActive,

@@ -1,10 +1,10 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 export default class UserStore {
 	constructor() {
 		this._isAuth = true;
 		this._user = {};
-		this._favorite = [
+		this._wishlist = [
 			{
 				id: 1,
 				name: 'Iphone 12',
@@ -32,43 +32,52 @@ export default class UserStore {
 		];
 		this._cart = [
 			{
-				id: 1,
-				name: 'Iphone 12',
-				price: 1500,
-				rating: 5,
-				ratesCount: 20,
-				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
-				info: [
-					{ title: 'screen', description: '7inch' },
-					{ title: 'CPU', description: 'M1' },
-					{ title: 'RAM', description: '8gb' },
-				],
+				count: 2,
+				device: {
+					id: 1,
+					name: 'Iphone 12',
+					price: 1500,
+					rating: 5,
+					ratesCount: 20,
+					img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+					info: [
+						{ title: 'screen', description: '7inch' },
+						{ title: 'CPU', description: 'M1' },
+						{ title: 'RAM', description: '8gb' },
+					],
+				},
 			},
 			{
-				id: 2,
-				name: 'Iphone 12',
-				price: 1500,
-				rating: 5,
-				ratesCount: 20,
-				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
-				info: [
-					{ title: 'screen', description: '7inch' },
-					{ title: 'CPU', description: 'M1' },
-					{ title: 'RAM', description: '8gb' },
-				],
+				count: 1,
+				device: {
+					id: 2,
+					name: 'Iphone 15',
+					price: 2000,
+					rating: 5,
+					ratesCount: 20,
+					img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+					info: [
+						{ title: 'screen', description: '7inch' },
+						{ title: 'CPU', description: 'M1' },
+						{ title: 'RAM', description: '8gb' },
+					],
+				},
 			},
 			{
-				id: 3,
-				name: 'Iphone 12',
-				price: 1500,
-				rating: 5,
-				ratesCount: 20,
-				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
-				info: [
-					{ title: 'screen', description: '7inch' },
-					{ title: 'CPU', description: 'M1' },
-					{ title: 'RAM', description: '8gb' },
-				],
+				count: 3,
+				device: {
+					id: 3,
+					name: 'Iphone 10',
+					price: 1000,
+					rating: 5,
+					ratesCount: 20,
+					img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+					info: [
+						{ title: 'screen', description: '7inch' },
+						{ title: 'CPU', description: 'M1' },
+						{ title: 'RAM', description: '8gb' },
+					],
+				},
 			},
 		];
 		makeAutoObservable(this);
@@ -82,8 +91,8 @@ export default class UserStore {
 		this._user = user;
 	}
 
-	setFavorite(favorite) {
-		this._favorite = favorite;
+	setWishlist(wishlist) {
+		this._wishlist = wishlist;
 	}
 
 	setCart(cart) {
@@ -98,11 +107,17 @@ export default class UserStore {
 		return this._user;
 	}
 
-	get favorite() {
-		return this._favorite;
+	get wishlist() {
+		return this._wishlist;
 	}
 
 	get cart() {
 		return this._cart;
+	}
+
+	updateCartItemCount(index, newCount) {
+		runInAction(() => {
+			this._cart[index].count = newCount;
+		});
 	}
 }

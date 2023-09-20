@@ -1,4 +1,3 @@
-import { observer } from 'mobx-react-lite';
 import { useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
@@ -8,7 +7,7 @@ import DeviceList from '../../components/DeviceList/DeviceList';
 import SidebarList from '../../components/SidebarList/SidebarList';
 import styles from './Shop.module.scss';
 
-const Shop = observer(() => {
+const Shop = () => {
 	const [showSidebar, setShowSidebar] = useState(false);
 
 	const showSidebarRef = useRef(null);
@@ -64,6 +63,6 @@ const Shop = observer(() => {
 			</div>
 		</main>
 	);
-});
+};
 
 export default Shop;

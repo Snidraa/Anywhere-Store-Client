@@ -1,10 +1,18 @@
+import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import CartForm from '../../components/CartForm/CartForm';
+import CartItem from '../../components/CartItem/CartItem';
 import { Context } from '../../store/Context';
 import styles from './Basket.module.scss';
 
-const Basket = () => {
+const Basket = observer(() => {
+	console.log('Cart rendered');
 	const { user } = useContext(Context);
+
+	const updateCart = (index, newCount) => {
+		user.updateCartItemCount(index, newCount);
+	};
 
 	return (
 		<main className={styles.wrapper}>
@@ -20,39 +28,31 @@ const Basket = () => {
 							<span>Subtotal</span>
 							<span></span>
 						</div>
-						{user.cart.map(item => (
-							<div key={item.id} className={styles.cartItem}>
-								<div className={styles.itemInfo}>
-									<img src={item.img} alt="good's image" />
-									<div>
-										{item.name},&nbsp;
-										{item.info.map(infoItem => (
-											<>
-												<span>{infoItem.title}: </span>
-												<span>{infoItem.description},&nbsp;</span>
-											</>
-										))}
-									</div>
-								</div>
-								<span className={styles.price}>$1500</span>
-								<input className={styles.Qty} type='number' />
-								<span className={styles.subtotal}>$1500</span>
-								<div className={styles.actions}></div>
-							</div>
+						{user.cart.map((item, index) => (
+							<CartItem item={item} index={index} updateCart={updateCart} key={item.device.id} />
 						))}
+						<div className={styles.cartList_subTotal}>
+							<span></span>
+							<span></span>
+							<span></span>
+							{/* <span>${subTotalPrice}</span> */}
+							<span></span>
+						</div>
 						<div className={styles.cartList_buttons}>
 							<div>
 								<button className={styles.continueButton}>Continue Shopping</button>
 								<button>Clear Shopping Cart</button>
 							</div>
-							<button>Update Shopping Cart</button>
+							<button onClick={() => console.log(user.cart)}>Update Shopping Cart</button>
 						</div>
 					</div>
-					<div className={styles.b}></div>
+					<div className={styles.b}>
+						<CartForm />
+					</div>
 				</div>
 			</div>
 		</main>
 	);
-};
+});
 
 export default Basket;

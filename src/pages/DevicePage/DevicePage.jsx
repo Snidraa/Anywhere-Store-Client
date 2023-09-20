@@ -49,7 +49,7 @@ const DevicePage = () => {
 					<div className={styles.box2}>
 						<div className={styles.box2_Header}>
 							<div>
-								<button className={styles.addToFavorite}>
+								<button className={styles.addToWishlist}>
 									<img src={likeGray} alt='' />
 								</button>
 								<p className={styles.devicePrice}>
@@ -70,18 +70,8 @@ const DevicePage = () => {
 										max='100'
 									/>
 									<div className={styles.goodsCounter_controlArea}>
-										<img
-											className={styles.goodsCounter_increaseButton}
-											src={arrowUpGray}
-											alt=''
-											onClick={incrementGoodsCount}
-										/>
-										<img
-											className={styles.goodsCounter_decreaseButton}
-											src={arrowDownGray}
-											alt=''
-											onClick={decrementGoodsCount}
-										/>
+										<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
+										<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
 									</div>
 								</div>
 								<button className={styles.addToCart}>
