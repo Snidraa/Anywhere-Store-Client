@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { basketBlue, likeGray, starYellow } from '../../assets';
+import { cartBlue, likeGray, starYellow } from '../../assets';
 import { DEVICE_ROUTE } from '../../utils/consts';
 import styles from './DeviceItem.module.scss';
 
@@ -28,7 +28,7 @@ const DeviceItem = ({ device }) => {
 				</div>
 				<div className={styles.deviceItemButtons}>
 					<button className={styles.deviceItemAddToCart}>
-						<img src={basketBlue} alt='Add to cart' /> Add To Cart
+						<img src={cartBlue} alt='Add to cart' /> Add To Cart
 					</button>
 				</div>
 			</div>

@@ -1,60 +1,28 @@
 .dropdown {
+	height: auto;
 	overflow: hidden;
 
 	h3 {
-		position: block;
-		z-index: 1;
-		background: #f5f7ff;
 		cursor: pointer;
+		background: #f5f7ff;
 		display: flex;
 		justify-content: space-between;
 		font-size: 1.6rem;
 		font-weight: 600;
-		padding-bottom: 1rem;
-
-		&:hover {
-			.arrow {
-				transition: scale 0.25s ease-in-out;
-				transform: scale(1.5);
-			}
-		}
+		padding-bottom: 0.5rem;
 	}
 
 	.arrow {
-		filter: contrast(0);
-		animation: rotateArrow 0.25s ease-in-out forwards;
+		&Up {
+			filter: contrast(0);
+			rotate: 0deg;
+			transition: rotate 0.25s ease-in-out;
+		}
 
 		&Down {
 			filter: contrast(0);
-			animation: rotateArrow 0.25s ease-in-out forwards reverse;
-		}
-
-		@keyframes rotateArrow {
-			from {
-				transform: rotateX(0deg);
-			}
-			to {
-				transform: rotateX(180deg);
-			}
-		}
-	}
-
-	&List {
-		&Show {
-			animation: showMenu 0.25s ease-in-out forwards;
-		}
-
-		&Hide {
-			animation: showMenu 0.25s ease-in-out forwards reverse;
-		}
-
-		@keyframes showMenu {
-			from {
-				transform: translateY(-200%);
-			}
-			to {
-				transform: translateY(0);
-			}
+			rotate: -180deg;
+			transition: rotate 0.25s ease-in-out;
 		}
 	}
 }

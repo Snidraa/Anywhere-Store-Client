@@ -4,10 +4,10 @@ import arrowDownWhite from './arrow-down-white.svg';
 import arrowRightBlack from './arrow-right-black.svg';
 import arrowUpGray from './arrow-up-gray.svg';
 import avatar from './avatar.svg';
-import basketBlack from './basket-black.svg';
-import basketBlue from './basket-blue.svg';
-import basketWhite from './basket-white.svg';
 import burger from './burger.svg';
+import cartBlack from './cart-black.svg';
+import cartBlue from './cart-blue.svg';
+import cartWhite from './cart-white.svg';
 import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
 import crossBlack from './cross-black.svg';
@@ -40,10 +40,10 @@ export {
 	arrowRightBlack,
 	arrowUpGray,
 	avatar,
-	basketBlack,
-	basketBlue,
-	basketWhite,
 	burger,
+	cartBlack,
+	cartBlue,
+	cartWhite,
 	checkpoint,
 	clock,
 	crossBlack,

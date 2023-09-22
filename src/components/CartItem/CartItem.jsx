@@ -1,4 +1,3 @@
-// import { observer } from 'mobx-react-lite';
 import { useRef, useState } from 'react';
 import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
@@ -29,8 +28,8 @@ const CartItem = props => {
 	};
 
 	return (
-		<div key={item.device.id} className={styles.cartItem}>
-			<div className={styles.itemInfo}>
+		<tr className={styles.cartItem}>
+			<td className={styles.itemInfo}>
 				<img src={item.device.img} alt="good's image" />
 				<div>
 					{item.device.name},&nbsp;
@@ -41,9 +40,9 @@ const CartItem = props => {
 						</div>
 					))}
 				</div>
-			</div>
-			<span className={styles.price}>${price}</span>
-			<div className={styles.Qty}>
+			</td>
+			<td className={styles.price}>${price}</td>
+			<td className={styles.Qty}>
 				<input
 					ref={counter}
 					className={styles.Qty_textField}
@@ -60,12 +59,12 @@ const CartItem = props => {
 					<img src={arrowUpGray} alt='increment' onClick={increment} />
 					<img src={arrowDownGray} alt='decrement' onClick={decrement} />
 				</div>
-			</div>
-			<span className={styles.subtotal}>${subTotal}</span>
-			<div className={styles.actions}>
+			</td>
+			<td className={styles.subtotal}>${subTotal}</td>
+			<td className={styles.actions}>
 				<img src={crossRounded} alt='' />
-			</div>
-		</div>
+			</td>
+		</tr>
 	);
 };
 

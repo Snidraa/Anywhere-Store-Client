@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../../Hooks/useOutsideClick';
-import { account, avatar, basketBlack, basketWhite, logoBlue } from '../../../assets';
+import { account, avatar, cartBlack, cartWhite, logoBlue } from '../../../assets';
 import { Context } from '../../../store/Context';
-import { BASKET_ROUTE, SHOP_ROUTE } from '../../../utils/consts';
+import { CART_ROUTE, SHOP_ROUTE } from '../../../utils/consts';
 import AccountMenu from './AccountMenu/AccountMenu';
 import styles from './NavbarFooter.module.scss';
 import SearchArea from './Search/SearchArea';
@@ -35,8 +35,8 @@ const NavbarFooter = () => {
 						<SearchArea />
 						<div className={styles.management}>
 							<div>
-								<NavLink to={BASKET_ROUTE} className={styles.basket}>
-									<img src={basketBlack} alt='basket' />
+								<NavLink to={CART_ROUTE} className={styles.cart}>
+									<img src={cartBlack} alt='cart' />
 									<p>{user.cart.length}</p>
 								</NavLink>
 							</div>
@@ -58,8 +58,8 @@ const NavbarFooter = () => {
 					<>
 						<SearchArea />
 						<div className={styles.management}>
-							<div className={styles.basket}>
-								<img src={basketWhite} alt='basket' />
+							<div className={styles.cart}>
+								<img src={cartWhite} alt='cart' />
 								<p>{user.cart.length}</p>
 							</div>
 							<div ref={showAccountMenuRef} className={styles.accountMenu}>

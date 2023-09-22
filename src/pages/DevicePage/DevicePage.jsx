@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { arrowDownGray, arrowUpGray, basketBlue, likeGray, starYellow } from '../../assets';
+import { arrowDownGray, arrowUpGray, cartBlue, likeGray, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import styles from './DevicePage.module.scss';
 
@@ -75,7 +75,7 @@ const DevicePage = () => {
 									</div>
 								</div>
 								<button className={styles.addToCart}>
-									<img src={basketBlue} alt='Add to cart' /> Add To Cart
+									<img src={cartBlue} alt='Add to cart' /> Add To Cart
 								</button>
 							</div>
 						</div>
