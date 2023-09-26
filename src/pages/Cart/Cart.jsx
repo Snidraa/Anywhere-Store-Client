@@ -10,8 +10,8 @@ const Cart = () => {
 				<Breadcrumbs pathname='Shopping Cart' />
 				<h1>Shopping Cart</h1>
 				<div className={styles.content}>
-					<CartList className={styles.cartList} />
-					<CartForm className={styles.cartForm} />
+					<CartList />
+					<CartForm />
 				</div>
 			</div>
 		</main>

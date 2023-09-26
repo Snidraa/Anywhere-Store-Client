@@ -21,7 +21,7 @@ const ShopInfoPopup = () => {
 			</div>
 			<div className={styles.shopInfoPopup_adress}>
 				<img src={checkpoint} alt='' />
-				Address: 1234 Street Adress, City Address, 1234
+				Address: Union Street 42, Night City
 			</div>
 			<div className={styles.shopInfoPopup_contacts}>
 				<p>

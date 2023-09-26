@@ -80,6 +80,7 @@ export default class UserStore {
 				},
 			},
 		];
+		this._cartSubTotal = this._cart.reduce((acc, curr) => acc + curr.count * curr.device.price, 0);
 		makeAutoObservable(this);
 	}
 
@@ -99,6 +100,10 @@ export default class UserStore {
 		this._cart = cart;
 	}
 
+	setCartSubTotal(cartSubTotal) {
+		this._cartSubTotal = cartSubTotal;
+	}
+
 	get isAuth() {
 		return this._isAuth;
 	}
@@ -113,6 +118,10 @@ export default class UserStore {
 
 	get cart() {
 		return this._cart;
+	}
+
+	get cartSubTotal() {
+		return this._cartSubTotal;
 	}
 
 	setCountValueOfSelectedDeviceInCart(index, newCount) {

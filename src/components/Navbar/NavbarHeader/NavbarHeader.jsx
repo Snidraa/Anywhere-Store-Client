@@ -48,7 +48,7 @@ const NavbarHeader = () => {
 					</div>
 				</div>
 				<div className={styles.adress}>
-					{isBigScreen && 'Visit our showroom in 1234 Street Adress City Address, 1234'}
+					{isBigScreen && 'Visit our showroom in Union Street 42, Night City'}
 					<a href='tel: (00) 1234 5678'>Contact Us</a>
 				</div>
 				{isBigScreen && (

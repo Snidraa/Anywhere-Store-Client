@@ -3,7 +3,7 @@ import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
 const CartItem = props => {
-	const { item, index, updateCountProp } = { ...props };
+	const { item, index, updateCart, removeItem } = { ...props };
 	console.log(`CartItem ${index} rendered`);
 	const { price } = { ...item.device };
 	const counter = useRef(null);
@@ -12,7 +12,7 @@ const CartItem = props => {
 	const setCount = value => {
 		const newCount = Number(value);
 		setSubTotal(price * newCount);
-		updateCountProp(index, newCount);
+		updateCart(index, newCount);
 	};
 
 	const increment = () => {
@@ -62,7 +62,7 @@ const CartItem = props => {
 			</td>
 			<td className={styles.subtotal}>${subTotal}</td>
 			<td className={styles.actions}>
-				<img src={crossRounded} alt='' />
+				<img src={crossRounded} alt='' onClick={() => removeItem(item.device.id)} />
 			</td>
 		</tr>
 	);
