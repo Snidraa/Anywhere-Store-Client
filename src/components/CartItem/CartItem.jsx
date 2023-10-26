@@ -6,7 +6,7 @@ const CartItem = props => {
 	const { item, index, updateCart, removeItem } = { ...props };
 	console.log(`CartItem ${index} rendered`);
 	const { price } = { ...item.device };
-	const counter = useRef(null);
+	const CartItemCounter = useRef(null);
 	const [subTotal, setSubTotal] = useState(price * item.count);
 
 	const setCount = value => {
@@ -16,15 +16,15 @@ const CartItem = props => {
 	};
 
 	const increment = () => {
-		if (parseInt(counter.current.value) === parseInt(counter.current.max)) return null;
-		counter.current.value = Number(counter.current.value) + Number(counter.current.step);
-		setCount(counter.current.value);
+		if (parseInt(CartItemCounter.current.value) === parseInt(CartItemCounter.current.max)) return null;
+		CartItemCounter.current.value = Number(CartItemCounter.current.value) + Number(CartItemCounter.current.step);
+		setCount(CartItemCounter.current.value);
 	};
 
 	const decrement = () => {
-		if (parseInt(counter.current.value) === parseInt(counter.current.min)) return null;
-		counter.current.value = parseInt(counter.current.value) - parseInt(counter.current.step);
-		setCount(counter.current.value);
+		if (parseInt(CartItemCounter.current.value) === parseInt(CartItemCounter.current.min)) return null;
+		CartItemCounter.current.value = Number(CartItemCounter.current.value) - Number(CartItemCounter.current.step);
+		setCount(CartItemCounter.current.value);
 	};
 
 	return (
@@ -33,18 +33,22 @@ const CartItem = props => {
 				<img src={item.device.img} alt="good's image" />
 				<div>
 					{item.device.name},&nbsp;
-					{item.device?.info.map(infoItem => (
-						<div key={infoItem.title}>
-							<span>{infoItem.title}: </span>
-							<span>{infoItem.description},&nbsp;</span>
-						</div>
-					))}
+					{item.device.info ? (
+						item.device.info.map(infoItem => (
+							<div key={infoItem.title}>
+								<span>{infoItem.title}: </span>
+								<span>{infoItem.description},&nbsp;</span>
+							</div>
+						))
+					) : (
+						<p>No info</p>
+					)}
 				</div>
 			</td>
 			<td className={styles.price}>${price}</td>
 			<td className={styles.Qty}>
 				<input
-					ref={counter}
+					ref={CartItemCounter}
 					className={styles.Qty_textField}
 					type='number'
 					id='count'

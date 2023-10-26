@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
 import { Context } from '../../store/Context';
+import { SHOP_ROUTE } from '../../utils/consts';
 import CartItem from '../CartItem/CartItem';
 import styles from './CartList.module.scss';
-
-import { SHOP_ROUTE } from '../../utils/consts';
-import { useNavigate } from 'react-router-dom';
 
 const CartList = observer(() => {
 	const { user } = useContext(Context);
@@ -14,31 +14,25 @@ const CartList = observer(() => {
 	const toShopPage = () => {
 		navigate(SHOP_ROUTE);
 	};
+
 	const updateCountProp = (index, newCount) => {
 		user.setCountValueOfSelectedDeviceInCart(index, newCount);
 	};
 
-	const updateCartSubTotal = () => {
-		const cartSubTotal = user.cart.reduce((acc, curr) => acc + curr.count * curr.device.price, 0);
-		user.setCartSubTotal(cartSubTotal);
-	};
-
 	const updateCart = (index, newCount) => {
 		updateCountProp(index, newCount);
-		updateCartSubTotal();
-		console.log(user.cartSubTotal);
+		updateCartSubTotal(user);
 	};
 
 	const removeCartItem = id => {
 		const cart = user.cart.filter(item => item.device.id !== id);
-		console.log('🚀 ~ file: CartList.jsx:27 ~ removeCartItem ~ user.cart:', cart);
 		user.setCart(cart);
-		updateCartSubTotal();
+		updateCartSubTotal(user);
 	};
 
 	const clearCart = () => {
 		user.setCart([]);
-		updateCartSubTotal();
+		updateCartSubTotal(user);
 	};
 
 	return (

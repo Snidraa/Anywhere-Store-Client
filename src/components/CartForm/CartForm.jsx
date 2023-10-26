@@ -45,8 +45,9 @@ const CartForm = observer(() => {
 			<div className={styles.cartForm_header}>
 				<h2>Summary</h2>
 				<p>You can pick up your item from the store at Union Street 42, Night City.</p>
-				<Dropdown title={'Apply Discount Code'} height={showUncorrectPromoMessage ? `${14}rem` : `${11}rem`}>
+				<Dropdown title={'Apply Discount Code'} height={showUncorrectPromoMessage ? `${17}rem` : `${14}rem`}>
 					<div className={styles.discountForm}>
+						<p>Promo example: NEWYEAR</p>
 						<input ref={discountRef} type='text' placeholder='Enter Discount code' />
 						{showUncorrectPromoMessage && <span>Uncorrect Promo!</span>}
 						<button onClick={updateOrderTotal}>Apply Discount</button>

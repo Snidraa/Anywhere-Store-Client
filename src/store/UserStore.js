@@ -12,6 +12,11 @@ export default class UserStore {
 				rating: 5,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+				info: [
+					{ title: 'screen', description: '7inch' },
+					{ title: 'CPU', description: 'M1' },
+					{ title: 'RAM', description: '8gb' },
+				],
 			},
 			{
 				id: 2,
@@ -20,6 +25,11 @@ export default class UserStore {
 				rating: 5,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+				info: [
+					{ title: 'screen', description: '7inch' },
+					{ title: 'CPU', description: 'M1' },
+					{ title: 'RAM', description: '8gb' },
+				],
 			},
 			{
 				id: 3,
@@ -28,6 +38,11 @@ export default class UserStore {
 				rating: 5,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
+				info: [
+					{ title: 'screen', description: '7inch' },
+					{ title: 'CPU', description: 'M1' },
+					{ title: 'RAM', description: '8gb' },
+				],
 			},
 		];
 		this._cart = [

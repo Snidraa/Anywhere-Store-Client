@@ -1,8 +1,8 @@
 .deviceItem {
-	cursor: pointer;
 	position: relative;
 	min-width: 20rem;
 	max-width: calc(20% - 0.5rem);
+	min-height: fit-content;
 	padding: 1rem 2.5rem 2rem;
 	margin-bottom: 1.5rem;
 	background: #fff;
@@ -19,16 +19,18 @@
 		aspect-ratio: 1 / 1;
 	}
 
-	&Content {
+	&_Content {
+		cursor: pointer;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&Info {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-	}
-
-	&Info {
-		display: flex;
-		flex-direction: column;
 		margin-top: 1rem;
 	}
 
@@ -59,9 +61,31 @@
 		margin-top: 1.5rem;
 		justify-content: center;
 		align-items: center;
+
+		& > button {
+			cursor: pointer;
+			background: #fff;
+			padding: 0.5rem 1rem;
+			display: flex;
+			gap: 0.5rem;
+			border-radius: 3rem;
+			font-size: 1.4rem;
+			font-weight: 600;
+
+			&:hover {
+				transition: all 0.25s ease-in-out;
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	&InCart {
+		border: #167916 solid 0.2rem;
+		color: #167916;
 	}
 
 	&AddToCart {
+		cursor: pointer;
 		background: #fff;
 		padding: 0.5rem 1rem;
 		display: flex;
@@ -81,7 +105,7 @@
 	&AddToWishlist {
 		position: absolute;
 		top: 1rem;
-		left: 0.5rem;
+		right: 1rem;
 		background: transparent;
 		border-radius: 3rem;
 		z-index: 1;

@@ -1,23 +1,43 @@
-import PropTypes from 'prop-types';
+import { observer } from 'mobx-react-lite';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cartBlue, likeGray, starYellow } from '../../assets';
-import { DEVICE_ROUTE } from '../../utils/consts';
+import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
+import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
+import { Context } from '../../store/Context';
+import { CART_ROUTE, DEVICE_ROUTE } from '../../utils/consts';
 import styles from './DeviceItem.module.scss';
 
-const DeviceItem = ({ device }) => {
+const DeviceItem = observer(props => {
+	const { user } = useContext(Context);
+	const { device } = { ...props };
 	const navigate = useNavigate();
 
 	const toDevicePage = () => {
 		navigate(DEVICE_ROUTE + '/' + device.id);
 	};
 
+	const addToWishlist = () => {
+		user.setWishlist([...user.wishlist, device]);
+	};
+
+	const toCart = () => {
+		navigate(CART_ROUTE);
+	};
+
+	const addToCart = () => {
+		const itemToAdd = { count: 1, device: device };
+		user.setCart([...user.cart, itemToAdd]);
+		updateCartSubTotal(user);
+	};
+
 	return (
-		<div className={styles.deviceItem} onClick={toDevicePage}>
-			<button className={styles.deviceItemAddToWishlist}>
+		<div className={styles.deviceItem}>
+			<button className={styles.deviceItemAddToWishlist} onClick={addToWishlist}>
 				<img src={likeGray} alt='' />
 			</button>
-			<img src={device.img} alt='' className={styles.deviceItemImage} />
-			<div className={styles.deviceItemContent}>
+			<div className={styles.deviceItem_Content} onClick={toDevicePage}>
+				<img src={device.img} alt='' className={styles.deviceItemImage} />
 				<div className={styles.deviceItemInfo}>
 					<p className={styles.deviceItemRatingRow}>
 						<img src={starYellow} alt='' />
@@ -26,18 +46,20 @@ const DeviceItem = ({ device }) => {
 					<p className={styles.deviceItemName}>{device.name}</p>
 					<p className={styles.deviceItemPrice}>${device.price}</p>
 				</div>
-				<div className={styles.deviceItemButtons}>
-					<button className={styles.deviceItemAddToCart}>
+			</div>
+			<div className={styles.deviceItemButtons}>
+				{isDeviceInCart(user.cart, device.id) ? (
+					<button className={styles.deviceItemInCart} onClick={toCart}>
+						Check In cart
+					</button>
+				) : (
+					<button className={styles.deviceItemAddToCart} onClick={addToCart}>
 						<img src={cartBlue} alt='Add to cart' /> Add To Cart
 					</button>
-				</div>
+				)}
 			</div>
 		</div>
 	);
-};
+});
 
 export default DeviceItem;
-
-DeviceItem.propTypes = {
-	device: PropTypes.object,
-};

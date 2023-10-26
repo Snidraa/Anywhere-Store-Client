@@ -1,0 +1,68 @@
+.wrapper {
+	width: 100%;
+	padding: 13.4rem 2rem 2rem;
+}
+
+.container {
+	max-width: 140rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	h1 {
+		font-size: 3.2rem;
+		font-weight: 600;
+	}
+}
+
+.content {
+	display: flex;
+	gap: 3.5rem;
+	align-items: start;
+}
+
+@media (max-width: 520px) {
+	.container {
+		h1 {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+.cartList {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+
+	& > table {
+		thead {
+			font-size: 1.4rem;
+			font-weight: 600;
+		}
+
+		tr {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 14fr 2fr 4fr 1fr;
+			gap: 2rem;
+			text-align: left;
+			box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
+			margin: 0 0 1.5rem;
+			padding: 0 0 1.5rem;
+		}
+	}
+
+	&_buttons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+
+		& > div {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+}

@@ -9,7 +9,6 @@ export const promocodes = {
 
 export function getDiscount(code, subTotal) {
 	if (!code || !promocodes[code]) return;
-	// console.log(promocodes[code], subTotal);
 	const discountPercent = promocodes[code];
 	const discountAmount = (subTotal * discountPercent) / 100;
 	const discount = {

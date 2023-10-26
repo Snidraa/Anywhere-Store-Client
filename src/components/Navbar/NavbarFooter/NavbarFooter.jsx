@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import { useContext, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
@@ -10,7 +11,7 @@ import AccountMenu from './AccountMenu/AccountMenu';
 import styles from './NavbarFooter.module.scss';
 import SearchArea from './Search/SearchArea';
 
-const NavbarFooter = () => {
+const NavbarFooter = observer(() => {
 	const { user } = useContext(Context);
 	const { isBigScreen } = useMediaQueries();
 	const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -80,6 +81,6 @@ const NavbarFooter = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default NavbarFooter;

@@ -1,9 +1,14 @@
-import { useRef } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useContext, useRef } from 'react';
 import { arrowDownGray, arrowUpGray, cartBlue, likeGray, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
+import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
+import { Context } from '../../store/Context';
 import styles from './DevicePage.module.scss';
 
-const DevicePage = () => {
+const DevicePage = observer(() => {
+	const { user } = useContext(Context);
 	const device = {
 		id: 1,
 		name: 'Iphone 12',
@@ -21,17 +26,22 @@ const DevicePage = () => {
 	};
 
 	const info = device.info;
-	const goodsCounter = useRef(null);
+	const DevicePageCounter = useRef(null);
 
 	const incrementGoodsCount = () => {
-		if (parseInt(goodsCounter.current.value) === parseInt(goodsCounter.current.max)) return null;
-		if (!goodsCounter.current.value) goodsCounter.current.value = 0;
-		goodsCounter.current.value = parseInt(goodsCounter.current.value) + parseInt(goodsCounter.current.step);
+		if (parseInt(DevicePageCounter.current.value) === parseInt(DevicePageCounter.current.max)) return null;
+		DevicePageCounter.current.value = Number(DevicePageCounter.current.value) + Number(DevicePageCounter.current.step);
 	};
 
 	const decrementGoodsCount = () => {
-		if (parseInt(goodsCounter.current.value) === parseInt(goodsCounter.current.min)) return null;
-		goodsCounter.current.value = parseInt(goodsCounter.current.value) - parseInt(goodsCounter.current.step);
+		if (parseInt(DevicePageCounter.current.value) === parseInt(DevicePageCounter.current.min)) return null;
+		DevicePageCounter.current.value = Number(DevicePageCounter.current.value) - Number(DevicePageCounter.current.step);
+	};
+
+	const addToCart = () => {
+		const itemToAdd = { count: 1, device: device };
+		user.setCart([...user.cart, itemToAdd]);
+		updateCartSubTotal(user);
 	};
 
 	return (
@@ -55,35 +65,40 @@ const DevicePage = () => {
 								<p className={styles.devicePrice}>
 									On Sale from <span className={styles.devicePriceValue}>${device.price}</span>
 								</p>
-							</div>
-							<div>
-								<div className={styles.goodsCounter}>
-									<input
-										ref={goodsCounter}
-										className={styles.goodsCounter_textField}
-										type='number'
-										id='goodsCount'
-										name='Goods count'
-										placeholder='0'
-										step='1'
-										min='1'
-										max='100'
-									/>
-									<div className={styles.goodsCounter_controlArea}>
-										<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
-										<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
-									</div>
-								</div>
-								<button className={styles.addToCart}>
-									<img src={cartBlue} alt='Add to cart' /> Add To Cart
-								</button>
+								{isDeviceInCart(user.cart, device.id) ? (
+									<p>Device added to cart</p>
+								) : (
+									<>
+										<div className={styles.DevicePageCounter}>
+											<input
+												ref={DevicePageCounter}
+												className={styles.DevicePageCounter_textField}
+												type='number'
+												id='goodsCount'
+												name='Goods count'
+												step='1'
+												min='1'
+												max='100'
+												defaultValue={1}
+												readOnly
+											/>
+											<div className={styles.DevicePageCounter_controlArea}>
+												<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
+												<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
+											</div>
+										</div>
+										<button className={styles.addToCart} onClick={addToCart}>
+											<img src={cartBlue} alt='Add to cart' /> Add To Cart
+										</button>
+									</>
+								)}
 							</div>
 						</div>
 						<div className={styles.box2_Footer}>
 							<p className={styles.deviceName}>{device.name}</p>
 							<div className={styles.deviceInfo}>
 								{info.map(item => (
-									<p key={item.id}>
+									<p key={item.title}>
 										• {item.title}: {item.description}
 									</p>
 								))}
@@ -94,6 +109,6 @@ const DevicePage = () => {
 			</div>
 		</main>
 	);
-};
+});
 
 export default DevicePage;
