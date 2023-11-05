@@ -1,7 +1,7 @@
-.blueButton {
+@mixin button-styles($background, $border, $color) {
 	cursor: pointer;
 	min-width: 12rem;
-	background: transparent;
+	background: $background;
 	padding: 0.5rem 1rem;
 	display: flex;
 	justify-content: center;
@@ -10,97 +10,32 @@
 	border-radius: 3rem;
 	font-size: 1.4rem;
 	font-weight: 600;
-	border: #0156ff solid 0.2rem;
-	color: #0156ff;
+	border: $border solid 0.2rem;
+	color: $color;
 
 	&:hover {
 		transition: all 0.25s ease-in-out;
-		background: #0156ff;
+		background: $border;
 		color: #fff;
 	}
+}
+
+.blueButton {
+	@include button-styles(transparent, #0156ff, #0156ff);
 }
 
 .greenButton {
-	cursor: pointer;
-	min-width: 12rem;
-	background: transparent;
-	padding: 0.5rem 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	border-radius: 3rem;
-	font-size: 1.4rem;
-	font-weight: 600;
-	border: #167916 solid 0.2rem;
-	color: #167916;
-
-	&:hover {
-		background: #167916;
-		color: #fff;
-	}
+	@include button-styles(transparent, #167916, #167916);
 }
 
 .redButton {
-	cursor: pointer;
-	min-width: 12rem;
-	background: transparent;
-	padding: 0.5rem 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	border-radius: 3rem;
-	font-size: 1.4rem;
-	font-weight: 600;
-	border: #e21313 solid 0.2rem;
-	color: #e21313;
-
-	&:hover {
-		background: #e21313;
-		color: #fff;
-	}
+	@include button-styles(transparent, #e21313, #e21313);
 }
 
 .blackButton {
-	cursor: pointer;
-	min-width: 12rem;
-	background: transparent;
-	padding: 0.5rem 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	border-radius: 3rem;
-	font-size: 1.4rem;
-	font-weight: 600;
-	border: #000 solid 0.2rem;
-	color: #000;
-
-	&:hover {
-		background: #000;
-		color: #fff;
-	}
+	@include button-styles(transparent, #000, #000);
 }
 
 .grayButton {
-	cursor: pointer;
-	min-width: 12rem;
-	background: transparent;
-	padding: 0.5rem 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	border-radius: 3rem;
-	font-size: 1.4rem;
-	font-weight: 600;
-	border: #a2a6b0 solid 0.2rem;
-	color: #a2a6b0;
-
-	&:hover {
-		transition: all 0.25s ease-in-out;
-		background: #a2a6b0;
-		color: #fff;
-	}
+	@include button-styles(transparent, #a2a6b0, #a2a6b0);
 }

@@ -3,7 +3,6 @@ import { useContext, useRef } from 'react';
 import { arrowDownGray, arrowUpGray, cartBlue, likeGray, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
-import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
 import { Context } from '../../store/Context';
 import styles from './DevicePage.module.scss';
 
@@ -29,19 +28,23 @@ const DevicePage = observer(() => {
 	const DevicePageCounter = useRef(null);
 
 	const incrementGoodsCount = () => {
-		if (parseInt(DevicePageCounter.current.value) === parseInt(DevicePageCounter.current.max)) return null;
-		DevicePageCounter.current.value = Number(DevicePageCounter.current.value) + Number(DevicePageCounter.current.step);
+		const prevValue = DevicePageCounter.current.value;
+		const step = Number(DevicePageCounter.current.step);
+		if (parseInt(prevValue) === parseInt(DevicePageCounter.current.max)) return null;
+		DevicePageCounter.current.value = Number(prevValue) + step;
 	};
 
 	const decrementGoodsCount = () => {
-		if (parseInt(DevicePageCounter.current.value) === parseInt(DevicePageCounter.current.min)) return null;
-		DevicePageCounter.current.value = Number(DevicePageCounter.current.value) - Number(DevicePageCounter.current.step);
+		const prevValue = DevicePageCounter.current.value;
+		const step = Number(DevicePageCounter.current.step);
+		if (parseInt(prevValue) === parseInt(DevicePageCounter.current.min)) return null;
+		DevicePageCounter.current.value = Number(prevValue) - step;
 	};
 
 	const addToCart = () => {
-		const itemToAdd = { count: 1, device: device };
+		const count = Number(DevicePageCounter.current.value);
+		const itemToAdd = { count: count, device: device };
 		user.setCart([...user.cart, itemToAdd]);
-		updateCartSubTotal(user);
 	};
 
 	return (

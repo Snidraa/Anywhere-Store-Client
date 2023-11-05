@@ -3,7 +3,7 @@ import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
 const CartItem = props => {
-	const { item, index, updateCart, removeItem } = { ...props };
+	const { item, index, incrementCount, decrementCount, removeItem } = { ...props };
 	console.log(`CartItem ${index} rendered`);
 	const { price } = { ...item.device };
 	const CartItemCounter = useRef(null);
@@ -12,18 +12,24 @@ const CartItem = props => {
 	const setCount = value => {
 		const newCount = Number(value);
 		setSubTotal(price * newCount);
-		updateCart(index, newCount);
+		// updateCart(index, newCount);
 	};
 
 	const increment = () => {
-		if (parseInt(CartItemCounter.current.value) === parseInt(CartItemCounter.current.max)) return null;
-		CartItemCounter.current.value = Number(CartItemCounter.current.value) + Number(CartItemCounter.current.step);
+		const prevValue = CartItemCounter.current.value;
+		const step = Number(CartItemCounter.current.step);
+		if (parseInt(prevValue) === parseInt(CartItemCounter.current.max)) return null;
+		CartItemCounter.current.value = Number(prevValue) + step;
+		incrementCount(item, step);
 		setCount(CartItemCounter.current.value);
 	};
 
 	const decrement = () => {
-		if (parseInt(CartItemCounter.current.value) === parseInt(CartItemCounter.current.min)) return null;
-		CartItemCounter.current.value = Number(CartItemCounter.current.value) - Number(CartItemCounter.current.step);
+		const prevValue = CartItemCounter.current.value;
+		const step = Number(CartItemCounter.current.step);
+		if (parseInt(prevValue) === parseInt(CartItemCounter.current.min)) return null;
+		CartItemCounter.current.value = Number(prevValue) - step;
+		decrementCount(item, step);
 		setCount(CartItemCounter.current.value);
 	};
 

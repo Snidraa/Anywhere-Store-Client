@@ -20,6 +20,7 @@ import galleryWiewInActive from './galleryWiewInActive.svg';
 import instagramGray from './instagram-logo-gray.svg';
 import instagramWhite from './instagram-logo-white.svg';
 import likeGray from './like-gray.svg';
+import likeRed from './like-red.svg';
 import listWiewActive from './listWiewActive.svg';
 import listWiewInActive from './listWiewInActive.svg';
 import logoBlue from './logo-blue.svg';
@@ -56,6 +57,7 @@ export {
 	instagramGray,
 	instagramWhite,
 	likeGray,
+	likeRed,
 	listWiewActive,
 	listWiewInActive,
 	logoBlue,

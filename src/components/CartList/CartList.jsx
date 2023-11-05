@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
 import { Context } from '../../store/Context';
 import { SHOP_ROUTE } from '../../utils/consts';
 import CartItem from '../CartItem/CartItem';
@@ -15,24 +14,13 @@ const CartList = observer(() => {
 		navigate(SHOP_ROUTE);
 	};
 
-	const updateCountProp = (index, newCount) => {
-		user.setCountValueOfSelectedDeviceInCart(index, newCount);
-	};
-
-	const updateCart = (index, newCount) => {
-		updateCountProp(index, newCount);
-		updateCartSubTotal(user);
-	};
-
 	const removeCartItem = id => {
 		const cart = user.cart.filter(item => item.device.id !== id);
 		user.setCart(cart);
-		updateCartSubTotal(user);
 	};
 
 	const clearCart = () => {
 		user.setCart([]);
-		updateCartSubTotal(user);
 	};
 
 	return (
@@ -53,7 +41,8 @@ const CartList = observer(() => {
 							key={item.device.id}
 							item={item}
 							index={index}
-							updateCart={updateCart}
+							incrementCount={user.incrementCount}
+							decrementCount={user.decrementCount}
 							removeItem={removeCartItem}
 						/>
 					))}

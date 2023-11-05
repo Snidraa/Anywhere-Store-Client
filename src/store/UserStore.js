@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { action, computed, makeAutoObservable } from 'mobx';
 
 export default class UserStore {
 	constructor() {
@@ -95,8 +95,8 @@ export default class UserStore {
 				},
 			},
 		];
-		this._cartSubTotal = this._cart.reduce((acc, curr) => acc + curr.count * curr.device.price, 0);
-		makeAutoObservable(this);
+		// this._cartSubTotal = this._cart.reduce((acc, curr) => acc + curr.count * curr.device.price, 0);
+		makeAutoObservable(this, { cartSubTotal: computed, incrementCount: action, decrementCount: action });
 	}
 
 	setIsAuth(bool) {
@@ -136,12 +136,20 @@ export default class UserStore {
 	}
 
 	get cartSubTotal() {
-		return this._cartSubTotal;
+		return this.cart.reduce((subTotal, item) => subTotal + item.count * item.device.price, 0);
 	}
 
-	setCountValueOfSelectedDeviceInCart(index, newCount) {
-		runInAction(() => {
-			this._cart[index].count = newCount;
-		});
+	incrementCount(item, step) {
+		item.count += step;
 	}
+
+	decrementCount(item, step) {
+		item.count -= step;
+	}
+
+	// setCountValueOfSelectedDeviceInCart(index, newCount) {
+	// 	runInAction(() => {
+	// 		this._cart[index].count = newCount;
+	// 	});
+	// }
 }

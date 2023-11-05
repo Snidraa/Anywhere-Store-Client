@@ -1,58 +1,33 @@
 .brandsBlock {
-	.modalList {
+	.modalTable {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 
-		&Item {
+		&Header,
+		&Row {
 			display: grid;
 			grid-template-columns: 0.5fr 7.5fr 2fr;
 			align-items: center;
-			gap: 2rem;
-			padding: 0 0 0.5rem;
+			gap: 1rem;
+			padding: 0.5rem;
 			box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
 
-			&:first-child {
-				padding: 0.5rem 0 1rem;
-			}
-
-			span:last-child {
-				text-align: center;
+			td:last-child {
+				justify-self: end;
 			}
 		}
-	}
 
-	.addButton {
-		background: transparent;
-		border: #167916 solid 0.2rem;
-		color: #167916;
-
-		&:hover {
-			background: #167916;
-			color: #fff;
+		&Header {
+			padding: 0.5rem 0.5rem 1rem;
+			box-shadow: 0 0.2rem 0 0 rgba(#000, 0.5);
 		}
-	}
 
-	.defaultButton {
-		background: transparent;
-		border: #0156ff solid 0.2rem;
-		color: #0156ff;
-
-		&:hover {
-			background: #0156ff;
-			color: #fff;
-		}
-	}
-
-	.deleteButton {
-		padding: 0.1rem 1.5rem;
-		background: transparent;
-		border: #e21313 solid 0.2rem;
-		color: #e21313;
-
-		&:hover {
-			background: #e21313;
-			color: #fff;
+		&Row {
+			& td > button {
+				min-width: fit-content;
+				padding: 0.1rem 1.5rem;
+			}
 		}
 	}
 }

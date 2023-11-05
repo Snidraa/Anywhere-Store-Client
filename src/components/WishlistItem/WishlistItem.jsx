@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import { useContext, useRef, useState } from 'react';
 import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
-import { updateCartSubTotal } from '../../middlewares/updateCartSubtotal';
 import { Context } from '../../store/Context';
 import BlueButton from '../Buttons/BlueButton';
 import styles from './WishlistItem.module.scss';
@@ -38,7 +37,6 @@ const WishlistItem = observer(props => {
 	const addToCart = () => {
 		const itemToAdd = { count: count, device: item };
 		user.setCart([...user.cart, itemToAdd]);
-		updateCartSubTotal(user);
 	};
 
 	return (

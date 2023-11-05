@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { Context } from '../../../store/Context';
+import { BlueButton, GreenButton, RedButton } from '../../Buttons';
 import Modal from '../../Modal/Modal';
 import styles from './TypesBlock.module.scss';
 
@@ -10,28 +11,33 @@ const TypesBlock = () => {
 	return (
 		<div className={styles.typesBlock}>
 			<h2>Types</h2>
-			<button className={styles.defaultButton} onClick={() => setShowTypesModal(true)}>
-				Get Types
-			</button>
+			<BlueButton onClick={() => setShowTypesModal(true)}>Get Types</BlueButton>
 			<form action=''>
 				<input type='text' placeholder='Enter Type name' />
 			</form>
-			<button className={styles.addButton}>Add Type</button>
+			<GreenButton>Add Type</GreenButton>
+
 			<Modal title={'Types'} show={showTypesModal} onHide={() => setShowTypesModal(false)}>
-				<ul className={styles.modalList}>
-					<li className={styles.modalListItem}>
-						<span>id</span>
-						<span>name</span>
-						<span></span>
-					</li>
-					{device.types.map(type => (
-						<li key={type.id} className={styles.modalListItem}>
-							<span>{type.id}</span>
-							<span>{type.name}</span>
-							<button className={styles.deleteButton}>Delete</button>
-						</li>
-					))}
-				</ul>
+				<table className={styles.modalTable}>
+					<thead>
+						<tr className={styles.modalTableHeader}>
+							<td>id</td>
+							<td>name</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						{device.types.map(type => (
+							<tr key={type.id} className={styles.modalTableRow}>
+								<td>{type.id}</td>
+								<td>{type.name}</td>
+								<td>
+									<RedButton>Delete</RedButton>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 			</Modal>
 		</div>
 	);

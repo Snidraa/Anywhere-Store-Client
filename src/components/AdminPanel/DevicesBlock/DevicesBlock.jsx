@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
 import { Context } from '../../../store/Context';
+import { BlueButton, GreenButton, RedButton } from '../../Buttons';
 import Modal from '../../Modal/Modal';
 import styles from './DevicesBlock.module.scss';
 
@@ -83,9 +84,7 @@ const DevicesBlock = () => {
 	return (
 		<div className={styles.devicesBlock}>
 			<h2>Devices</h2>
-			<button className={styles.defaultButton} onClick={() => setShowDevicesModal(true)}>
-				Get Devices
-			</button>
+			<BlueButton onClick={() => setShowDevicesModal(true)}>Get Devices</BlueButton>
 			<form action='submit' className={styles.addDeviceFrom}>
 				<div className={styles.selectors}>
 					<Select
@@ -128,34 +127,36 @@ const DevicesBlock = () => {
 					<div key={i.id} className={styles.infoItem}>
 						<input type='text' placeholder='Enter property title' />
 						<input type='text' placeholder='Enter property description' />
-						<button className={styles.deleteButton} onClick={() => removeInfo(i.id)}>
-							Delete
-						</button>
+						<RedButton onClick={() => removeInfo(i.id)}>Delete</RedButton>
 					</div>
 				))}
-				<button className={styles.defaultButton} onClick={addInfo}>
-					Add new property
-				</button>
+				<BlueButton onClick={addInfo}>Add new property</BlueButton>
 			</form>
 
-			<button className={styles.addButton}>Add Device</button>
+			<GreenButton className={styles.addButton}>Add Device</GreenButton>
 			<Modal title={'Devices'} show={showDevicesModal} onHide={() => setShowDevicesModal(false)}>
-				<ul className={styles.modalList}>
-					<li className={styles.modalListItem}>
-						<span>id</span>
-						<span>name</span>
-						<span>price</span>
-						<span></span>
-					</li>
-					{device.devices.map(device => (
-						<li key={device.id} className={styles.modalListItem}>
-							<span>{device.id}</span>
-							<span>{device.name}</span>
-							<span>{device.price}</span>
-							<button className={styles.deleteButton}>Delete</button>
-						</li>
-					))}
-				</ul>
+				<table className={styles.modalTable}>
+					<thead>
+						<tr className={styles.modalTableHeader}>
+							<td>id</td>
+							<td>name</td>
+							<td>price</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						{device.devices.map(device => (
+							<tr key={device.id} className={styles.modalTableRow}>
+								<td>{device.id}</td>
+								<td>{device.name}</td>
+								<td>{device.price}</td>
+								<td>
+									<RedButton>Delete</RedButton>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 			</Modal>
 		</div>
 	);
