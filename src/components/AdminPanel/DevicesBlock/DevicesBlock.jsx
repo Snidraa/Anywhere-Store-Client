@@ -42,12 +42,6 @@ const DevicesBlock = () => {
 	const removeInfo = id => {
 		setInfo(info.filter(i => i.id !== id));
 	};
-	// const showValues = () => {
-	// 	console.log(typeSelectorRef.current);
-
-	// 	console.log('Types value:', typeSelectorRef.current?.value);
-	// 	console.log('Brands value: ', brandSelectorRef.current?.value);
-	// };
 
 	const handleChange = (value, name) => {
 		if (name.name === 'Types') {

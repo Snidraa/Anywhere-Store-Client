@@ -5,3 +5,4 @@ export const SHOP_ROUTE = '/';
 export const CART_ROUTE = '/cart';
 export const WISHLIST_ROUTE = '/wishlist';
 export const DEVICE_ROUTE = '/device';
+export const TERMS_AND_CONDITIONS_ROUTE = '/terms';

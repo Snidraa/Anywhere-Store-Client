@@ -3,6 +3,7 @@ import Auth from '../pages/Auth/Auth';
 import Cart from '../pages/Cart/Cart';
 import DevicePage from '../pages/DevicePage/DevicePage';
 import Shop from '../pages/Shop/Shop';
+import TermsAndConditions from '../pages/TermsAndConditions/TermsAndConditions';
 import Wishlist from '../pages/Wishlist/Wishlist';
 
 import {
@@ -12,6 +13,7 @@ import {
 	LOGIN_ROUTE,
 	REGISTRATION_ROUTE,
 	SHOP_ROUTE,
+	TERMS_AND_CONDITIONS_ROUTE,
 	WISHLIST_ROUTE,
 } from '../utils/consts';
 
@@ -26,4 +28,5 @@ export const publicRoutes = [
 	{ path: LOGIN_ROUTE, element: <Auth /> },
 	{ path: REGISTRATION_ROUTE, element: <Auth /> },
 	{ path: DEVICE_ROUTE + '/:id', element: <DevicePage /> },
+	{ path: TERMS_AND_CONDITIONS_ROUTE, element: <TermsAndConditions /> },
 ];

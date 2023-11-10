@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect, useRef, useState } from 'react';
 import { useCountPrice } from '../../Hooks/useCountPrice';
 import { getDiscount } from '../../utils/promocodes';
+import { BlueButton } from '../Buttons';
 import Dropdown from '../Dropdown/Dropdown';
 import styles from './CartForm.module.scss';
 
@@ -47,10 +48,10 @@ const CartForm = observer(() => {
 				<p>You can pick up your item from the store at Union Street 42, Night City.</p>
 				<Dropdown title={'Apply Discount Code'} height={showUncorrectPromoMessage ? `${17}rem` : `${14}rem`}>
 					<div className={styles.discountForm}>
-						<p>Promo example: NEWYEAR</p>
+						<p>Promocode example: NEWYEAR</p>
 						<input ref={discountRef} type='text' placeholder='Enter Discount code' />
-						{showUncorrectPromoMessage && <span>Uncorrect Promo!</span>}
-						<button onClick={updateOrderTotal}>Apply Discount</button>
+						{showUncorrectPromoMessage && <span>Uncorrect Promocode!</span>}
+						<BlueButton onClick={updateOrderTotal}>Apply Discount</BlueButton>
 					</div>
 				</Dropdown>
 			</div>
@@ -80,7 +81,7 @@ const CartForm = observer(() => {
 					</tr>
 				</tbody>
 			</table>
-			<button></button>
+			<BlueButton>Proceed to Checkout</BlueButton>
 			<p className={styles.deliverInfo}>We are working on adding a delivery option. Thank you for your purchase.</p>
 		</div>
 	);

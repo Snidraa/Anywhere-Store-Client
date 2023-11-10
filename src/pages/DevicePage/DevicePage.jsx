@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef } from 'react';
-import { arrowDownGray, arrowUpGray, cartBlue, likeGray, starYellow } from '../../assets';
+import { arrowDownGray, arrowUpGray, cartBlue, likeGray, likeRed, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
+import { isDeviceInWishlist } from '../../middlewares/isDeviceInWishlist';
 import { Context } from '../../store/Context';
 import styles from './DevicePage.module.scss';
 
@@ -47,6 +48,15 @@ const DevicePage = observer(() => {
 		user.setCart([...user.cart, itemToAdd]);
 	};
 
+	const addToWishlist = () => {
+		user.setWishlist([...user.wishlist, device]);
+	};
+
+	const removeWishlistItem = id => {
+		const wishlist = user.wishlist.filter(item => item.id !== id);
+		user.setWishlist(wishlist);
+	};
+
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
@@ -62,9 +72,13 @@ const DevicePage = observer(() => {
 					<div className={styles.box2}>
 						<div className={styles.box2_Header}>
 							<div>
-								<button className={styles.addToWishlist}>
-									<img src={likeGray} alt='' />
-								</button>
+								<div className={styles.addToWishlist}>
+									{isDeviceInWishlist(user.wishlist, device.id) ? (
+										<img src={likeRed} alt='' onClick={() => removeWishlistItem(device.id)} />
+									) : (
+										<img src={likeGray} alt='' onClick={addToWishlist} />
+									)}
+								</div>
 								<p className={styles.devicePrice}>
 									On Sale from <span className={styles.devicePriceValue}>${device.price}</span>
 								</p>

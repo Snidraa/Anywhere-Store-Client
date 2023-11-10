@@ -44,26 +44,7 @@
 				font-weight: 400;
 			}
 
-			button {
-				width: fit-content;
-				padding: 0.5rem 1.5rem;
-				display: flex;
-				gap: 0.5rem;
-				border-radius: 3rem;
-				font-size: 1.4rem;
-				font-weight: 600;
-				transition: all 0.25s ease-in-out;
-				background: transparent;
-				border: #0156ff solid 0.2rem;
-				color: #0156ff;
-
-				&:hover {
-					background: #0156ff;
-					color: #fff;
-				}
-			}
-
-			& > span {
+			span {
 				color: var(--Color---10, #666);
 				font-size: 1.2rem;
 				line-height: 180%;

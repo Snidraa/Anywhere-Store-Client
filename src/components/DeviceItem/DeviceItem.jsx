@@ -21,6 +21,11 @@ const DeviceItem = observer(props => {
 		user.setWishlist([...user.wishlist, device]);
 	};
 
+	const removeWishlistItem = id => {
+		const wishlist = user.wishlist.filter(item => item.id !== id);
+		user.setWishlist(wishlist);
+	};
+
 	const toCart = () => {
 		navigate(CART_ROUTE);
 	};
@@ -32,9 +37,13 @@ const DeviceItem = observer(props => {
 
 	return (
 		<div className={styles.deviceItem}>
-			<button className={styles.deviceItemAddToWishlist} onClick={addToWishlist}>
-				{isDeviceInWishlist(user.wishlist, device.id) ? <img src={likeRed} alt='' /> : <img src={likeGray} alt='' />}
-			</button>
+			<div className={styles.deviceItemAddToWishlist}>
+				{isDeviceInWishlist(user.wishlist, device.id) ? (
+					<img src={likeRed} alt='' onClick={() => removeWishlistItem(device.id)} />
+				) : (
+					<img src={likeGray} alt='' onClick={addToWishlist} />
+				)}
+			</div>
 			<div className={styles.deviceItem_Content} onClick={toDevicePage}>
 				<img src={device.img} alt='' className={styles.deviceItemImage} />
 				<div className={styles.deviceItemInfo}>

@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { BlueButton } from '../../components/Buttons';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import styles from './Auth.module.scss';
 
@@ -31,7 +32,7 @@ const Auth = () => {
 							<input type='text' placeholder='Your password...' />
 						</form>
 						<div className={styles.form_footer}>
-							<button>{isLogin ? 'Login' : 'Register'}</button>
+							<BlueButton>{isLogin ? 'Login' : 'Register'}</BlueButton>
 							{isLogin ? (
 								<a href=''>Forgot Your Password?</a>
 							) : (

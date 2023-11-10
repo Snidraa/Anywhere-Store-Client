@@ -64,13 +64,16 @@
 
 		& > button {
 			cursor: pointer;
-			background: #fff;
-			padding: 0.5rem 1rem;
+			min-width: 12rem;
+			padding: 0.5rem 1.5rem;
 			display: flex;
+			justify-content: center;
+			align-items: center;
 			gap: 0.5rem;
 			border-radius: 3rem;
 			font-size: 1.4rem;
 			font-weight: 600;
+			background: #fff;
 
 			&:hover {
 				transition: all 0.25s ease-in-out;
@@ -81,28 +84,16 @@
 
 	&InCart {
 		border: #167916 solid 0.2rem;
-		color: #167916;
+		color: #167915;
 	}
 
 	&AddToCart {
-		cursor: pointer;
-		background: #fff;
-		padding: 0.5rem 1rem;
-		display: flex;
-		gap: 0.5rem;
 		border: #0156ff solid 0.2rem;
-		border-radius: 3rem;
 		color: #0156ff;
-		font-size: 1.4rem;
-		font-weight: 600;
-
-		&:hover {
-			transition: all 0.25s ease-in-out;
-			transform: scale(1.05);
-		}
 	}
 
 	&AddToWishlist {
+		cursor: pointer;
 		position: absolute;
 		top: 1rem;
 		right: 1rem;

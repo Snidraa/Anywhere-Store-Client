@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../store/Context';
 import { SHOP_ROUTE } from '../../utils/consts';
+import { BlackButton, GrayButton } from '../Buttons';
 import CartItem from '../CartItem/CartItem';
 import styles from './CartList.module.scss';
 
@@ -49,12 +50,8 @@ const CartList = observer(() => {
 				</tbody>
 			</table>
 			<div className={styles.cartList_buttons}>
-				<div>
-					<button className={styles.continueButton} onClick={toShopPage}>
-						Continue Shopping
-					</button>
-				</div>
-				<button onClick={clearCart}>Clear Shopping Cart</button>
+				<GrayButton onClick={toShopPage}>Continue Shopping</GrayButton>
+				<BlackButton onClick={clearCart}>Clear Shopping Cart</BlackButton>
 				{/* <button onClick={() => console.log(user.cart)}>Update Shopping Cart</button> */}
 			</div>
 		</div>

@@ -1,27 +1,17 @@
 import { observer } from 'mobx-react-lite';
-import { useContext, useRef, useState } from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../../Hooks/useMediaQueries';
-import { useOutsideClick } from '../../../Hooks/useOutsideClick';
-import { account, avatar, cartBlack, cartWhite, logoBlue } from '../../../assets';
+import { cartBlack, cartWhite, logoBlue } from '../../../assets';
 import { Context } from '../../../store/Context';
 import { CART_ROUTE, SHOP_ROUTE } from '../../../utils/consts';
-import AccountMenu from './AccountMenu/AccountMenu';
 import styles from './NavbarFooter.module.scss';
+import NavbarMenu from './NavbarMenu/NavbarMenu';
 import SearchArea from './Search/SearchArea';
 
 const NavbarFooter = observer(() => {
 	const { user } = useContext(Context);
 	const { isBigScreen } = useMediaQueries();
-	const [showAccountMenu, setShowAccountMenu] = useState(false);
-	const showAccountMenuRef = useRef(null);
-
-	const toggleAccountMenu = () => {
-		setShowAccountMenu(!showAccountMenu);
-	};
-
-	useOutsideClick(showAccountMenuRef, toggleAccountMenu, showAccountMenu);
 
 	return (
 		<div className={styles.navbarFooterWrapper}>
@@ -41,18 +31,7 @@ const NavbarFooter = observer(() => {
 									<p>{user.cart.length}</p>
 								</NavLink>
 							</div>
-							<div ref={showAccountMenuRef} className={styles.accountMenu}>
-								<img src={avatar} alt='avatar' onClick={toggleAccountMenu} />
-								<CSSTransition
-									in={showAccountMenu}
-									timeout={250}
-									classNames={{ enterActive: styles.accountMenuShow, exitActive: styles.accountMenuHide }}
-									mountOnEnter
-									unmountOnExit
-								>
-									<AccountMenu />
-								</CSSTransition>
-							</div>
+							<NavbarMenu />
 						</div>
 					</>
 				) : (
@@ -63,18 +42,7 @@ const NavbarFooter = observer(() => {
 								<img src={cartWhite} alt='cart' />
 								<p>{user.cart.length}</p>
 							</div>
-							<div ref={showAccountMenuRef} className={styles.accountMenu}>
-								<img src={account} alt='account' onClick={toggleAccountMenu} />
-								<CSSTransition
-									in={showAccountMenu}
-									timeout={250}
-									classNames={{ enterActive: styles.accountMenuShow, exitActive: styles.accountMenuHide }}
-									mountOnEnter
-									unmountOnExit
-								>
-									<AccountMenu />
-								</CSSTransition>
-							</div>
+							<NavbarMenu />
 						</div>
 					</>
 				)}

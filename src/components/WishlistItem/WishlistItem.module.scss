@@ -1,5 +1,5 @@
 .wishlistItem {
-	display: flex;
+	// display: flex;
 	align-items: center;
 	box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
 	padding: 0 0 2.5rem;
@@ -29,8 +29,11 @@
 }
 
 .cartBlock {
+	min-width: 12rem;
 	display: flex;
 	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
 
 	&_counter {
 		display: flex;

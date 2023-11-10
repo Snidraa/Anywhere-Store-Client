@@ -1,8 +1,8 @@
-@mixin button-styles($background, $border, $color) {
+@mixin button-styles($mainBackground, $mainColor, $hoverBackground, $hoverColor) {
 	cursor: pointer;
 	min-width: 12rem;
-	background: $background;
-	padding: 0.5rem 1rem;
+	background: $mainBackground;
+	padding: 0.5rem 1.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -10,32 +10,32 @@
 	border-radius: 3rem;
 	font-size: 1.4rem;
 	font-weight: 600;
-	border: $border solid 0.2rem;
-	color: $color;
+	border: $mainColor solid 0.2rem;
+	color: $mainColor;
 
 	&:hover {
 		transition: all 0.25s ease-in-out;
-		background: $border;
-		color: #fff;
+		background: $hoverBackground;
+		color: $hoverColor;
 	}
 }
 
 .blueButton {
-	@include button-styles(transparent, #0156ff, #0156ff);
+	@include button-styles(transparent, #0156ff, #0156ff, #fff);
 }
 
 .greenButton {
-	@include button-styles(transparent, #167916, #167916);
+	@include button-styles(transparent, #167916, #167916, #fff);
 }
 
 .redButton {
-	@include button-styles(transparent, #e21313, #e21313);
+	@include button-styles(transparent, #e21313, #e21313, #fff);
 }
 
 .blackButton {
-	@include button-styles(transparent, #000, #000);
+	@include button-styles(transparent, #000, #000, #fff);
 }
 
 .grayButton {
-	@include button-styles(transparent, #a2a6b0, #a2a6b0);
+	@include button-styles(transparent, #a2a6b0, #a2a6b0, #fff);
 }

@@ -127,16 +127,12 @@
 			color: #0156ff;
 		}
 
-		button {
-			width: 15rem;
-			height: 5rem;
-			border-radius: 5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: #0156ff;
-			color: #fff;
-			font-weight: 600;
+		& > button {
+			background: transparent;
+
+			&:hover {
+				background: #0156ff;
+			}
 		}
 	}
 }

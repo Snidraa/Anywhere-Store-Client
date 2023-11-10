@@ -58,29 +58,31 @@ const WishlistItem = observer(props => {
 				</div>
 			</td>
 			<td className={styles.price}>${subTotal}</td>
-			{isDeviceInCart(user.cart, item.id) ? (
-				<td>Device added to Cart</td>
-			) : (
-				<td className={styles.cartBlock}>
-					<div className={styles.cartBlock_counter}>
-						<img src={arrowUpGray} alt='increment' onClick={increment} />
-						<input
-							ref={WishlistItemCounter}
-							className={styles.cartBlock_textField}
-							type='number'
-							id='count'
-							name='count'
-							step='1'
-							min='1'
-							max='100'
-							defaultValue={count}
-							readOnly
-						/>
-						<img src={arrowDownGray} alt='decrement' onClick={decrement} />
-					</div>
-					<BlueButton onClick={addToCart}>Add to Cart</BlueButton>
-				</td>
-			)}
+			<td className={styles.cartBlock}>
+				{isDeviceInCart(user.cart, item.id) ? (
+					<p>Device added to Cart</p>
+				) : (
+					<>
+						<div className={styles.cartBlock_counter}>
+							<img src={arrowUpGray} alt='increment' onClick={increment} />
+							<input
+								ref={WishlistItemCounter}
+								className={styles.cartBlock_textField}
+								type='number'
+								id='count'
+								name='count'
+								step='1'
+								min='1'
+								max='100'
+								defaultValue={count}
+								readOnly
+							/>
+							<img src={arrowDownGray} alt='decrement' onClick={decrement} />
+						</div>
+						<BlueButton onClick={addToCart}>Add to Cart</BlueButton>
+					</>
+				)}
+			</td>
 			<td className={styles.actions}>
 				<img src={crossRounded} alt='' onClick={() => removeItem(item.id)} />
 			</td>
