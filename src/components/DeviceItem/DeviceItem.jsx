@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { cartBlue, likeGray, likeRed, starYellow } from '../../assets';
+import { cartBlue, cartGreen, likeGray, likeRed, starYellow } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { isDeviceInWishlist } from '../../middlewares/isDeviceInWishlist';
 import { Context } from '../../store/Context';
@@ -37,34 +37,34 @@ const DeviceItem = observer(props => {
 
 	return (
 		<div className={styles.deviceItem}>
-			<div className={styles.deviceItemAddToWishlist}>
+			<div className={styles.addToWishlist}>
 				{isDeviceInWishlist(user.wishlist, device.id) ? (
 					<img src={likeRed} alt='' onClick={() => removeWishlistItem(device.id)} />
 				) : (
 					<img src={likeGray} alt='' onClick={addToWishlist} />
 				)}
 			</div>
-			<div className={styles.deviceItem_Content} onClick={toDevicePage}>
-				<img src={device.img} alt='' className={styles.deviceItemImage} />
-				<div className={styles.deviceItemInfo}>
-					<p className={styles.deviceItemRatingRow}>
+			<img src={device.img} alt='' />
+			<div className={styles.deviceItemContent} onClick={toDevicePage}>
+				<div className={styles.deviceItemContent_Header}>
+					<p className={styles.deviceItemContent_Name}>{device.name}</p>
+					<p className={styles.deviceItemContent_RatingRow}>
 						<img src={starYellow} alt='' />
 						{device.rating} ({device.ratesCount})
 					</p>
-					<p className={styles.deviceItemName}>{device.name}</p>
-					<p className={styles.deviceItemPrice}>${device.price}</p>
 				</div>
-			</div>
-			<div className={styles.deviceItemButtons}>
-				{isDeviceInCart(user.cart, device.id) ? (
-					<button className={styles.deviceItemInCart} onClick={toCart}>
-						Check In cart
-					</button>
-				) : (
-					<button className={styles.deviceItemAddToCart} onClick={addToCart}>
-						<img src={cartBlue} alt='Add to cart' /> Add To Cart
-					</button>
-				)}
+				<div className={styles.deviceItemContent_Footer}>
+					<p className={styles.deviceItemContent_Price}>${device.price}</p>
+					{isDeviceInCart(user.cart, device.id) ? (
+						<button className={styles.showInCart} onClick={toCart}>
+							<img src={cartGreen} alt='' /> Show
+						</button>
+					) : (
+						<button className={styles.addToCart} onClick={addToCart}>
+							<img src={cartBlue} alt='Add to cart' /> Add
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);

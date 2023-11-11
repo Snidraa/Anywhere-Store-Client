@@ -38,10 +38,10 @@ const NavbarFooter = observer(() => {
 					<>
 						<SearchArea />
 						<div className={styles.management}>
-							<div className={styles.cart}>
+							<NavLink to={CART_ROUTE} className={styles.cart}>
 								<img src={cartWhite} alt='cart' />
 								<p>{user.cart.length}</p>
-							</div>
+							</NavLink>
 							<NavbarMenu />
 						</div>
 					</>

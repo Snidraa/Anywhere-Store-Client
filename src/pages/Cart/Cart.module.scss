@@ -22,10 +22,14 @@
 	align-items: start;
 }
 
+@media (max-width: 1024px) {
+	.container h1 {
+		font-size: 2.5rem;
+	}
+}
+
 @media (max-width: 520px) {
-	.container {
-		h1 {
-			font-size: 1.8rem;
-		}
+	.container h1 {
+		font-size: 2rem;
 	}
 }

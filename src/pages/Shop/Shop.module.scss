@@ -125,15 +125,17 @@
 	}
 }
 
-@media (max-width: 520px) {
-	.container {
-		h1 {
-			font-size: 1.8rem;
-		}
+@media (max-width: 1024px) {
+	.container h1 {
+		font-size: 2.5rem;
 	}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
+	.container h1 {
+		font-size: 2rem;
+	}
+
 	.desktopSidebar h2,
 	.mobileSidebar h2 {
 		font-size: 1.6rem;
