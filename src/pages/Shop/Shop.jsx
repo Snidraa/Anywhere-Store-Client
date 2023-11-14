@@ -9,6 +9,7 @@ import styles from './Shop.module.scss';
 
 const Shop = () => {
 	const [showSidebar, setShowSidebar] = useState(false);
+	const { isBigScreen, isSmallScreen } = useMediaQueries();
 
 	const showSidebarRef = useRef(null);
 
@@ -17,7 +18,6 @@ const Shop = () => {
 	};
 
 	useOutsideClick(showSidebarRef, toggleShowSidebar, showSidebar);
-	const { isBigScreen, isSmallScreen } = useMediaQueries();
 
 	return (
 		<main className={styles.wrapper}>

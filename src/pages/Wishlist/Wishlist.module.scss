@@ -22,14 +22,6 @@
 	align-items: start;
 }
 
-@media (max-width: 520px) {
-	.container {
-		h1 {
-			font-size: 1.8rem;
-		}
-	}
-}
-
 .cartList {
 	width: 100%;
 	display: flex;
