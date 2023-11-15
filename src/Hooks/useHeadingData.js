@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 
-export function useHeadingsData(...selectors) {
+export function useHeadingsData(selectors) {
 	const [nestedHeadings, setNestedHeadings] = useState([]);
 
 	useEffect(() => {
-		const combinedSelector = selectors.join(', ');
-		const headingElements = Array.from(document.querySelectorAll(combinedSelector));
+		const headingElements = Array.from(document.querySelectorAll(selectors));
 		const newNestedHeadings = getNestedHeadings(headingElements);
 		setNestedHeadings(newNestedHeadings);
-	}, []);
+	}, [selectors]);
 
 	return { nestedHeadings };
 }

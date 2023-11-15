@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import { useHeadingsData } from '../../Hooks/useHeadingData';
+import { useIntersectionObserver } from '../../Hooks/useIntersectionObserver';
 import styles from './TableOfContents.module.scss';
 
 const TableOfContents = () => {
 	const { nestedHeadings } = useHeadingsData('h3');
+	const [activeId, setActiveId] = useState();
+	useIntersectionObserver(setActiveId, 'h3');
 
 	return (
-		<nav aria-label='Table of contents' className={styles.container}>
+		<nav aria-label='Table of contents'>
 			<ul>
 				{nestedHeadings.map(heading => (
-					<li key={heading.id}>
+					<li key={heading.id} className={heading.id === activeId ? styles.active : ''}>
 						<a
 							href={`#${heading.id}`}
 							onClick={e => {
