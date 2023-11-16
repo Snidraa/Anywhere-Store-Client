@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { Context } from '../../store/Context';
 import { SHOP_ROUTE } from '../../utils/consts';
 import { BlackButton, GrayButton } from '../Buttons';
@@ -10,6 +11,7 @@ import styles from './CartList.module.scss';
 const CartList = observer(() => {
 	const { user } = useContext(Context);
 	const navigate = useNavigate();
+	const { isBigScreen } = useMediaQueries();
 
 	const toShopPage = () => {
 		navigate(SHOP_ROUTE);
@@ -27,15 +29,17 @@ const CartList = observer(() => {
 	return (
 		<div className={styles.cartList}>
 			<table>
-				<thead className={styles.cartList_header}>
-					<tr>
-						<th>Item</th>
-						<th>Price</th>
-						<th>Qty</th>
-						<th>Subtotal</th>
-						<th></th>
-					</tr>
-				</thead>
+				{isBigScreen && (
+					<thead className={styles.cartList_header}>
+						<tr>
+							<th>Item</th>
+							<th>Price</th>
+							<th>Qty</th>
+							<th>Subtotal</th>
+							<th></th>
+						</tr>
+					</thead>
+				)}
 				<tbody>
 					{user.cart.map((item, index) => (
 						<CartItem

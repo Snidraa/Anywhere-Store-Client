@@ -1,10 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef } from 'react';
-import { arrowDownGray, arrowUpGray, cartBlue, likeGray, likeRed, starYellow } from '../../assets';
+import { useNavigate } from 'react-router-dom';
+import { arrowDownGray, arrowUpGray, cartBlue, cartGreen, likeGray, likeRed, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { BlueButton, GreenButton } from '../../components/Buttons';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { isDeviceInWishlist } from '../../middlewares/isDeviceInWishlist';
 import { Context } from '../../store/Context';
+import { CART_ROUTE } from '../../utils/consts';
 import styles from './DevicePage.module.scss';
 
 const DevicePage = observer(() => {
@@ -27,6 +30,12 @@ const DevicePage = observer(() => {
 
 	const info = device.info;
 	const DevicePageCounter = useRef(null);
+
+	const navigate = useNavigate();
+
+	const toCart = () => {
+		navigate(CART_ROUTE);
+	};
 
 	const incrementGoodsCount = () => {
 		const prevValue = DevicePageCounter.current.value;
@@ -62,56 +71,54 @@ const DevicePage = observer(() => {
 			<div className={styles.container}>
 				<Breadcrumbs pathname={device.name} />
 				<div className={styles.content}>
-					<div className={styles.box1}>
-						<img src={device.img} alt='' />
+					<div className={styles.content_header}>
+						<img src={device.img} alt='device image' />
 						<p className={styles.ratingRow}>
-							<img src={starYellow} alt='' />
+							<img src={starYellow} alt='rating star' />
 							{device.rating} ({device.ratesCount})
 						</p>
 					</div>
-					<div className={styles.box2}>
-						<div className={styles.box2_Header}>
-							<div>
-								<div className={styles.addToWishlist}>
-									{isDeviceInWishlist(user.wishlist, device.id) ? (
-										<img src={likeRed} alt='' onClick={() => removeWishlistItem(device.id)} />
-									) : (
-										<img src={likeGray} alt='' onClick={addToWishlist} />
-									)}
-								</div>
-								<p className={styles.devicePrice}>
-									On Sale from <span className={styles.devicePriceValue}>${device.price}</span>
-								</p>
-								{isDeviceInCart(user.cart, device.id) ? (
-									<p>Device added to cart</p>
+					<div className={styles.content_footer}>
+						<div className={styles.content_footerActions}>
+							<div className={styles.addToWishlist}>
+								{isDeviceInWishlist(user.wishlist, device.id) ? (
+									<img src={likeRed} alt='like red' onClick={() => removeWishlistItem(device.id)} />
 								) : (
-									<>
-										<div className={styles.DevicePageCounter}>
-											<input
-												ref={DevicePageCounter}
-												className={styles.DevicePageCounter_textField}
-												type='number'
-												id='goodsCount'
-												name='Goods count'
-												step='1'
-												min='1'
-												max='100'
-												defaultValue={1}
-												readOnly
-											/>
-											<div className={styles.DevicePageCounter_controlArea}>
-												<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
-												<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
-											</div>
-										</div>
-										<button className={styles.addToCart} onClick={addToCart}>
-											<img src={cartBlue} alt='Add to cart' /> Add To Cart
-										</button>
-									</>
+									<img src={likeGray} alt='like gray' onClick={addToWishlist} />
 								)}
 							</div>
+							<p className={styles.devicePrice}>
+								On Sale from <span className={styles.devicePriceValue}>${device.price}</span>
+							</p>
+							{isDeviceInCart(user.cart, device.id) ? (
+								<GreenButton onClick={toCart}>
+									<img src={cartGreen} alt='' /> Show
+								</GreenButton>
+							) : (
+								<>
+									<div className={styles.DevicePageCounter}>
+										<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
+										<input
+											ref={DevicePageCounter}
+											className={styles.DevicePageCounter_textField}
+											type='number'
+											id='goodsCount'
+											name='Goods count'
+											step='1'
+											min='1'
+											max='100'
+											defaultValue={1}
+											readOnly
+										/>
+										<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
+									</div>
+									<BlueButton onClick={addToCart}>
+										<img src={cartBlue} alt='Add to cart' /> Add
+									</BlueButton>
+								</>
+							)}
 						</div>
-						<div className={styles.box2_Footer}>
+						<div className={styles.content_footerInfo}>
 							<p className={styles.deviceName}>{device.name}</p>
 							<div className={styles.deviceInfo}>
 								{info.map(item => (

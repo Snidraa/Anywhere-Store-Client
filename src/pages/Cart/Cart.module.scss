@@ -28,6 +28,12 @@
 	}
 }
 
+@media (max-width: 600px) {
+	.content {
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+}
 @media (max-width: 520px) {
 	.container h1 {
 		font-size: 2rem;

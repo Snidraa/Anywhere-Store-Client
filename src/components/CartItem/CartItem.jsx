@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
@@ -8,6 +9,7 @@ const CartItem = props => {
 	const { price } = { ...item.device };
 	const CartItemCounter = useRef(null);
 	const [subTotal, setSubTotal] = useState(price * item.count);
+	const { isBigScreen } = useMediaQueries();
 
 	const setCount = value => {
 		const newCount = Number(value);
@@ -51,23 +53,27 @@ const CartItem = props => {
 					)}
 				</div>
 			</td>
+			{!isBigScreen && <td className={styles.title}>Price</td>}
+			{!isBigScreen && <td className={styles.title}>Qty</td>}
+			{!isBigScreen && <td className={styles.title}>Subtotal</td>}
+			{!isBigScreen && <td className={styles.title}></td>}
 			<td className={styles.price}>${price}</td>
 			<td className={styles.Qty}>
-				<input
-					ref={CartItemCounter}
-					className={styles.Qty_textField}
-					type='number'
-					id='count'
-					name='count'
-					step='1'
-					min='1'
-					max='100'
-					defaultValue={item.count}
-					readOnly
-				/>
-				<div className={styles.Qty_controlArea}>
-					<img src={arrowUpGray} alt='increment' onClick={increment} />
+				<div className={styles.Qty_container}>
 					<img src={arrowDownGray} alt='decrement' onClick={decrement} />
+					<input
+						ref={CartItemCounter}
+						className={styles.Qty_textField}
+						type='number'
+						id='count'
+						name='count'
+						step='1'
+						min='1'
+						max='100'
+						defaultValue={item.count}
+						readOnly
+					/>
+					<img src={arrowUpGray} alt='increment' onClick={increment} />
 				</div>
 			</td>
 			<td className={styles.subtotal}>${subTotal}</td>

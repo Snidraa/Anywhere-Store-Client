@@ -13,7 +13,8 @@
 	border: $mainColor solid 0.2rem;
 	color: $mainColor;
 
-	&:hover {
+	&:hover,
+	&:active {
 		transition: all 0.25s ease-in-out;
 		background: $hoverBackground;
 		color: $hoverColor;

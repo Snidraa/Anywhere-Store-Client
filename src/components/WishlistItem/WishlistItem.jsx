@@ -1,9 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef, useState } from 'react';
-import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
+import { useNavigate } from 'react-router-dom';
+import { arrowDownGray, arrowUpGray, cartBlue, cartGreen, crossRounded } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { Context } from '../../store/Context';
-import BlueButton from '../Buttons/BlueButton';
+import { CART_ROUTE } from '../../utils/consts';
+import { BlueButton, GreenButton } from '../Buttons';
 import styles from './WishlistItem.module.scss';
 
 const WishlistItem = observer(props => {
@@ -13,6 +15,11 @@ const WishlistItem = observer(props => {
 	const WishlistItemCounter = useRef(null);
 	const [count, setCount] = useState(1);
 	const [subTotal, setSubTotal] = useState(item.price * count);
+	const navigate = useNavigate();
+
+	const toCart = () => {
+		navigate(CART_ROUTE);
+	};
 
 	const setItemCount = value => {
 		const newCount = Number(value);
@@ -60,7 +67,9 @@ const WishlistItem = observer(props => {
 			<td className={styles.price}>${subTotal}</td>
 			<td className={styles.cartBlock}>
 				{isDeviceInCart(user.cart, item.id) ? (
-					<p>Device added to Cart</p>
+					<GreenButton onClick={toCart}>
+						<img src={cartGreen} alt='' /> Show
+					</GreenButton>
 				) : (
 					<>
 						<div className={styles.cartBlock_counter}>
@@ -79,7 +88,10 @@ const WishlistItem = observer(props => {
 							/>
 							<img src={arrowDownGray} alt='decrement' onClick={decrement} />
 						</div>
-						<BlueButton onClick={addToCart}>Add to Cart</BlueButton>
+
+						<BlueButton onClick={addToCart}>
+							<img src={cartBlue} alt='Add to cart' /> Add
+						</BlueButton>
 					</>
 				)}
 			</td>

@@ -44,9 +44,10 @@ const DeviceItem = observer(props => {
 					<img src={likeGray} alt='' onClick={addToWishlist} />
 				)}
 			</div>
-			<img src={device.img} alt='' />
-			<div className={styles.deviceItemContent} onClick={toDevicePage}>
-				<div className={styles.deviceItemContent_Header}>
+			<img src={device.img} alt='' onClick={toDevicePage} />
+			<div className={styles.deviceItemContent}>
+				{/* <div className={styles.deviceImage}></div> */}
+				<div className={styles.deviceItemContent_Header} onClick={toDevicePage}>
 					<p className={styles.deviceItemContent_Name}>{device.name}</p>
 					<p className={styles.deviceItemContent_RatingRow}>
 						<img src={starYellow} alt='' />
