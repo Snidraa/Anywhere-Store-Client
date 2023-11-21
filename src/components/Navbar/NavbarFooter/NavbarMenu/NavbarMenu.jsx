@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef, useState } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { useMediaQueries } from '../../../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../../../Hooks/useOutsideClick';
-import { accountBlue, accountWhite, avatar } from '../../../../assets';
+import { avatar } from '../../../../assets';
 import { Context } from '../../../../store/Context';
 import { ADMIN_ROUTE, LOGIN_ROUTE, TERMS_AND_CONDITIONS_ROUTE, WISHLIST_ROUTE } from '../../../../utils/consts';
 import styles from './NavbarMenu.module.scss';
@@ -12,7 +12,6 @@ import styles from './NavbarMenu.module.scss';
 const NavbarMenu = observer(() => {
 	const { user } = useContext(Context);
 	const navigate = useNavigate();
-	const { isBigScreen } = useMediaQueries();
 
 	const [showMenu, setShowMenu] = useState(false);
 	const showMenuRef = useRef(null);
@@ -32,10 +31,8 @@ const NavbarMenu = observer(() => {
 		<div ref={showMenuRef} className={styles.container}>
 			{user.isAuth ? (
 				<img src={avatar} alt='avatar' onClick={toggleMenu} />
-			) : isBigScreen ? (
-				<img src={accountBlue} alt='account' className={styles.notAuth} onClick={toggleMenu} />
 			) : (
-				<img src={accountWhite} alt='account' className={styles.notAuth} onClick={toggleMenu} />
+				<FaUser className={styles.accountIcon} onClick={toggleMenu} />
 			)}
 			<CSSTransition
 				in={showMenu}

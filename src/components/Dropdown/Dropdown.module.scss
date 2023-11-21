@@ -7,22 +7,18 @@
 		background: #f5f7ff;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		font-size: 1.6rem;
 		font-weight: 600;
 		padding-bottom: 0.5rem;
-	}
 
-	.arrow {
-		&Up {
-			filter: contrast(0);
-			rotate: 0deg;
+		.arrow {
 			transition: rotate 0.25s ease-in-out;
-		}
 
-		&Down {
-			filter: contrast(0);
-			rotate: -180deg;
-			transition: rotate 0.25s ease-in-out;
+			&Up {
+				transition: rotate 0.25s ease-in-out;
+				rotate: -180deg;
+			}
 		}
 	}
 }

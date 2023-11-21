@@ -1,15 +1,15 @@
-import accountBlue from './account-blue.svg';
-import accountWhite from './account-white.svg';
+// import accountBlue from './account-blue.svg';
+// import accountWhite from './account-white.svg';
 import arrowDownGray from './arrow-down-gray.svg';
-import arrowDownWhite from './arrow-down-white.svg';
-import arrowRightBlack from './arrow-right-black.svg';
+// import arrowDownWhite from './arrow-down-white.svg';
+// import arrowRightBlack from './arrow-right-black.svg';
 import arrowUpGray from './arrow-up-gray.svg';
 import avatar from './avatar.svg';
 import burger from './burger.svg';
-import cartBlack from './cart-black.svg';
-import cartBlue from './cart-blue.svg';
-import cartGreen from './cart-green.svg';
-import cartWhite from './cart-white.svg';
+// import cartBlack from './cart-black.svg';
+// import cartBlue from './cart-blue.svg';
+// import cartGreen from './cart-green.svg';
+// import cartWhite from './cart-white.svg';
 import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
 import crossBlack from './cross-black.svg';
@@ -32,23 +32,23 @@ import paymentDiscover from './payment-discover.svg';
 import paymentMaestro from './payment-maestro.svg';
 import paymentPaypal from './payment-paypal.svg';
 import paymentVisa from './payment-visa.svg';
-import search from './search.svg';
+// import search from './search.svg';
 import starWhite from './star-white.svg';
 import starYellow from './star-yellow.svg';
 
 export {
-	accountBlue,
-	accountWhite,
+	// accountBlue,
+	// accountWhite,
 	arrowDownGray,
-	arrowDownWhite,
-	arrowRightBlack,
+	// arrowDownWhite,
+	// arrowRightBlack,
 	arrowUpGray,
 	avatar,
 	burger,
-	cartBlack,
-	cartBlue,
-	cartGreen,
-	cartWhite,
+	// cartBlack,
+	// cartBlue,
+	// cartGreen,
+	// cartWhite,
 	checkpoint,
 	clock,
 	crossBlack,
@@ -71,7 +71,7 @@ export {
 	paymentMaestro,
 	paymentPaypal,
 	paymentVisa,
-	search,
+	// search,
 	starWhite,
 	starYellow,
 };

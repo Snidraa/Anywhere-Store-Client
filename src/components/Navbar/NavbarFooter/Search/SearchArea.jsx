@@ -1,11 +1,11 @@
-import { search } from '../../../../assets';
+import { CgSearch } from 'react-icons/cg';
 import styles from './SearchArea.module.scss';
 
 const SearchArea = () => {
 	return (
 		<div className={styles.area}>
 			<input type='text' placeholder='Search here ...' />
-			<img src={search} alt='search' />
+			<CgSearch className={styles.icon} />
 		</div>
 	);
 };

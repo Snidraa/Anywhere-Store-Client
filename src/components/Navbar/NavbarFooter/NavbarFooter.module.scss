@@ -19,14 +19,25 @@
 	align-items: center;
 	gap: 2.5rem;
 
-	img {
-		cursor: pointer;
-	}
-
 	.cart {
+		cursor: pointer;
 		position: relative;
+		padding: 0.4rem;
+		width: 2.8rem;
+		height: 2.8rem;
+		color: #000;
 
-		p {
+		& > svg {
+			width: 100%;
+			height: 100%;
+			transition: transform 0.25s ease-in-out;
+
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+
+		& > p {
 			position: absolute;
 			display: flex;
 			align-items: center;
@@ -52,8 +63,11 @@
 	.navbarFooter {
 		height: 6.4rem;
 	}
+
 	.management {
 		.cart {
+			color: #fff;
+
 			p {
 				background: #fff;
 				color: #0156ff;

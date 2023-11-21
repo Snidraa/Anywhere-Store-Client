@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { arrowDownWhite } from '../../assets';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 import styles from './Dropdown.module.scss';
-
 const Dropdown = props => {
 	const { title, height, children } = { ...props };
 	const [showList, setShowList] = useState(true);
@@ -13,7 +12,7 @@ const Dropdown = props => {
 	return (
 		<div className={styles.dropdown}>
 			<h3 className={styles.dropdownTitle} onClick={toggleList}>
-				{title} <img src={arrowDownWhite} alt='' className={showList ? styles.arrowUp : styles.arrowDown} />
+				{title} <MdKeyboardArrowDown className={showList ? styles.arrowUp : styles.arrow} />
 			</h3>
 			<div
 				style={

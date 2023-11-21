@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef } from 'react';
+import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
-import { arrowDownGray, arrowUpGray, cartBlue, cartGreen, likeGray, likeRed, starYellow } from '../../assets';
+import { arrowDownGray, arrowUpGray, likeGray, likeRed, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { BlueButton, GreenButton } from '../../components/Buttons';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
@@ -92,7 +93,7 @@ const DevicePage = observer(() => {
 							</p>
 							{isDeviceInCart(user.cart, device.id) ? (
 								<GreenButton onClick={toCart}>
-									<img src={cartGreen} alt='' /> Show
+									<FaCartShopping /> Show
 								</GreenButton>
 							) : (
 								<>
@@ -113,7 +114,7 @@ const DevicePage = observer(() => {
 										<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
 									</div>
 									<BlueButton onClick={addToCart}>
-										<img src={cartBlue} alt='Add to cart' /> Add
+										<FaCartPlus /> Add
 									</BlueButton>
 								</>
 							)}

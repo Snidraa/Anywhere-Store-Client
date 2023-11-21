@@ -20,31 +20,18 @@
 	gap: 0.4rem;
 
 	&Popup {
+		height: 1.2rem;
 		position: relative;
-
-		img {
-			cursor: pointer;
-
-			&:hover {
-				scale: 1.2;
-				transition: all 0.25s ease-in-out;
-			}
-		}
+		color: #fff;
 
 		.arrow {
-			animation: rotateArrow 0.25s ease-in-out forwards reverse;
+			cursor: pointer;
+			transition: rotate 0.25s ease-in-out;
 
 			&Up {
-				animation: rotateArrow 0.25s ease-in-out forwards;
-			}
-
-			@keyframes rotateArrow {
-				from {
-					transform: rotateX(0deg);
-				}
-				to {
-					transform: rotateX(180deg);
-				}
+				cursor: pointer;
+				transition: rotate 0.25s ease-in-out;
+				rotate: -180deg;
 			}
 		}
 

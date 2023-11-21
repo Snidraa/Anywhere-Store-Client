@@ -14,7 +14,6 @@ const CartItem = props => {
 	const setCount = value => {
 		const newCount = Number(value);
 		setSubTotal(price * newCount);
-		// updateCart(index, newCount);
 	};
 
 	const increment = () => {

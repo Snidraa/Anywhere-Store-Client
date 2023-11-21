@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
+import { FaCartShopping } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import { useMediaQueries } from '../../../Hooks/useMediaQueries';
-import { cartBlack, cartWhite, logoBlue } from '../../../assets';
+import { logoBlue } from '../../../assets';
 import { Context } from '../../../store/Context';
 import { CART_ROUTE, SHOP_ROUTE } from '../../../utils/consts';
 import styles from './NavbarFooter.module.scss';
@@ -25,12 +26,10 @@ const NavbarFooter = observer(() => {
 						</div>
 						<SearchArea />
 						<div className={styles.management}>
-							<div>
-								<NavLink to={CART_ROUTE} className={styles.cart}>
-									<img src={cartBlack} alt='cart' />
-									<p>{user.cart.length}</p>
-								</NavLink>
-							</div>
+							<NavLink to={CART_ROUTE} className={styles.cart}>
+								<FaCartShopping />
+								<p>{user.cart.length}</p>
+							</NavLink>
 							<NavbarMenu />
 						</div>
 					</>
@@ -39,7 +38,7 @@ const NavbarFooter = observer(() => {
 						<SearchArea />
 						<div className={styles.management}>
 							<NavLink to={CART_ROUTE} className={styles.cart}>
-								<img src={cartWhite} alt='cart' />
+								<FaCartShopping />
 								<p>{user.cart.length}</p>
 							</NavLink>
 							<NavbarMenu />
