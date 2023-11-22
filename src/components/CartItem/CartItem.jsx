@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
-import { arrowDownGray, arrowUpGray, crossRounded } from '../../assets';
+import { crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
 const CartItem = props => {
@@ -59,7 +60,7 @@ const CartItem = props => {
 			<td className={styles.price}>${price}</td>
 			<td className={styles.Qty}>
 				<div className={styles.Qty_container}>
-					<img src={arrowDownGray} alt='decrement' onClick={decrement} />
+					<MdKeyboardArrowDown className={styles.Qty_button} onClick={decrement} />
 					<input
 						ref={CartItemCounter}
 						className={styles.Qty_textField}
@@ -72,7 +73,7 @@ const CartItem = props => {
 						defaultValue={item.count}
 						readOnly
 					/>
-					<img src={arrowUpGray} alt='increment' onClick={increment} />
+					<MdKeyboardArrowUp className={styles.Qty_button} onClick={increment} />
 				</div>
 			</td>
 			<td className={styles.subtotal}>${subTotal}</td>

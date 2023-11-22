@@ -75,7 +75,7 @@ const WishlistItem = observer(props => {
 				) : (
 					<>
 						<div className={styles.cartBlock_counter}>
-							<MdKeyboardArrowUp className={styles.cartBlock_counterButton} onClick={increment} />
+							<MdKeyboardArrowUp className={styles.cartBlock_button} onClick={increment} />
 							{/* <img src={arrowUpGray} alt='increment' onClick={increment} /> */}
 							<input
 								ref={WishlistItemCounter}
@@ -89,7 +89,7 @@ const WishlistItem = observer(props => {
 								defaultValue={count}
 								readOnly
 							/>
-							<MdKeyboardArrowDown className={styles.cartBlock_counterButton} onClick={decrement} />
+							<MdKeyboardArrowDown className={styles.cartBlock_button} onClick={decrement} />
 							{/* <img src={arrowDownGray} alt='decrement' onClick={decrement} /> */}
 						</div>
 

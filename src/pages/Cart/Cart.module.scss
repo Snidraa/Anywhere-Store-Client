@@ -18,13 +18,17 @@
 
 .content {
 	display: flex;
-	gap: 3.5rem;
+	gap: 3rem;
+	justify-content: space-between;
 	align-items: start;
 }
 
 @media (max-width: 1024px) {
 	.container h1 {
 		font-size: 2.5rem;
+	}
+	.content {
+		gap: 2rem;
 	}
 }
 
