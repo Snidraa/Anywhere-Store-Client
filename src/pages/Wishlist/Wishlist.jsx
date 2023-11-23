@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BlackButton from '../../components/Buttons/BlackButton';
 import GrayButton from '../../components/Buttons/GrayButton';
@@ -12,6 +13,7 @@ import styles from './Wishlist.module.scss';
 const Wishlist = observer(() => {
 	const { user } = useContext(Context);
 	const navigate = useNavigate();
+	const { isBigScreen, isSmallScreen } = useMediaQueries();
 
 	const toShopPage = () => {
 		navigate(SHOP_ROUTE);
@@ -34,14 +36,16 @@ const Wishlist = observer(() => {
 				<div className={styles.content}>
 					<div className={styles.cartList}>
 						<table>
-							<thead className={styles.cartList_header}>
-								<tr>
-									<th>Item</th>
-									<th>Price</th>
-									<th>Qty</th>
-									<th></th>
-								</tr>
-							</thead>
+							{(isBigScreen || isSmallScreen) && (
+								<thead className={styles.cartList_header}>
+									<tr>
+										<th>Item</th>
+										<th>Price</th>
+										<th>Qty</th>
+										<th></th>
+									</tr>
+								</thead>
+							)}
 							<tbody>
 								{user.wishlist.map((item, index) => (
 									<WishlistItem key={item.id} item={item} index={index} removeItem={removeWishlistItem} />
@@ -49,11 +53,9 @@ const Wishlist = observer(() => {
 							</tbody>
 						</table>
 						<div className={styles.cartList_buttons}>
-							<div>
-								<GrayButton className={styles.continueButton} onClick={toShopPage}>
-									Continue Shopping
-								</GrayButton>
-							</div>
+							<GrayButton className={styles.continueButton} onClick={toShopPage}>
+								Continue Shopping
+							</GrayButton>
 							<BlackButton onClick={clearWishlist}>Clear Wishlist</BlackButton>
 						</div>
 					</div>

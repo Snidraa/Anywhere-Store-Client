@@ -3,6 +3,7 @@ import { useContext, useRef, useState } from 'react';
 import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { crossRounded } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { Context } from '../../store/Context';
@@ -18,6 +19,7 @@ const WishlistItem = observer(props => {
 	const [count, setCount] = useState(1);
 	const [subTotal, setSubTotal] = useState(item.price * count);
 	const navigate = useNavigate();
+	const { isTablet } = useMediaQueries();
 
 	const toCart = () => {
 		navigate(CART_ROUTE);
@@ -66,39 +68,40 @@ const WishlistItem = observer(props => {
 					)}
 				</div>
 			</td>
-			<td className={styles.price}>${subTotal}</td>
-			<td className={styles.cartBlock}>
-				{isDeviceInCart(user.cart, item.id) ? (
+			{isTablet && <td className={styles.title}>Price</td>}
+			{isTablet && <td className={styles.title}>Qty</td>}
+			{isTablet && <td className={styles.title}></td>}
+			<td className={styles.price}>${item.price}</td>
+			{isDeviceInCart(user.cart, item.id) ? (
+				<td>
 					<GreenButton onClick={toCart}>
 						<FaCartShopping className={styles.buttonIcon} /> Show
 					</GreenButton>
-				) : (
-					<>
-						<div className={styles.cartBlock_counter}>
-							<MdKeyboardArrowUp className={styles.cartBlock_button} onClick={increment} />
-							{/* <img src={arrowUpGray} alt='increment' onClick={increment} /> */}
-							<input
-								ref={WishlistItemCounter}
-								className={styles.cartBlock_textField}
-								type='number'
-								id='count'
-								name='count'
-								step='1'
-								min='1'
-								max='100'
-								defaultValue={count}
-								readOnly
-							/>
-							<MdKeyboardArrowDown className={styles.cartBlock_button} onClick={decrement} />
-							{/* <img src={arrowDownGray} alt='decrement' onClick={decrement} /> */}
-						</div>
-
-						<BlueButton onClick={addToCart}>
-							<FaCartPlus className={styles.buttonIcon} /> Add
-						</BlueButton>
-					</>
-				)}
-			</td>
+				</td>
+			) : (
+				<td className={styles.Qty}>
+					<div className={styles.Qty_container}>
+						<MdKeyboardArrowDown className={styles.Qty_button} onClick={decrement} />
+						<input
+							ref={WishlistItemCounter}
+							className={styles.Qty_textField}
+							type='number'
+							id='count'
+							name='count'
+							step='1'
+							min='1'
+							max='100'
+							defaultValue={count}
+							readOnly
+						/>
+						<MdKeyboardArrowUp className={styles.Qty_button} onClick={increment} />
+					</div>
+					<p className={styles.subtotal}>${subTotal}</p>
+					<BlueButton onClick={addToCart}>
+						<FaCartPlus className={styles.buttonIcon} /> Add
+					</BlueButton>
+				</td>
+			)}
 			<td className={styles.actions}>
 				<img src={crossRounded} alt='' onClick={() => removeItem(item.id)} />
 			</td>
