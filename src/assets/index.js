@@ -1,9 +1,9 @@
 // import accountBlue from './account-blue.svg';
 // import accountWhite from './account-white.svg';
-import arrowDownGray from './arrow-down-gray.svg';
+// import arrowDownGray from './arrow-down-gray.svg';
 // import arrowDownWhite from './arrow-down-white.svg';
 // import arrowRightBlack from './arrow-right-black.svg';
-import arrowUpGray from './arrow-up-gray.svg';
+// import arrowUpGray from './arrow-up-gray.svg';
 import avatar from './avatar.svg';
 import burger from './burger.svg';
 // import cartBlack from './cart-black.svg';
@@ -12,9 +12,9 @@ import burger from './burger.svg';
 // import cartWhite from './cart-white.svg';
 import checkpoint from './checkpoint.svg';
 import clock from './clock.svg';
-import crossBlack from './cross-black.svg';
-import crossBlue from './cross-blue.svg';
-import crossRounded from './cross-rounded.svg';
+// import crossBlack from './cross-black.svg';
+// import crossBlue from './cross-blue.svg';
+// import crossRounded from './cross-rounded.svg';
 import facebookGray from './facebook-logo-gray.svg';
 import facebookWhite from './facebook-logo-white.svg';
 import galleryWiewActive from './galleryWiewActive.svg';
@@ -39,10 +39,10 @@ import starYellow from './star-yellow.svg';
 export {
 	// accountBlue,
 	// accountWhite,
-	arrowDownGray,
+	// arrowDownGray,
 	// arrowDownWhite,
 	// arrowRightBlack,
-	arrowUpGray,
+	// arrowUpGray,
 	avatar,
 	burger,
 	// cartBlack,
@@ -51,9 +51,9 @@ export {
 	// cartWhite,
 	checkpoint,
 	clock,
-	crossBlack,
-	crossBlue,
-	crossRounded,
+	// crossBlack,
+	// crossBlue,
+	// crossRounded,
 	facebookGray,
 	facebookWhite,
 	galleryWiewActive,

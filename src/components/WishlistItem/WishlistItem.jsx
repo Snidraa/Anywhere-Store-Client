@@ -1,10 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef, useState } from 'react';
-import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
+import { FaCartPlus, FaCartShopping, FaRegCircleXmark } from 'react-icons/fa6';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
-import { crossRounded } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { Context } from '../../store/Context';
 import { CART_ROUTE } from '../../utils/consts';
@@ -103,7 +102,7 @@ const WishlistItem = observer(props => {
 				</td>
 			)}
 			<td className={styles.actions}>
-				<img src={crossRounded} alt='' onClick={() => removeItem(item.id)} />
+				<FaRegCircleXmark className={styles.actions_close} onClick={() => removeItem(item.device.id)} />
 			</td>
 		</tr>
 	);

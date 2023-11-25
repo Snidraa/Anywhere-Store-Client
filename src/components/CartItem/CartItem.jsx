@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
+import { FaRegCircleXmark } from 'react-icons/fa6';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
-import { crossRounded } from '../../assets';
 import styles from './CartItem.module.scss';
 
 const CartItem = props => {
@@ -78,7 +78,7 @@ const CartItem = props => {
 			</td>
 			<td className={styles.subtotal}>${subTotal}</td>
 			<td className={styles.actions}>
-				<img src={crossRounded} alt='' onClick={() => removeItem(item.device.id)} />
+				<FaRegCircleXmark className={styles.actions_close} onClick={() => removeItem(item.device.id)} />
 			</td>
 		</tr>
 	);

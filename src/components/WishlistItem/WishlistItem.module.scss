@@ -150,16 +150,17 @@
 	.actions {
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		transition: all 0.25s ease-in-out;
 
-		img {
+		&_close {
 			cursor: pointer;
-			width: 2.7rem;
-			aspect-ratio: 1 / 1;
+			width: 2.5rem;
+			height: 2.5rem;
+			color: #a2a6b0;
+			transition: all 0.25s ease-in-out;
 
 			&:hover {
-				width: 3rem;
+				color: #000;
+				transform: scale(1.05);
 			}
 		}
 	}

@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import { useContext, useRef } from 'react';
 import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { arrowDownGray, arrowUpGray, likeGray, likeRed, starYellow } from '../../assets';
+import { likeGray, likeRed, starYellow } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { BlueButton, GreenButton } from '../../components/Buttons';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
@@ -38,14 +39,14 @@ const DevicePage = observer(() => {
 		navigate(CART_ROUTE);
 	};
 
-	const incrementGoodsCount = () => {
+	const increment = () => {
 		const prevValue = DevicePageCounter.current.value;
 		const step = Number(DevicePageCounter.current.step);
 		if (parseInt(prevValue) === parseInt(DevicePageCounter.current.max)) return null;
 		DevicePageCounter.current.value = Number(prevValue) + step;
 	};
 
-	const decrementGoodsCount = () => {
+	const decrement = () => {
 		const prevValue = DevicePageCounter.current.value;
 		const step = Number(DevicePageCounter.current.step);
 		if (parseInt(prevValue) === parseInt(DevicePageCounter.current.min)) return null;
@@ -98,7 +99,7 @@ const DevicePage = observer(() => {
 							) : (
 								<>
 									<div className={styles.DevicePageCounter}>
-										<img src={arrowDownGray} alt='' onClick={decrementGoodsCount} />
+										<MdKeyboardArrowDown className={styles.DevicePageCounter_button} onClick={decrement} />
 										<input
 											ref={DevicePageCounter}
 											className={styles.DevicePageCounter_textField}
@@ -111,7 +112,7 @@ const DevicePage = observer(() => {
 											defaultValue={1}
 											readOnly
 										/>
-										<img src={arrowUpGray} alt='' onClick={incrementGoodsCount} />
+										<MdKeyboardArrowUp className={styles.DevicePageCounter_button} onClick={increment} />
 									</div>
 									<BlueButton onClick={addToCart}>
 										<FaCartPlus /> Add

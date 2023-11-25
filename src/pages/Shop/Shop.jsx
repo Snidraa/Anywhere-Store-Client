@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
+import { FaXmark } from 'react-icons/fa6';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../Hooks/useOutsideClick';
-import { crossBlack } from '../../assets';
+import { GrayButton } from '../../components/Buttons';
 import DeviceList from '../../components/DeviceList/DeviceList';
 import SidebarList from '../../components/SidebarList/SidebarList';
 import styles from './Shop.module.scss';
@@ -31,7 +32,8 @@ const Shop = () => {
 				>
 					<div ref={showSidebarRef} className={styles.mobileSidebar}>
 						<h2>
-							Filter by <img src={crossBlack} alt='close Sidebar' onClick={toggleShowSidebar} />
+							Filter by
+							<FaXmark className={styles.mobileSidebar_close} onClick={toggleShowSidebar} />
 						</h2>
 						<SidebarList />
 					</div>
@@ -48,11 +50,7 @@ const Shop = () => {
 					)}
 					<div className={styles.content}>
 						<div className={styles.content_header}>
-							{!isBigScreen && !isSmallScreen && (
-								<button className={styles.mobileSidebarOpenButton} onClick={toggleShowSidebar}>
-									Filters
-								</button>
-							)}
+							{!isBigScreen && !isSmallScreen && <GrayButton onClick={toggleShowSidebar}>Filters</GrayButton>}
 							<p>Items 1-10 of 10</p>
 						</div>
 						<div>

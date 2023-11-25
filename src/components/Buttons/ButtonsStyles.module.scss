@@ -1,7 +1,7 @@
 @mixin button-styles($mainBackground, $mainColor, $hoverBackground, $hoverColor) {
 	cursor: pointer;
-	min-width: 10rem;
-	width: fit-content;
+	min-width: fit-content;
+	// width: fit-content;
 	background: $mainBackground;
 	padding: 0.5rem 1.5rem;
 	display: flex;
@@ -14,11 +14,15 @@
 	border: $mainColor solid 0.2rem;
 	color: $mainColor;
 
-	&:hover,
-	&:active {
+	&:hover {
 		transition: all 0.25s ease-in-out;
 		background: $hoverBackground;
 		color: $hoverColor;
+	}
+
+	&:active {
+		background: $mainBackground;
+		color: $mainColor;
 	}
 
 	& > svg {

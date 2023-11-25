@@ -56,14 +56,12 @@
 			tr {
 				& > th,
 				& > td {
-					min-width: 17rem;
-
 					&:nth-child(2) {
 						min-width: 6rem;
 					}
 
-					&:last-child {
-						min-width: 3rem;
+					&:nth-cvhild(3) {
+						min-width: 17rem;
 					}
 				}
 			}

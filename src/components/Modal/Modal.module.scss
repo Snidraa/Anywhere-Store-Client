@@ -27,6 +27,17 @@
 			opacity: 1;
 		}
 	}
+	&_close {
+		cursor: pointer;
+		width: 2rem;
+		height: 2rem;
+		color: #000;
+		transition: color 0.25s ease-in-out;
+
+		&:active {
+			color: #a2a6b0;
+		}
+	}
 }
 
 .header {
@@ -37,10 +48,6 @@
 	font-size: 1.6rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-
-	& > img {
-		cursor: pointer;
-	}
 }
 
 @media (max-width: 768px) {

@@ -41,9 +41,6 @@
 					&:nth-child(4) {
 						min-width: 7rem;
 					}
-					&:last-child {
-						min-width: 3rem;
-					}
 				}
 			}
 		}
@@ -57,12 +54,12 @@
 	}
 }
 
-@media (max-width: 520px) {
+@media (max-width: 720px) {
 	.cartList_buttons {
 		flex-direction: column;
 
 		& > button {
-			width: 100%;
+			width: 75%;
 		}
 	}
 }
