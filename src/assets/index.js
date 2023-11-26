@@ -15,12 +15,12 @@ import clock from './clock.svg';
 // import crossBlack from './cross-black.svg';
 // import crossBlue from './cross-blue.svg';
 // import crossRounded from './cross-rounded.svg';
-import facebookGray from './facebook-logo-gray.svg';
-import facebookWhite from './facebook-logo-white.svg';
+// import facebookGray from './facebook-logo-gray.svg';
+// import facebookWhite from './facebook-logo-white.svg';
 import galleryWiewActive from './galleryWiewActive.svg';
 import galleryWiewInActive from './galleryWiewInActive.svg';
-import instagramGray from './instagram-logo-gray.svg';
-import instagramWhite from './instagram-logo-white.svg';
+// import instagramGray from './instagram-logo-gray.svg';
+// import instagramWhite from './instagram-logo-white.svg';
 import likeGray from './like-gray.svg';
 import likeRed from './like-red.svg';
 import listWiewActive from './listWiewActive.svg';
@@ -54,12 +54,12 @@ export {
 	// crossBlack,
 	// crossBlue,
 	// crossRounded,
-	facebookGray,
-	facebookWhite,
+	// facebookGray,
+	// facebookWhite,
 	galleryWiewActive,
 	galleryWiewInActive,
-	instagramGray,
-	instagramWhite,
+	// instagramGray,
+	// instagramWhite,
 	likeGray,
 	likeRed,
 	listWiewActive,

@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react';
+import { FaSquareFacebook } from 'react-icons/fa6';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { RiInstagramFill } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQueries } from '../../../Hooks/useMediaQueries';
 import { useOutsideClick } from '../../../Hooks/useOutsideClick';
-import { facebookWhite, instagramWhite, logoWhite } from '../../../assets';
+import { logoWhite } from '../../../assets';
 import { SHOP_ROUTE } from '../../../utils/consts';
 import styles from './NavbarHeader.module.scss';
 import ShopInfoPopup from './ShopInfoPopup/ShopInfoPopup';
@@ -51,10 +53,10 @@ const NavbarHeader = () => {
 					<div className={styles.contacts}>
 						<span>Call Us: (00) 1234 5678</span>
 						<a href='https://www.facebook.com/'>
-							<img src={facebookWhite} alt='facebook' />
+							<FaSquareFacebook className={styles.contacts_facebook} />
 						</a>
 						<a href='https://www.instagram.com/'>
-							<img src={instagramWhite} alt='instagram' />
+							<RiInstagramFill className={styles.contacts_instagram} />
 						</a>
 					</div>
 				)}

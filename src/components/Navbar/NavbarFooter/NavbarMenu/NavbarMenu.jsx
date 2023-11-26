@@ -28,7 +28,7 @@ const NavbarMenu = observer(() => {
 	useOutsideClick(showMenuRef, toggleMenu, showMenu);
 
 	return (
-		<div ref={showMenuRef} className={styles.container}>
+		<div ref={showMenuRef} className={styles.navbarMenuContainer}>
 			{user.isAuth ? (
 				<img src={avatar} alt='avatar' onClick={toggleMenu} />
 			) : (

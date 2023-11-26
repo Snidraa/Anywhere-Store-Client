@@ -65,7 +65,19 @@
 
 	&_socials {
 		display: flex;
+		align-items: center;
 		gap: 0.25rem;
+		font-size: 1.8rem;
+		color: #fff;
+		line-height: 0;
+
+		&Facebook {
+			font-size: 2rem;
+		}
+
+		&Instagram {
+			font-size: 2.1rem;
+		}
 	}
 
 	&_payments {

@@ -1,14 +1,8 @@
 import { useRef, useState } from 'react';
+import { FaSquareFacebook } from 'react-icons/fa6';
+import { RiInstagramFill } from 'react-icons/ri';
 import { useOutsideClick } from '../../Hooks/useOutsideClick';
-import {
-	facebookGray,
-	instagramGray,
-	paymentAmericanExpress,
-	paymentDiscover,
-	paymentMaestro,
-	paymentPaypal,
-	paymentVisa,
-} from '../../assets';
+import { paymentAmericanExpress, paymentDiscover, paymentMaestro, paymentPaypal, paymentVisa } from '../../assets';
 import styles from './Footer.module.scss';
 const Footer = () => {
 	// const { isBigScreen } = useMediaQueries();
@@ -225,8 +219,8 @@ const Footer = () => {
 
 				<div className={styles.footerBottom}>
 					<div className={styles.footerBottom_socials}>
-						<img src={facebookGray} alt='facebook' />
-						<img src={instagramGray} alt='instagram' />
+						<FaSquareFacebook className={styles.footerBottom_socialsFacebook} />
+						<RiInstagramFill className={styles.footerBottom_socialsInstagram} />
 					</div>
 					<div className={styles.footerBottom_payments}>
 						<img src={paymentPaypal} alt='paypal' />

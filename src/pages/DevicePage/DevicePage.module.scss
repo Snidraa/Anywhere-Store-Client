@@ -130,15 +130,6 @@
 						transform: none;
 					}
 				}
-				// & > img {
-				// 	cursor: pointer;
-				// 	transition: all 0.25s ease-in-out;
-
-				// 	&:hover
-				// 		filter: brightness(0%);
-				// 		transform: scale(1.2);
-				// 	}
-				// }
 			}
 		}
 
@@ -161,11 +152,6 @@
 		}
 	}
 }
-
-// .buttonIcon {
-// 	width: 2rem;
-// 	height: 2rem;
-// }
 
 @media (max-width: 768px) {
 	.content {

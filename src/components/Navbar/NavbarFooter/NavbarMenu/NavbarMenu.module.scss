@@ -1,8 +1,8 @@
-.container {
+.navbarMenuContainer {
 	position: relative;
 	margin-left: 1.1rem;
-	width: 3.2rem;
-	height: 3.2rem;
+	min-width: 3.2rem;
+	min-height: 3.2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
