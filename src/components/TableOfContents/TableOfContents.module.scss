@@ -1,33 +1,40 @@
-nav {
-	position: sticky;
-	position: -webkit-sticky;
-	top: 14rem;
+@media (max-width: 1024px) {
+	.tableOfContents {
+		position: relative;
 
-	max-width: 30%;
-	max-height: calc(100vh - 40px);
-	height: fit-content;
-	overflow: auto;
-	padding: 2.5rem;
-	background: var(--Color---1, #f5f7ff);
+		&List {
+			&Show {
+				animation: showMenu 0.25s ease-in-out forwards;
+			}
 
-	ul {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
+			&Hide {
+				animation: showMenu 0.25s ease-in-out forwards reverse;
+			}
 
-	li.active > a {
-		font-weight: 600;
-	}
+			@keyframes showMenu {
+				from {
+					transform: translate(200%, -50%);
+				}
+				to {
+					transform: translate(0, -50%);
+				}
+			}
+		}
 
-	li > a:hover {
-		font-weight: 500;
-	}
-
-	a {
-		color: var(--Color---7, #000);
-		font-size: 1.4rem;
-		font-weight: 400;
-		line-height: 1.8rem;
+		&Button {
+			position: fixed;
+			right: 2rem;
+			top: 50%;
+			transform: translate(1.5rem, -50%);
+			z-index: 3;
+			cursor: pointer;
+			width: 3rem;
+			height: 3rem;
+			padding: 0.25rem;
+			background: #fff;
+			border: 0.2rem solid #0156ff;
+			border-radius: 2rem;
+			color: #0156ff;
+		}
 	}
 }

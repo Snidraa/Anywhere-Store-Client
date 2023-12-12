@@ -17,7 +17,6 @@
 }
 
 .content {
-	position: relative;
 	display: flex;
 	justify-content: space-between;
 	gap: 3rem;
@@ -25,8 +24,8 @@
 	& > article {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
-		max-width: 70%;
+		gap: 2rem;
+		width: 70%;
 
 		font-size: 1.6rem;
 		font-weight: 300;
@@ -35,9 +34,12 @@
 		& > h2,
 		& > h3 {
 			scroll-margin-top: 14rem;
-			font-size: 2.4rem;
 			font-weight: 600;
 			line-height: normal;
+		}
+
+		& > h2 {
+			font-size: 2.4rem;
 		}
 
 		& > h3 {
@@ -58,10 +60,26 @@
 	.container h1 {
 		font-size: 2.5rem;
 	}
+
+	.content {
+		gap: 0;
+
+		& > article {
+			width: 100%;
+
+			& > h2 {
+				font-size: 2.3rem;
+			}
+		}
+	}
 }
 
 @media (max-width: 520px) {
 	.container h1 {
 		font-size: 2rem;
+	}
+
+	.content > article > h2 {
+		font-size: 1.8rem;
 	}
 }

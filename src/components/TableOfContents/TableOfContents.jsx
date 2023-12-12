@@ -1,31 +1,46 @@
-import { useState } from 'react';
-import { useHeadingsData } from '../../Hooks/useHeadingData';
-import { useIntersectionObserver } from '../../Hooks/useIntersectionObserver';
+import { useRef, useState } from 'react';
+import { FaXmark } from 'react-icons/fa6';
+import { MdOutlineToc } from 'react-icons/md';
+import { CSSTransition } from 'react-transition-group';
+import { useMediaQueries } from '../../Hooks/useMediaQueries';
+import { useOutsideClick } from '../../Hooks/useOutsideClick';
 import styles from './TableOfContents.module.scss';
+import TableOfContentsList from './TableOfContentsList';
 
 const TableOfContents = () => {
-	const { nestedHeadings } = useHeadingsData('h3');
-	const [activeId, setActiveId] = useState();
-	useIntersectionObserver(setActiveId, 'h3');
+	const tableOfContentsRef = useRef();
+	const [showTableOfContents, setShowTableOfContents] = useState(false);
+	const { isBigScreen } = useMediaQueries();
+
+	const toggleTableOfContents = () => {
+		setShowTableOfContents(!showTableOfContents);
+	};
+
+	useOutsideClick(tableOfContentsRef, toggleTableOfContents, showTableOfContents);
 
 	return (
-		<nav aria-label='Table of contents'>
-			<ul>
-				{nestedHeadings.map(heading => (
-					<li key={heading.id} className={heading.id === activeId ? styles.active : ''}>
-						<a
-							href={`#${heading.id}`}
-							onClick={e => {
-								e.preventDefault();
-								document.querySelector(`#${heading.id}`).scrollIntoView({ behavior: 'smooth' });
-							}}
-						>
-							{heading.title}
-						</a>
-					</li>
-				))}
-			</ul>
-		</nav>
+		<div ref={tableOfContentsRef} className={styles.tableOfContents}>
+			{isBigScreen ? (
+				<TableOfContentsList />
+			) : (
+				<>
+					{showTableOfContents ? (
+						<FaXmark className={styles.tableOfContentsButton} onClick={toggleTableOfContents} />
+					) : (
+						<MdOutlineToc className={styles.tableOfContentsButton} onClick={toggleTableOfContents} />
+					)}
+					<CSSTransition
+						in={showTableOfContents}
+						timeout={250}
+						classNames={{ enterActive: styles.tableOfContentsListShow, exitActive: styles.tableOfContentsListHide }}
+						mountOnEnter
+						unmountOnExit
+					>
+						<TableOfContentsList className={styles.tableOfContentsList} />
+					</CSSTransition>
+				</>
+			)}
+		</div>
 	);
 };
 
