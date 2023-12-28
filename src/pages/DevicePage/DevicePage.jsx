@@ -3,9 +3,11 @@ import { useContext, useRef } from 'react';
 import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { likeGray, likeRed, starYellow } from '../../assets';
+import { likeGray, likeRed } from '../../assets';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { BlueButton, GreenButton } from '../../components/Buttons';
+import Reviews from '../../components/Comments/Reviews';
+import Rating from '../../components/Rating/Rating';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { isDeviceInWishlist } from '../../middlewares/isDeviceInWishlist';
 import { Context } from '../../store/Context';
@@ -18,7 +20,7 @@ const DevicePage = observer(() => {
 		id: 1,
 		name: 'Iphone 12',
 		price: 1500,
-		rating: 5,
+		rating: 4.5,
 		ratesCount: 20,
 		img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 		info: [
@@ -75,10 +77,10 @@ const DevicePage = observer(() => {
 				<div className={styles.content}>
 					<div className={styles.content_header}>
 						<img src={device.img} alt='device image' />
-						<p className={styles.ratingRow}>
-							<img src={starYellow} alt='rating star' />
+						<div className={styles.ratingRow}>
+							<Rating rating={device.rating} type='indicator' />
 							{device.rating} ({device.ratesCount})
-						</p>
+						</div>
 					</div>
 					<div className={styles.content_footer}>
 						<div className={styles.content_footerActions}>
@@ -132,6 +134,7 @@ const DevicePage = observer(() => {
 						</div>
 					</div>
 				</div>
+				<Reviews />
 			</div>
 		</main>
 	);

@@ -2,17 +2,20 @@ import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { FaCartPlus, FaCartShopping } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
-import { likeGray, likeRed, starYellow } from '../../assets';
+import { likeGray, likeRed } from '../../assets';
 import { isDeviceInCart } from '../../middlewares/isDeviceInCart';
 import { isDeviceInWishlist } from '../../middlewares/isDeviceInWishlist';
 import { Context } from '../../store/Context';
 import { CART_ROUTE, DEVICE_ROUTE } from '../../utils/consts';
 import { BlueButton, GreenButton } from '../Buttons';
+// import Rating from '../StarRating/Rating';
+import Rating from '../Rating/Rating';
 import styles from './DeviceItem.module.scss';
 
 const DeviceItem = observer(props => {
 	const { user } = useContext(Context);
 	const { device } = { ...props };
+	// const [rating, setRating] = useEffect(device.rating);
 	const navigate = useNavigate();
 
 	const toDevicePage = () => {
@@ -37,6 +40,10 @@ const DeviceItem = observer(props => {
 		user.setCart([...user.cart, itemToAdd]);
 	};
 
+	// const ratingChanged = newRating => {
+	// 	console.log(newRating);
+	// };
+
 	return (
 		<div className={styles.deviceItem}>
 			<div className={styles.addToWishlist}>
@@ -48,12 +55,18 @@ const DeviceItem = observer(props => {
 			</div>
 			<img src={device.img} alt='' onClick={toDevicePage} />
 			<div className={styles.deviceItemContent}>
-				<div className={styles.deviceItemContent_Header} onClick={toDevicePage}>
-					<p className={styles.deviceItemContent_Name}>{device.name}</p>
-					<p className={styles.deviceItemContent_RatingRow}>
-						<img src={starYellow} alt='' />
-						{device.rating} ({device.ratesCount})
+				<div className={styles.deviceItemContent_Header}>
+					<p className={styles.deviceItemContent_Name} onClick={toDevicePage}>
+						{device.name}
 					</p>
+					<div className={styles.deviceItemContent_RatingRow}>
+						{/* <StarRating /> */}
+						<Rating rating={device.rating} type='indicator' />
+						<span>
+							{device.rating} ({device.ratesCount})
+						</span>
+						{/* <Rating /> */}
+					</div>
 				</div>
 				<div className={styles.deviceItemContent_Footer}>
 					<p className={styles.deviceItemContent_Price}>${device.price}</p>

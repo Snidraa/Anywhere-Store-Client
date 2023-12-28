@@ -12,53 +12,54 @@
 }
 
 .content {
-	display: grid;
+	display: flex;
 	gap: 2rem;
-	grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-	grid-template-areas:
-		'A B B'
-		'A B B';
+	// display: grid;
+	// gap: 2rem;
+	// grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+	// grid-template-areas:
+	// 	'A B B'
+	// 	'A B B';
 
 	font-size: 1.6rem;
 	color: #000;
+	padding-bottom: 2rem;
+
+	box-shadow: 0 0.1rem 0 0 rgba(#000, 0.2);
 
 	&_header,
 	&_footer,
-	&_footerActions,
 	&_footerInfo {
-		// max-width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 	}
 
 	&_header {
-		grid-area: A;
+		// grid-area: A;
 		align-items: center;
 
 		img {
-			max-width: 30rem;
+			max-width: 40rem;
 			width: 100%;
 			aspect-ratio: 1/1;
 		}
 
 		.ratingRow {
 			display: flex;
-			gap: 0.5rem;
-
-			img {
-				width: 1.3rem;
-			}
+			align-items: center;
+			gap: 1rem;
 		}
 	}
 
 	&_footer {
-		grid-area: B;
+		width: 100%;
+		// grid-area: B;
 
 		&Actions {
-			// display: flex;
-			// gap: 2rem;
+			display: flex;
 			flex-direction: row;
+			gap: 2rem;
 			// justify-content: center;
 			align-items: center;
 
@@ -141,7 +142,7 @@
 			}
 
 			.deviceInfo {
-				max-width: 70rem;
+				// max-width: 70rem;
 				font-size: 1.6rem;
 				font-weight: 300;
 				line-height: 3rem;
@@ -162,20 +163,12 @@
 
 		font-size: 1.4rem;
 		color: #000;
-	}
-}
 
-@media (max-width: 480px) {
-	.content_footer {
-		width: 100%;
-
-		&Actions {
-			display: grid;
-			grid-template-rows: repeat(2, auto);
-			grid-template-columns: repeat(2, auto);
-			// gap: 1rem;
+		&_footerActions {
+			gap: 1rem;
 			justify-content: center;
 			align-items: center;
+			text-align: center;
 		}
 	}
 }

@@ -66,23 +66,23 @@
 		}
 
 		&_Name {
-			font-size: 1.3rem;
+			font-size: 1.6rem;
 			font-weight: 400;
 			text-transform: uppercase;
 		}
 
 		&_RatingRow {
 			display: flex;
-			gap: 0.5rem;
-			img {
-				width: 1.3rem;
-			}
-		}
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+			font-size: 1.4rem;
 
-		&_Price {
-			font-size: 1.8rem;
-			font-weight: 600;
-			line-height: 140%;
+			&_Price {
+				font-size: 1.8rem;
+				font-weight: 600;
+				line-height: 140%;
+			}
 		}
 	}
 }

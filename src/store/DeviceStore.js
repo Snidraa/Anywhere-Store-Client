@@ -20,7 +20,7 @@ export default class DeviceStore {
 				id: 2,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.9,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -33,7 +33,7 @@ export default class DeviceStore {
 				id: 3,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.8,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -46,7 +46,7 @@ export default class DeviceStore {
 				id: 4,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.7,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -59,7 +59,7 @@ export default class DeviceStore {
 				id: 5,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.6,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -72,7 +72,7 @@ export default class DeviceStore {
 				id: 6,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.5,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -85,7 +85,7 @@ export default class DeviceStore {
 				id: 7,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.4,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -98,7 +98,7 @@ export default class DeviceStore {
 				id: 8,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.3,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -111,7 +111,7 @@ export default class DeviceStore {
 				id: 9,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.2,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
@@ -124,7 +124,7 @@ export default class DeviceStore {
 				id: 10,
 				name: 'Iphone 12',
 				price: 1500,
-				rating: 5,
+				rating: 4.5,
 				ratesCount: 20,
 				img: 'https://object.pscloud.io/cms/cms/Photo/img_0_77_2624_0_1.jpg',
 				info: [
