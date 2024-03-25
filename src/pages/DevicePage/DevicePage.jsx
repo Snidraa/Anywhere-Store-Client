@@ -70,6 +70,7 @@ const DevicePage = observer(() => {
 		user.setWishlist(wishlist);
 	};
 
+	console.log(user);
 	return (
 		<main className={styles.wrapper}>
 			<div className={styles.container}>
@@ -134,7 +135,7 @@ const DevicePage = observer(() => {
 						</div>
 					</div>
 				</div>
-				<Reviews />
+				<Reviews deviceId={device.id} userId={user.user.id} />
 			</div>
 		</main>
 	);

@@ -3,7 +3,10 @@ import { action, computed, makeAutoObservable } from 'mobx';
 export default class UserStore {
 	constructor() {
 		this._isAuth = true;
-		this._user = {};
+		this._user = {
+			id: 1,
+			role: 'USER',
+		};
 		this._wishlist = [
 			{
 				id: 1,

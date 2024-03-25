@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BlueButton } from '../Buttons';
 import Modal from '../Modal/Modal';
 import Rating from '../Rating/Rating';
 import styles from './Reviews.module.scss';
 
-const Reviews = id => {
-	const deviceId = id;
+const Reviews = props => {
+	const { deviceId, userId } = { ...props };
 	const reviews = [
 		{
 			postId: 1,
@@ -43,25 +43,56 @@ const Reviews = id => {
 			postId: 1,
 			id: 5,
 			rating: 3,
-			name: 'vero eaque aliquid doloribus et culpa',
 			email: 'Hayden@althea.biz',
 			body: 'harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et',
 		},
 	];
 	const [rating, setRating] = useState(0);
+	const [review, setReview] = useState({});
 	const [showReviewsModal, setShowReviewsModal] = useState(false);
+
+	const reviewRef = useRef(null);
+
+	useEffect(() => {
+		if (reviews.some(item => item.id === userId)) {
+			setReview(...reviews.filter(item => item.id === userId));
+		}
+		console.log(review, 'useEffect work done!');
+	}, []);
 
 	const addReview = () => {};
 
+	const updateReview = value => {
+		setReview({ ...review, body: value });
+		console.log(review, 'review has updated!');
+	};
+
 	return (
 		<div className={styles.reviews}>
-			<Modal title={'Review'} show={showReviewsModal} onHide={() => setShowReviewsModal(false)}>
-				<div className={styles.modal}>
-					<Rating rating={rating} setRating={setRating} />
-					<textarea placeholder='Type Review' rows={10} />
-					<BlueButton onClick={() => addReview()}>Add Review</BlueButton>
-				</div>
-			</Modal>
+			{reviews.some(item => item.id === userId) ? (
+				<Modal
+					title={'Review'}
+					show={showReviewsModal}
+					onHide={() => {
+						setShowReviewsModal(false);
+					}}
+				>
+					<div className={styles.modal}>
+						<Rating rating={review.rating} setRating={setRating} />
+						<textarea ref={reviewRef} defaultValue={review.body} placeholder='Type Review' rows={10} maxLength={250} />
+						<BlueButton onClick={() => updateReview(reviewRef.current.value)}>Update Review</BlueButton>
+					</div>
+				</Modal>
+			) : (
+				<Modal title={'Review'} show={showReviewsModal} onHide={() => setShowReviewsModal(false)}>
+					<div className={styles.modal}>
+						<Rating rating={rating} setRating={setRating} />
+						<textarea ref={reviewRef} placeholder='Type Review' rows={10} maxLength={250} />
+						<BlueButton onClick={() => addReview()}>Add Review</BlueButton>
+					</div>
+				</Modal>
+			)}
+
 			<div className={styles.reviews_header}>
 				<h2>Reviews</h2>
 				<BlueButton onClick={() => setShowReviewsModal(true)}>Add Review</BlueButton>
@@ -71,17 +102,11 @@ const Reviews = id => {
 					<>
 						{reviews.map(review => (
 							<article key={review.id} className={styles.reviews_item}>
-								{review.name ? (
-									<div className={styles.reviews_itemHeader}>
-										<p className={styles.reviews_itemName}>{review.name}</p>
-										<Rating rating={review.rating} type={'indicator'} />
-									</div>
-								) : (
-									<div className={styles.reviews_itemHeader}>
-										<p className={styles.reviews_itemName}>{review.email}</p>
-										<Rating rating={rating} setRating={setRating} />
-									</div>
-								)}
+								<div className={styles.reviews_itemHeader}>
+									<p className={styles.reviews_itemName}>{review.name || review.email}</p>
+									<Rating rating={review.rating} type={'indicator'} />
+									{review.id === userId && <p onClick={() => setShowReviewsModal(true)}>Edit</p>}
+								</div>
 								<p className={styles.reviews_itemContent}>{review.body}</p>
 							</article>
 						))}
